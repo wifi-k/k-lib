@@ -2,13 +2,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>cn.treebear</groupId>
-    <artifactId>tbcloud-common</artifactId>
+    <artifactId>tbcloud-lib</artifactId>
     <version>2018.11.30</version>
     <packaging>pom</packaging>
 
     <modules>
-        <module>tbcloud-common-user</module>
-        <module>tbcloud-common-node</module>
+        <module>tbcloud-user-model</module>
+        <module>tbcloud-node-model</module>
+        <module>tbcloud-lib-api</module>
     </modules>
 
     <properties>
