@@ -1123,6 +1123,246 @@ public class NodeInfoExample {
             addCriterion("downstream not between", value1, value2, "downstream");
             return (Criteria) this;
         }
+
+        public Criteria andUnbindTimeIsNull() {
+            addCriterion("unbind_time is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUnbindTimeIsNotNull() {
+            addCriterion("unbind_time is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUnbindTimeEqualTo(Long value) {
+            addCriterion("unbind_time =", value, "unbindTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andUnbindTimeNotEqualTo(Long value) {
+            addCriterion("unbind_time <>", value, "unbindTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andUnbindTimeGreaterThan(Long value) {
+            addCriterion("unbind_time >", value, "unbindTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andUnbindTimeGreaterThanOrEqualTo(Long value) {
+            addCriterion("unbind_time >=", value, "unbindTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andUnbindTimeLessThan(Long value) {
+            addCriterion("unbind_time <", value, "unbindTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andUnbindTimeLessThanOrEqualTo(Long value) {
+            addCriterion("unbind_time <=", value, "unbindTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andUnbindTimeIn(List<Long> values) {
+            addCriterion("unbind_time in", values, "unbindTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andUnbindTimeNotIn(List<Long> values) {
+            addCriterion("unbind_time not in", values, "unbindTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andUnbindTimeBetween(Long value1, Long value2) {
+            addCriterion("unbind_time between", value1, value2, "unbindTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andUnbindTimeNotBetween(Long value1, Long value2) {
+            addCriterion("unbind_time not between", value1, value2, "unbindTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andShareTimeIsNull() {
+            addCriterion("share_time is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andShareTimeIsNotNull() {
+            addCriterion("share_time is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andShareTimeEqualTo(Long value) {
+            addCriterion("share_time =", value, "shareTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andShareTimeNotEqualTo(Long value) {
+            addCriterion("share_time <>", value, "shareTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andShareTimeGreaterThan(Long value) {
+            addCriterion("share_time >", value, "shareTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andShareTimeGreaterThanOrEqualTo(Long value) {
+            addCriterion("share_time >=", value, "shareTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andShareTimeLessThan(Long value) {
+            addCriterion("share_time <", value, "shareTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andShareTimeLessThanOrEqualTo(Long value) {
+            addCriterion("share_time <=", value, "shareTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andShareTimeIn(List<Long> values) {
+            addCriterion("share_time in", values, "shareTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andShareTimeNotIn(List<Long> values) {
+            addCriterion("share_time not in", values, "shareTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andShareTimeBetween(Long value1, Long value2) {
+            addCriterion("share_time between", value1, value2, "shareTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andShareTimeNotBetween(Long value1, Long value2) {
+            addCriterion("share_time not between", value1, value2, "shareTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andUnshareTimeIsNull() {
+            addCriterion("unshare_time is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUnshareTimeIsNotNull() {
+            addCriterion("unshare_time is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUnshareTimeEqualTo(Long value) {
+            addCriterion("unshare_time =", value, "unshareTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andUnshareTimeNotEqualTo(Long value) {
+            addCriterion("unshare_time <>", value, "unshareTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andUnshareTimeGreaterThan(Long value) {
+            addCriterion("unshare_time >", value, "unshareTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andUnshareTimeGreaterThanOrEqualTo(Long value) {
+            addCriterion("unshare_time >=", value, "unshareTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andUnshareTimeLessThan(Long value) {
+            addCriterion("unshare_time <", value, "unshareTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andUnshareTimeLessThanOrEqualTo(Long value) {
+            addCriterion("unshare_time <=", value, "unshareTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andUnshareTimeIn(List<Long> values) {
+            addCriterion("unshare_time in", values, "unshareTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andUnshareTimeNotIn(List<Long> values) {
+            addCriterion("unshare_time not in", values, "unshareTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andUnshareTimeBetween(Long value1, Long value2) {
+            addCriterion("unshare_time between", value1, value2, "unshareTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andUnshareTimeNotBetween(Long value1, Long value2) {
+            addCriterion("unshare_time not between", value1, value2, "unshareTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserIdIsNull() {
+            addCriterion("user_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserIdIsNotNull() {
+            addCriterion("user_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserIdEqualTo(Long value) {
+            addCriterion("user_id =", value, "userId");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserIdNotEqualTo(Long value) {
+            addCriterion("user_id <>", value, "userId");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserIdGreaterThan(Long value) {
+            addCriterion("user_id >", value, "userId");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("user_id >=", value, "userId");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserIdLessThan(Long value) {
+            addCriterion("user_id <", value, "userId");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserIdLessThanOrEqualTo(Long value) {
+            addCriterion("user_id <=", value, "userId");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserIdIn(List<Long> values) {
+            addCriterion("user_id in", values, "userId");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserIdNotIn(List<Long> values) {
+            addCriterion("user_id not in", values, "userId");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserIdBetween(Long value1, Long value2) {
+            addCriterion("user_id between", value1, value2, "userId");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserIdNotBetween(Long value1, Long value2) {
+            addCriterion("user_id not between", value1, value2, "userId");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

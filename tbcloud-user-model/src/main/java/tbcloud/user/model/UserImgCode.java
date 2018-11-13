@@ -5,7 +5,7 @@ public class UserImgCode {
 
     private String imgCode;
 
-    private String imgUrl;
+    private String imgPath;
 
     private Long createTime;
 
@@ -27,12 +27,12 @@ public class UserImgCode {
         this.imgCode = imgCode == null ? null : imgCode.trim();
     }
 
-    public String getImgUrl() {
-        return imgUrl;
+    public String getImgPath() {
+        return imgPath;
     }
 
-    public void setImgUrl(String imgUrl) {
-        this.imgUrl = imgUrl == null ? null : imgUrl.trim();
+    public void setImgPath(String imgPath) {
+        this.imgPath = imgPath == null ? null : imgPath.trim();
     }
 
     public Long getCreateTime() {

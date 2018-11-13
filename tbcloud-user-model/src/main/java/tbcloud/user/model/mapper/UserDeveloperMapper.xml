@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="tbcloud.user.model.mapper.UserDeveloperMapper">
   <resultMap id="BaseResultMap" type="tbcloud.user.model.UserDeveloper">
-    <id column="user_id" jdbcType="INTEGER" property="userId" />
+    <id column="user_id" jdbcType="BIGINT" property="userId" />
     <result column="status" jdbcType="INTEGER" property="status" />
     <result column="reason" jdbcType="VARCHAR" property="reason" />
     <result column="name" jdbcType="VARCHAR" property="name" />
@@ -90,15 +90,15 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from user_developer
-    where user_id = #{userId,jdbcType=INTEGER}
+    where user_id = #{userId,jdbcType=BIGINT}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from user_developer
-    where user_id = #{userId,jdbcType=INTEGER}
+    where user_id = #{userId,jdbcType=BIGINT}
   </delete>
   <delete id="deleteByExample" parameterType="tbcloud.user.model.UserDeveloperExample">
     delete from user_developer
@@ -111,7 +111,7 @@
       name, id_num, img_id_user, 
       img_id_back, create_time, update_time, 
       is_delete)
-    values (#{userId,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, #{reason,jdbcType=VARCHAR}, 
+    values (#{userId,jdbcType=BIGINT}, #{status,jdbcType=INTEGER}, #{reason,jdbcType=VARCHAR}, 
       #{name,jdbcType=VARCHAR}, #{idNum,jdbcType=VARCHAR}, #{imgIdUser,jdbcType=VARCHAR}, 
       #{imgIdBack,jdbcType=VARCHAR}, #{createTime,jdbcType=BIGINT}, #{updateTime,jdbcType=BIGINT}, 
       #{isDelete,jdbcType=TINYINT})
@@ -152,7 +152,7 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="userId != null">
-        #{userId,jdbcType=INTEGER},
+        #{userId,jdbcType=BIGINT},
       </if>
       <if test="status != null">
         #{status,jdbcType=INTEGER},
@@ -193,7 +193,7 @@
     update user_developer
     <set>
       <if test="record.userId != null">
-        user_id = #{record.userId,jdbcType=INTEGER},
+        user_id = #{record.userId,jdbcType=BIGINT},
       </if>
       <if test="record.status != null">
         status = #{record.status,jdbcType=INTEGER},
@@ -229,7 +229,7 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update user_developer
-    set user_id = #{record.userId,jdbcType=INTEGER},
+    set user_id = #{record.userId,jdbcType=BIGINT},
       status = #{record.status,jdbcType=INTEGER},
       reason = #{record.reason,jdbcType=VARCHAR},
       name = #{record.name,jdbcType=VARCHAR},
@@ -274,7 +274,7 @@
         is_delete = #{isDelete,jdbcType=TINYINT},
       </if>
     </set>
-    where user_id = #{userId,jdbcType=INTEGER}
+    where user_id = #{userId,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="tbcloud.user.model.UserDeveloper">
     update user_developer
@@ -287,6 +287,6 @@
       create_time = #{createTime,jdbcType=BIGINT},
       update_time = #{updateTime,jdbcType=BIGINT},
       is_delete = #{isDelete,jdbcType=TINYINT}
-    where user_id = #{userId,jdbcType=INTEGER}
+    where user_id = #{userId,jdbcType=BIGINT}
   </update>
 </mapper>

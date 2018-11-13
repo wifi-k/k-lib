@@ -1,13 +1,18 @@
 package tbcloud.lib.api.util;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * @author dzh
- * @date Jul 24, 2018 7:04:33 PM
  * @version 0.0.1
+ * @date Jul 24, 2018 7:04:33 PM
  */
 public class IDUtil {
+
+    static Logger LOG = LoggerFactory.getLogger(IDUtil.class);
 
     static int TokenRandomSize = 24;
 
@@ -19,9 +24,9 @@ public class IDUtil {
 
     /**
      * 生成Api登录的token: 0xUsrID+24位随机数
-     * 
+     * <p>
      * openID sessionKey可选参数，可以是空字符串
-     * 
+     *
      * @return
      */
     public static final String genToken(long usrId, String openID, String sessionKey) {
@@ -88,4 +93,91 @@ public class IDUtil {
         if (ranlen < 0) ranStr = ranStr.substring(0, IDRandomSize);
         return hexUsr + ranStr;
     }
+
+    public static final String genImgCodeId(String apiVersion) {
+        if (apiVersion == null) {
+            apiVersion = "";
+        }
+
+        String hexMS = Long.toHexString(System.currentTimeMillis());
+        String hexVersion = Integer.toHexString(apiVersion.hashCode());
+
+        int ranlen = IDRandomSize - hexMS.length() - hexVersion.length();
+
+        StringBuilder buf = new StringBuilder(32);
+        buf.append(hexMS);
+        buf.append(hexVersion);
+        for (int i = 0; i < ranlen; ++i) {
+            buf.append(Integer.toHexString(ThreadLocalRandom.current().nextInt(0, 16)));
+        }
+        String ranStr = buf.toString();
+        if (ranlen < 0) ranStr = ranStr.substring(0, IDRandomSize);
+        return ranStr;
+    }
+
+    public static final String genMobileVcode(int size) {
+        if (size < 1) {
+            size = 4;
+        }
+        StringBuilder buf = new StringBuilder(size);
+        for (int i = 0; i < size; ++i) {
+            buf.append(ThreadLocalRandom.current().nextInt(0, 10));
+        }
+        return buf.toString();
+    }
+
+    /**
+     * max(userId) = Long.MAX_VALUE
+     *
+     * @param userId
+     * @return versionHex[1] + userIdHexLengthHex[1] + userIdHex[] + RandomHex, max lenght 24
+     */
+    public static final String genApikeyV1(long userId) {
+        int maxLen = 24;
+        String versionHex = "1";
+
+        String userIdHex = Long.toHexString(userId); // max length 16
+        String userIdHexLengthHex = Integer.toHexString(userIdHex.length() - 1);
+
+        StringBuffer buf = new StringBuffer(24);
+        buf.append(versionHex);
+        buf.append(userIdHexLengthHex);
+        buf.append(userIdHex);
+        //RandomHex
+        int ranlen = maxLen - 2 - userIdHex.length();
+        for (int i = 0; i < ranlen; ++i) {
+            buf.append(Integer.toHexString(ThreadLocalRandom.current().nextInt(0, 16)));
+        }
+
+        return buf.toString();
+    }
+
+    public static final long readUserIdFromApikey(String apikey) {
+        if (StringUtil.isEmpty(apikey))
+            return 0L;
+
+        char version = apikey.charAt(0);
+        try {
+            if ('1' == version) {
+                int userIdHexLength = Integer.parseInt(apikey.substring(1, 1), 16) + 1;
+                if (userIdHexLength > 0 && userIdHexLength <= 16) {
+                    String userIdHex = apikey.substring(2, 2 + userIdHexLength);
+                    return Long.parseLong(userIdHex, 16);
+                }
+
+            }
+            //TODO else
+        } catch (Exception e) {
+            LOG.error(e.getMessage(), e);
+        }
+
+        return 0L;
+    }
+
+    public static final String genUserInviteCode() {
+        return "";
+    }
+
+    // private static final char inviteCode[] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"};
+
 }

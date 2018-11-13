@@ -33,6 +33,14 @@ public class NodeInfo {
 
     private Integer downstream;
 
+    private Long unbindTime;
+
+    private Long shareTime;
+
+    private Long unshareTime;
+
+    private Long userId;
+
     public String getNodeId() {
         return nodeId;
     }
@@ -159,5 +167,37 @@ public class NodeInfo {
 
     public void setDownstream(Integer downstream) {
         this.downstream = downstream;
+    }
+
+    public Long getUnbindTime() {
+        return unbindTime;
+    }
+
+    public void setUnbindTime(Long unbindTime) {
+        this.unbindTime = unbindTime;
+    }
+
+    public Long getShareTime() {
+        return shareTime;
+    }
+
+    public void setShareTime(Long shareTime) {
+        this.shareTime = shareTime;
+    }
+
+    public Long getUnshareTime() {
+        return unshareTime;
+    }
+
+    public void setUnshareTime(Long unshareTime) {
+        this.unshareTime = unshareTime;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 }

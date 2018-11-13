@@ -34,6 +34,8 @@ public interface ApiCode {
 
     int AUTH_NOT_PASSED = 13; // 审核未通过
 
+    int DB_UPDATE_ERROR = 14;// 数据库更新失败
+
     /******************* 第三方请求 *******************/
     int WX_API = 100;
 

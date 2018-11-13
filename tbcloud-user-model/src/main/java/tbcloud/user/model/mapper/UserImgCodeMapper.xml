@@ -4,7 +4,7 @@
   <resultMap id="BaseResultMap" type="tbcloud.user.model.UserImgCode">
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="img_code" jdbcType="VARCHAR" property="imgCode" />
-    <result column="img_url" jdbcType="VARCHAR" property="imgUrl" />
+    <result column="img_path" jdbcType="VARCHAR" property="imgPath" />
     <result column="create_time" jdbcType="BIGINT" property="createTime" />
     <result column="update_time" jdbcType="BIGINT" property="updateTime" />
   </resultMap>
@@ -67,7 +67,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, img_code, img_url, create_time, update_time
+    id, img_code, img_path, create_time, update_time
   </sql>
   <select id="selectByExample" parameterType="tbcloud.user.model.UserImgCodeExample" resultMap="BaseResultMap">
     select
@@ -101,9 +101,9 @@
     </if>
   </delete>
   <insert id="insert" parameterType="tbcloud.user.model.UserImgCode">
-    insert into user_imgcode (id, img_code, img_url, 
+    insert into user_imgcode (id, img_code, img_path, 
       create_time, update_time)
-    values (#{id,jdbcType=BIGINT}, #{imgCode,jdbcType=VARCHAR}, #{imgUrl,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=BIGINT}, #{imgCode,jdbcType=VARCHAR}, #{imgPath,jdbcType=VARCHAR}, 
       #{createTime,jdbcType=BIGINT}, #{updateTime,jdbcType=BIGINT})
   </insert>
   <insert id="insertSelective" parameterType="tbcloud.user.model.UserImgCode">
@@ -115,8 +115,8 @@
       <if test="imgCode != null">
         img_code,
       </if>
-      <if test="imgUrl != null">
-        img_url,
+      <if test="imgPath != null">
+        img_path,
       </if>
       <if test="createTime != null">
         create_time,
@@ -132,8 +132,8 @@
       <if test="imgCode != null">
         #{imgCode,jdbcType=VARCHAR},
       </if>
-      <if test="imgUrl != null">
-        #{imgUrl,jdbcType=VARCHAR},
+      <if test="imgPath != null">
+        #{imgPath,jdbcType=VARCHAR},
       </if>
       <if test="createTime != null">
         #{createTime,jdbcType=BIGINT},
@@ -158,8 +158,8 @@
       <if test="record.imgCode != null">
         img_code = #{record.imgCode,jdbcType=VARCHAR},
       </if>
-      <if test="record.imgUrl != null">
-        img_url = #{record.imgUrl,jdbcType=VARCHAR},
+      <if test="record.imgPath != null">
+        img_path = #{record.imgPath,jdbcType=VARCHAR},
       </if>
       <if test="record.createTime != null">
         create_time = #{record.createTime,jdbcType=BIGINT},
@@ -176,7 +176,7 @@
     update user_imgcode
     set id = #{record.id,jdbcType=BIGINT},
       img_code = #{record.imgCode,jdbcType=VARCHAR},
-      img_url = #{record.imgUrl,jdbcType=VARCHAR},
+      img_path = #{record.imgPath,jdbcType=VARCHAR},
       create_time = #{record.createTime,jdbcType=BIGINT},
       update_time = #{record.updateTime,jdbcType=BIGINT}
     <if test="_parameter != null">
@@ -189,8 +189,8 @@
       <if test="imgCode != null">
         img_code = #{imgCode,jdbcType=VARCHAR},
       </if>
-      <if test="imgUrl != null">
-        img_url = #{imgUrl,jdbcType=VARCHAR},
+      <if test="imgPath != null">
+        img_path = #{imgPath,jdbcType=VARCHAR},
       </if>
       <if test="createTime != null">
         create_time = #{createTime,jdbcType=BIGINT},
@@ -204,7 +204,7 @@
   <update id="updateByPrimaryKey" parameterType="tbcloud.user.model.UserImgCode">
     update user_imgcode
     set img_code = #{imgCode,jdbcType=VARCHAR},
-      img_url = #{imgUrl,jdbcType=VARCHAR},
+      img_path = #{imgPath,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=BIGINT},
       update_time = #{updateTime,jdbcType=BIGINT}
     where id = #{id,jdbcType=BIGINT}
