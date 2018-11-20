@@ -76,14 +76,14 @@ public interface ApiConst extends ConfField {
     int REGION_TYPE_CITY = 2;
     int REGION_TYPE_AREA = 3;
 
-    //
+    // job min thread count
     String JOB_THREADPOOL_SIZE = "job.threadpool.size";
 
     String ENV_DEV = "dev";
     String ENV_TEST = "test";
     String ENV_ONLINE = "online";
 
-    int IMGCODE_MAX_ID = 10000;
+    int IMGCODE_MAX_ID = 10000; //TODO config
 
     // mysql database name
     String MYSQL_TBCLOUD = "tbcloud";
@@ -96,5 +96,12 @@ public interface ApiConst extends ConfField {
     byte IS_DELETE_Y = 1;
 
     String USER_PASSWD_SALT_1 = "TBCLOUD2018";
+
+    // mobile vcode type
+    int MOBILE_VCODE_USER_REG = 1;//注册
+    int MOBILE_VCODE_PASSWD_RESET = 2;//忘记密码
+    int MOBILE_VCODE_MOBILE_RESET = 3;//修改手机号
+
+    String ALISMS_ID_TBC = "tbc";
 
 }

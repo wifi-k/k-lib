@@ -2,7 +2,10 @@ package tbcloud.lib.api.util;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import tbcloud.lib.api.ApiConst;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
@@ -50,6 +53,10 @@ public class IDUtil {
         return hexUsr + ranStr;
     }
 
+    public static final String genTokenForEmailModify(long usrId) {
+        return genToken(usrId);
+    }
+
     public static final long decodeUserIDFromToken(String token) {
         if (token == null || token.length() <= TokenRandomSize) return -1;
         String hexUsr = token.substring(0, token.length() - TokenRandomSize);
@@ -94,6 +101,25 @@ public class IDUtil {
         return hexUsr + ranStr;
     }
 
+    /**
+     * <pre>
+     * 将imgCodeId转换为user_imgcode的编号ID,
+     * 保证imgCodeId在1小时内具有相同的innerImgCodeId
+     * </pre>
+     *
+     * @param imgCodeId
+     * @return
+     */
+    public static final int innerImgCodeId(String imgCodeId) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHH");
+        return Math.abs((imgCodeId + sdf.format(new Date())).hashCode() % ApiConst.IMGCODE_MAX_ID) + 1;
+        // LOG.info("innerImgCode {} to {}", imgCodeId, r);
+    }
+
+    /**
+     * @param apiVersion
+     * @return
+     */
     public static final String genImgCodeId(String apiVersion) {
         if (apiVersion == null) {
             apiVersion = "";

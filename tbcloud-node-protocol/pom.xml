@@ -9,8 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>tbcloud-lib-api</artifactId>
-
+    <artifactId>tbcloud-node-protocol</artifactId>
 
     <dependencies>
         <dependency>
@@ -18,4 +17,6 @@
             <artifactId>gson</artifactId>
         </dependency>
     </dependencies>
+
+
 </project>
