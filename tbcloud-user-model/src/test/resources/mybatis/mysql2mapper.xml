@@ -53,6 +53,21 @@
                enableDeleteByExample="${enable.example}" enableSelectByExample="${enable.example}"
                selectByExampleQueryId="${enable.example}">
         </table>
+        <table schema="mybatis" tableName="user_share_record" domainObjectName="UserShareRecord"
+               enableCountByExample="${enable.example}" enableUpdateByExample="${enable.example}"
+               enableDeleteByExample="${enable.example}" enableSelectByExample="${enable.example}"
+               selectByExampleQueryId="${enable.example}">
+        </table>
+        <table schema="mybatis" tableName="user_share_day" domainObjectName="UserShareDay"
+               enableCountByExample="${enable.example}" enableUpdateByExample="${enable.example}"
+               enableDeleteByExample="${enable.example}" enableSelectByExample="${enable.example}"
+               selectByExampleQueryId="${enable.example}">
+        </table>
+        <table schema="mybatis" tableName="user_share_sum" domainObjectName="UserShareSum"
+               enableCountByExample="${enable.example}" enableUpdateByExample="${enable.example}"
+               enableDeleteByExample="${enable.example}" enableSelectByExample="${enable.example}"
+               selectByExampleQueryId="${enable.example}">
+        </table>
 
     </context>
 </generatorConfiguration>
