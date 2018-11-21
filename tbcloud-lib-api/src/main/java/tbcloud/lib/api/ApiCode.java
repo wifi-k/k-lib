@@ -36,6 +36,8 @@ public interface ApiCode {
 
     int DB_UPDATE_ERROR = 14;// 数据库更新失败
 
+    int OP_MORE_THAN_LIMIT = 15; //操作超过限制次数
+
     /******************* 第三方请求 *******************/
     int WX_API = 100;
 

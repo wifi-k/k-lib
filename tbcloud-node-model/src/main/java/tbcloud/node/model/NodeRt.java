@@ -17,6 +17,8 @@ public class NodeRt {
 
     private Byte isDelete;
 
+    private Long userId;
+
     public String getNodeId() {
         return nodeId;
     }
@@ -79,5 +81,13 @@ public class NodeRt {
 
     public void setIsDelete(Byte isDelete) {
         this.isDelete = isDelete;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 }

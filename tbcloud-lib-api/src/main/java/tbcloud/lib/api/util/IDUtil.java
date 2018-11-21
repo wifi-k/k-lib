@@ -53,8 +53,12 @@ public class IDUtil {
         return hexUsr + ranStr;
     }
 
-    public static final String genTokenForEmailModify(long usrId) {
+    public static final String genEmailToken(long usrId) {
         return genToken(usrId);
+    }
+
+    public static final long decodeUserIDFromEmailToken(String token) {
+        return decodeUserIDFromToken(token);
     }
 
     public static final long decodeUserIDFromToken(String token) {

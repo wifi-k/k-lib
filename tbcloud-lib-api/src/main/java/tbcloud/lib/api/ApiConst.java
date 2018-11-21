@@ -29,7 +29,6 @@ public interface ApiConst extends ConfField {
     String REDIS_KEY_USER_IMGCODE_ = "user.imgcode.";//id
     String REDIS_KEY_USER_VCODE_ = "user.vcode."; // mobile
     String REDIS_KEY_USER_TOKEN_ = "user.token.";
-    String REDIS_KEY_PRODUCT_ = "product.";
 
     String REDIS_KEY_USER_INFO_ = "user.info.";
     String REDIS_KEY_USER_EMAIL_TOKEN_ = "user.email.token.";
@@ -53,9 +52,11 @@ public interface ApiConst extends ConfField {
     int AUTH_STATUS_PASS = 1;
     int AUTH_STATUS_PASS_NOT = 2;
 
-    // USER role
-    int USER_ROLE_COMMON = 0;
-    int USER_ROLE_ADMIN = 1;
+    // USER role 1-user 2-developer 4-company 8-admin
+    int USER_ROLE_USER = 1;
+    int USER_ROLE_DEVELOPER = 2;
+    int USER_ROLE_COMPANY = 4;
+    int uSER_ROLE_ADMIN = 8;
 
     // USER sex
     int USER_SEX_UNKONW = 0;
@@ -103,5 +104,12 @@ public interface ApiConst extends ConfField {
     int MOBILE_VCODE_MOBILE_RESET = 3;//修改手机号
 
     String ALISMS_ID_TBC = "tbc";
+
+    // node status
+    int NODE_STATUS_UNKNOWN = -1; // unknown
+    int NODE_STATUS_OFFLINE = 0;
+    int NODE_STATUS_NORMAL = 1;
+    int NODE_STATUS_WARN = 2;
+    int NODE_STATUS_ERROR = 3;
 
 }

@@ -10,6 +10,7 @@
     <result column="create_time" jdbcType="BIGINT" property="createTime" />
     <result column="update_time" jdbcType="BIGINT" property="updateTime" />
     <result column="is_delete" jdbcType="TINYINT" property="isDelete" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -70,7 +71,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    node_id, status, online_time, offline_time, token, create_time, update_time, is_delete
+    node_id, status, online_time, offline_time, token, create_time, update_time, is_delete, 
+    user_id
   </sql>
   <select id="selectByExample" parameterType="tbcloud.node.model.NodeRtExample" resultMap="BaseResultMap">
     select
@@ -106,10 +108,12 @@
   <insert id="insert" parameterType="tbcloud.node.model.NodeRt">
     insert into node_rt (node_id, status, online_time, 
       offline_time, token, create_time, 
-      update_time, is_delete)
+      update_time, is_delete, user_id
+      )
     values (#{nodeId,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, #{onlineTime,jdbcType=BIGINT}, 
       #{offlineTime,jdbcType=BIGINT}, #{token,jdbcType=VARCHAR}, #{createTime,jdbcType=BIGINT}, 
-      #{updateTime,jdbcType=BIGINT}, #{isDelete,jdbcType=TINYINT})
+      #{updateTime,jdbcType=BIGINT}, #{isDelete,jdbcType=TINYINT}, #{userId,jdbcType=BIGINT}
+      )
   </insert>
   <insert id="insertSelective" parameterType="tbcloud.node.model.NodeRt">
     insert into node_rt
@@ -138,6 +142,9 @@
       <if test="isDelete != null">
         is_delete,
       </if>
+      <if test="userId != null">
+        user_id,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="nodeId != null">
@@ -163,6 +170,9 @@
       </if>
       <if test="isDelete != null">
         #{isDelete,jdbcType=TINYINT},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=BIGINT},
       </if>
     </trim>
   </insert>
@@ -199,6 +209,9 @@
       <if test="record.isDelete != null">
         is_delete = #{record.isDelete,jdbcType=TINYINT},
       </if>
+      <if test="record.userId != null">
+        user_id = #{record.userId,jdbcType=BIGINT},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -213,7 +226,8 @@
       token = #{record.token,jdbcType=VARCHAR},
       create_time = #{record.createTime,jdbcType=BIGINT},
       update_time = #{record.updateTime,jdbcType=BIGINT},
-      is_delete = #{record.isDelete,jdbcType=TINYINT}
+      is_delete = #{record.isDelete,jdbcType=TINYINT},
+      user_id = #{record.userId,jdbcType=BIGINT}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -242,6 +256,9 @@
       <if test="isDelete != null">
         is_delete = #{isDelete,jdbcType=TINYINT},
       </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
     </set>
     where node_id = #{nodeId,jdbcType=VARCHAR}
   </update>
@@ -253,7 +270,8 @@
       token = #{token,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=BIGINT},
       update_time = #{updateTime,jdbcType=BIGINT},
-      is_delete = #{isDelete,jdbcType=TINYINT}
+      is_delete = #{isDelete,jdbcType=TINYINT},
+      user_id = #{userId,jdbcType=BIGINT}
     where node_id = #{nodeId,jdbcType=VARCHAR}
   </update>
 </mapper>
