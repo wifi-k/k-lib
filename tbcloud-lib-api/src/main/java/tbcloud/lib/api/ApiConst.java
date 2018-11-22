@@ -45,8 +45,6 @@ public interface ApiConst extends ConfField {
     // httpclient service group ids
     String HTTP_CLIENT_ID_WXAPI = "wxApi";
 
-    // int PRODUCT_STATUS_ //TODO 正常 逾期 展期 清退
-
     // 审核状态
     int AUTH_STATUS_WAIT = 0;
     int AUTH_STATUS_PASS = 1;
@@ -66,6 +64,10 @@ public interface ApiConst extends ConfField {
     // suggestion is_reply
     int IS_REPLY_N = 0;
     int IS_REPLY_Y = 1;
+
+    // online
+    int USER_ONLINE = 1;
+    int USER_OFFLINE = 0;
 
     // product used
     int PRODUCT_NOT_USE = 0; // 产品未被用户添加
@@ -104,12 +106,5 @@ public interface ApiConst extends ConfField {
     int MOBILE_VCODE_MOBILE_RESET = 3;//修改手机号
 
     String ALISMS_ID_TBC = "tbc";
-
-    // node status
-    int NODE_STATUS_UNKNOWN = -1; // unknown
-    int NODE_STATUS_OFFLINE = 0;
-    int NODE_STATUS_NORMAL = 1;
-    int NODE_STATUS_WARN = 2;
-    int NODE_STATUS_ERROR = 3;
 
 }

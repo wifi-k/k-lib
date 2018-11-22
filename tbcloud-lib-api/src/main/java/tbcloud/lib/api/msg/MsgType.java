@@ -6,7 +6,8 @@ package tbcloud.lib.api.msg;
  */
 public interface MsgType {
 
-    int MOBILE_VCODE = 1; //验证码
+    int MOBILE_VCODE = 1; //发送手机验证码消息
     int EMAIL_MODIFY = 2; //email修改消息
+    int USER_LOGIN = 3; //用户登录离线消息
 
 }
