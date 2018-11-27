@@ -17,9 +17,9 @@ public class IDUtil {
 
     static Logger LOG = LoggerFactory.getLogger(IDUtil.class);
 
-    static int TokenRandomSize = 24;
+    static final int TokenRandomSize = 24;
 
-    static int IDRandomSize = 30;
+    static final int IDRandomSize = 30;
 
     public static final String genToken(long usrId) {
         return genToken(usrId, "", "");
@@ -36,7 +36,8 @@ public class IDUtil {
         String hexUsr = Long.toHexString(usrId);
 
         // String hexMS = Long.toHexString(System.currentTimeMillis());
-        String hexID = Integer.toHexString(openID.hashCode());
+        String hexID = StringUtil.isEmpty(openID) ? Long.toHexString(System.currentTimeMillis())
+                : Integer.toHexString(sessionKey.hashCode());
         String hexKey = Integer.toHexString(sessionKey.hashCode());
 
         int ranlen = TokenRandomSize - hexID.length() - hexKey.length();
@@ -65,44 +66,6 @@ public class IDUtil {
         if (token == null || token.length() <= TokenRandomSize) return -1;
         String hexUsr = token.substring(0, token.length() - TokenRandomSize);
         return Long.parseLong(hexUsr, 16);
-    }
-
-    public static final String genNoticeId(long usrId, int hashTitle) {
-        String hexUsr = Long.toHexString(usrId);
-
-        String hexMS = Long.toHexString(System.currentTimeMillis());
-        String hexTitle = Integer.toHexString(hashTitle);
-
-        int ranlen = IDRandomSize - hexMS.length() - hexTitle.length();
-
-        StringBuilder buf = new StringBuilder(32);
-        buf.append(hexMS);
-        buf.append(hexTitle);
-        for (int i = 0; i < ranlen; ++i) {
-            buf.append(Integer.toHexString(ThreadLocalRandom.current().nextInt(0, 16)));
-        }
-        String ranStr = buf.toString();
-        if (ranlen < 0) ranStr = ranStr.substring(0, IDRandomSize);
-        return hexUsr + ranStr;
-    }
-
-    public static final String genCommentId(long usrId, int hashNotice) {
-        String hexUsr = Long.toHexString(usrId);
-
-        String hexMS = Long.toHexString(System.currentTimeMillis());
-        String hexTitle = Integer.toHexString(hashNotice);
-
-        int ranlen = IDRandomSize - hexMS.length() - hexTitle.length();
-
-        StringBuilder buf = new StringBuilder(32);
-        buf.append(hexMS);
-        buf.append(hexTitle);
-        for (int i = 0; i < ranlen; ++i) {
-            buf.append(Integer.toHexString(ThreadLocalRandom.current().nextInt(0, 16)));
-        }
-        String ranStr = buf.toString();
-        if (ranlen < 0) ranStr = ranStr.substring(0, IDRandomSize);
-        return hexUsr + ranStr;
     }
 
     /**
@@ -167,7 +130,7 @@ public class IDUtil {
         String versionHex = "1";
 
         String userIdHex = Long.toHexString(userId); // max length 16
-        String userIdHexLengthHex = Integer.toHexString(userIdHex.length() - 1);
+        String userIdHexLengthHex = Integer.toHexString(userIdHex.length());
 
         StringBuffer buf = new StringBuffer(24);
         buf.append(versionHex);
@@ -189,7 +152,7 @@ public class IDUtil {
         char version = apikey.charAt(0);
         try {
             if ('1' == version) {
-                int userIdHexLength = Integer.parseInt(apikey.substring(1, 1), 16) + 1;
+                int userIdHexLength = Integer.parseInt(apikey.substring(1, 2), 16);
                 if (userIdHexLength > 0 && userIdHexLength <= 16) {
                     String userIdHex = apikey.substring(2, 2 + userIdHexLength);
                     return Long.parseLong(userIdHex, 16);
@@ -209,5 +172,52 @@ public class IDUtil {
     }
 
     // private static final char inviteCode[] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"};
+
+
+    public static final String genAppId(long userId, String name) {
+        int maxLen = 32;
+        String versionHex = "1";
+
+        String userIdHex = Long.toHexString(userId); // max length 16
+        String userIdHexLengthHex = Integer.toHexString(userIdHex.length());
+        String nameHex = name == null ? "" : Integer.toHexString(name.hashCode());
+
+        StringBuffer buf = new StringBuffer(maxLen);
+        buf.append(versionHex);
+        buf.append(userIdHexLengthHex);  //1
+        buf.append(userIdHex);
+        buf.append(nameHex);
+
+        //RandomHex
+        int ranlen = maxLen - 2 - userIdHex.length() - nameHex.length();
+        for (int i = 0; i < ranlen; ++i) {
+            buf.append(Integer.toHexString(ThreadLocalRandom.current().nextInt(0, 16)));
+        }
+
+        return buf.toString();
+    }
+
+    public static final long decodeUserIDFromAppId(String appId) {
+        if (StringUtil.isEmpty(appId))
+            return 0L;
+
+        char version = appId.charAt(0);
+        try {
+            if ('1' == version) {
+                int userIdHexLength = Integer.parseInt(appId.substring(1, 2), 16);
+                if (userIdHexLength > 0 && userIdHexLength <= 16) {
+                    String userIdHex = appId.substring(2, 2 + userIdHexLength);
+                    return Long.parseLong(userIdHex, 16);
+                }
+
+            }
+            //TODO error
+        } catch (Exception e) {
+            LOG.error(e.getMessage(), e);
+        }
+
+        return 0L;
+    }
+
 
 }

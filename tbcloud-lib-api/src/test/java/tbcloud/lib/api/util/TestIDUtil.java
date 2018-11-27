@@ -23,6 +23,28 @@ public class TestIDUtil {
     public void testMD5() {
         String md5 = StringUtil.MD5Encode("abcd");
         LOG.info(md5);
+
+        LOG.info("{}", Integer.toHexString("".hashCode()));
+        LOG.info("{}", Long.parseLong("600", 16));
+
+        long userId = 1L;
+        String token = IDUtil.genToken(userId);
+        LOG.info("{} {}", token, IDUtil.decodeUserIDFromToken(token));
+
+    }
+
+    @Test
+    public void testAppId() {
+        long userId = 1L;
+        String appId = IDUtil.genAppId(userId, "tbcloud");
+        LOG.info("{} {}", appId, IDUtil.decodeUserIDFromAppId(appId));
+    }
+
+    @Test
+    public void testAppKey() {
+        long userId = 101L;
+        String appKey = IDUtil.genApikeyV1(userId);
+        LOG.info("{} {}", appKey, IDUtil.decodeUserIDFromAppId(appKey));
     }
 
 
