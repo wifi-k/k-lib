@@ -38,6 +38,14 @@ public interface ApiCode {
 
     int OP_MORE_THAN_LIMIT = 15; //操作超过限制次数
 
+    int HASH_CODE_DIFF = 16; //hashcode校验失败
+
+    int NODE_IS_UNBIND = 17; //节点未绑定
+
+    int NODE_IS_UNSHARE = 18; //节点未共享
+
+    int NODE_MISS_PARAM = 19; //节点丢失请求参数
+
     /******************* 第三方请求 *******************/
     int WX_API = 100;
 

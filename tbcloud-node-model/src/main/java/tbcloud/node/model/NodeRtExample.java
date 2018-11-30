@@ -663,6 +663,246 @@ public class NodeRtExample {
             addCriterion("user_id not between", value1, value2, "userId");
             return (Criteria) this;
         }
+
+        public Criteria andCpuUsageIsNull() {
+            addCriterion("cpu_usage is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCpuUsageIsNotNull() {
+            addCriterion("cpu_usage is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCpuUsageEqualTo(Integer value) {
+            addCriterion("cpu_usage =", value, "cpuUsage");
+            return (Criteria) this;
+        }
+
+        public Criteria andCpuUsageNotEqualTo(Integer value) {
+            addCriterion("cpu_usage <>", value, "cpuUsage");
+            return (Criteria) this;
+        }
+
+        public Criteria andCpuUsageGreaterThan(Integer value) {
+            addCriterion("cpu_usage >", value, "cpuUsage");
+            return (Criteria) this;
+        }
+
+        public Criteria andCpuUsageGreaterThanOrEqualTo(Integer value) {
+            addCriterion("cpu_usage >=", value, "cpuUsage");
+            return (Criteria) this;
+        }
+
+        public Criteria andCpuUsageLessThan(Integer value) {
+            addCriterion("cpu_usage <", value, "cpuUsage");
+            return (Criteria) this;
+        }
+
+        public Criteria andCpuUsageLessThanOrEqualTo(Integer value) {
+            addCriterion("cpu_usage <=", value, "cpuUsage");
+            return (Criteria) this;
+        }
+
+        public Criteria andCpuUsageIn(List<Integer> values) {
+            addCriterion("cpu_usage in", values, "cpuUsage");
+            return (Criteria) this;
+        }
+
+        public Criteria andCpuUsageNotIn(List<Integer> values) {
+            addCriterion("cpu_usage not in", values, "cpuUsage");
+            return (Criteria) this;
+        }
+
+        public Criteria andCpuUsageBetween(Integer value1, Integer value2) {
+            addCriterion("cpu_usage between", value1, value2, "cpuUsage");
+            return (Criteria) this;
+        }
+
+        public Criteria andCpuUsageNotBetween(Integer value1, Integer value2) {
+            addCriterion("cpu_usage not between", value1, value2, "cpuUsage");
+            return (Criteria) this;
+        }
+
+        public Criteria andMemUsageIsNull() {
+            addCriterion("mem_usage is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMemUsageIsNotNull() {
+            addCriterion("mem_usage is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMemUsageEqualTo(Integer value) {
+            addCriterion("mem_usage =", value, "memUsage");
+            return (Criteria) this;
+        }
+
+        public Criteria andMemUsageNotEqualTo(Integer value) {
+            addCriterion("mem_usage <>", value, "memUsage");
+            return (Criteria) this;
+        }
+
+        public Criteria andMemUsageGreaterThan(Integer value) {
+            addCriterion("mem_usage >", value, "memUsage");
+            return (Criteria) this;
+        }
+
+        public Criteria andMemUsageGreaterThanOrEqualTo(Integer value) {
+            addCriterion("mem_usage >=", value, "memUsage");
+            return (Criteria) this;
+        }
+
+        public Criteria andMemUsageLessThan(Integer value) {
+            addCriterion("mem_usage <", value, "memUsage");
+            return (Criteria) this;
+        }
+
+        public Criteria andMemUsageLessThanOrEqualTo(Integer value) {
+            addCriterion("mem_usage <=", value, "memUsage");
+            return (Criteria) this;
+        }
+
+        public Criteria andMemUsageIn(List<Integer> values) {
+            addCriterion("mem_usage in", values, "memUsage");
+            return (Criteria) this;
+        }
+
+        public Criteria andMemUsageNotIn(List<Integer> values) {
+            addCriterion("mem_usage not in", values, "memUsage");
+            return (Criteria) this;
+        }
+
+        public Criteria andMemUsageBetween(Integer value1, Integer value2) {
+            addCriterion("mem_usage between", value1, value2, "memUsage");
+            return (Criteria) this;
+        }
+
+        public Criteria andMemUsageNotBetween(Integer value1, Integer value2) {
+            addCriterion("mem_usage not between", value1, value2, "memUsage");
+            return (Criteria) this;
+        }
+
+        public Criteria andDiskUsageIsNull() {
+            addCriterion("disk_usage is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDiskUsageIsNotNull() {
+            addCriterion("disk_usage is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDiskUsageEqualTo(Integer value) {
+            addCriterion("disk_usage =", value, "diskUsage");
+            return (Criteria) this;
+        }
+
+        public Criteria andDiskUsageNotEqualTo(Integer value) {
+            addCriterion("disk_usage <>", value, "diskUsage");
+            return (Criteria) this;
+        }
+
+        public Criteria andDiskUsageGreaterThan(Integer value) {
+            addCriterion("disk_usage >", value, "diskUsage");
+            return (Criteria) this;
+        }
+
+        public Criteria andDiskUsageGreaterThanOrEqualTo(Integer value) {
+            addCriterion("disk_usage >=", value, "diskUsage");
+            return (Criteria) this;
+        }
+
+        public Criteria andDiskUsageLessThan(Integer value) {
+            addCriterion("disk_usage <", value, "diskUsage");
+            return (Criteria) this;
+        }
+
+        public Criteria andDiskUsageLessThanOrEqualTo(Integer value) {
+            addCriterion("disk_usage <=", value, "diskUsage");
+            return (Criteria) this;
+        }
+
+        public Criteria andDiskUsageIn(List<Integer> values) {
+            addCriterion("disk_usage in", values, "diskUsage");
+            return (Criteria) this;
+        }
+
+        public Criteria andDiskUsageNotIn(List<Integer> values) {
+            addCriterion("disk_usage not in", values, "diskUsage");
+            return (Criteria) this;
+        }
+
+        public Criteria andDiskUsageBetween(Integer value1, Integer value2) {
+            addCriterion("disk_usage between", value1, value2, "diskUsage");
+            return (Criteria) this;
+        }
+
+        public Criteria andDiskUsageNotBetween(Integer value1, Integer value2) {
+            addCriterion("disk_usage not between", value1, value2, "diskUsage");
+            return (Criteria) this;
+        }
+
+        public Criteria andTakeTimeIsNull() {
+            addCriterion("take_time is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTakeTimeIsNotNull() {
+            addCriterion("take_time is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTakeTimeEqualTo(Long value) {
+            addCriterion("take_time =", value, "takeTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andTakeTimeNotEqualTo(Long value) {
+            addCriterion("take_time <>", value, "takeTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andTakeTimeGreaterThan(Long value) {
+            addCriterion("take_time >", value, "takeTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andTakeTimeGreaterThanOrEqualTo(Long value) {
+            addCriterion("take_time >=", value, "takeTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andTakeTimeLessThan(Long value) {
+            addCriterion("take_time <", value, "takeTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andTakeTimeLessThanOrEqualTo(Long value) {
+            addCriterion("take_time <=", value, "takeTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andTakeTimeIn(List<Long> values) {
+            addCriterion("take_time in", values, "takeTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andTakeTimeNotIn(List<Long> values) {
+            addCriterion("take_time not in", values, "takeTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andTakeTimeBetween(Long value1, Long value2) {
+            addCriterion("take_time between", value1, value2, "takeTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andTakeTimeNotBetween(Long value1, Long value2) {
+            addCriterion("take_time not between", value1, value2, "takeTime");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

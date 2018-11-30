@@ -5,4 +5,14 @@ package tbcloud.node.protocol.data;
  * @date 2018-11-25 13:43
  */
 public class DataReq extends Data {
+
+    private String nodeId;
+
+    public String getNodeId() {
+        return nodeId;
+    }
+
+    public void setNodeId(String nodeId) {
+        this.nodeId = nodeId;
+    }
 }

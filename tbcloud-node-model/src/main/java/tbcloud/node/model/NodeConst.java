@@ -12,10 +12,17 @@ public interface NodeConst {
     byte IS_SHARE = 1;
     byte IS_UNSHARE = 0;
 
+    // node status
     int STATUS_UNKNOWN = -1; // unknown
     int STATUS_OFFLINE = 0;
     int STATUS_NORMAIL = 1;
     int STATUS_WARN = 2;
     int STATUS_ERROR = 3;
+
+    // ins status
+    int INS_STATUS_SEND = 0;
+    int INS_STATUS_RECV = 1;
+    int INS_STATUS_SUCC = 2;
+    int INS_STATUS_FAIL = 3;
 
 }

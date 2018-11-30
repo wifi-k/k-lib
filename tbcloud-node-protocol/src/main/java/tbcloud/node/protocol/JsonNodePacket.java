@@ -6,5 +6,4 @@ package tbcloud.node.protocol;
  */
 public interface JsonNodePacket<T> extends NodePacket {
 
-
 }

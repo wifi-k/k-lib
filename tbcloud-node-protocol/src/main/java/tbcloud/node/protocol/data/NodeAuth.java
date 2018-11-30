@@ -7,7 +7,6 @@ package tbcloud.node.protocol.data;
  */
 public class NodeAuth extends DataReq {
 
-    private String nodeId;
     private String parnter;
     private String model;
     private String manufactory;
@@ -16,14 +15,6 @@ public class NodeAuth extends DataReq {
     private Integer disk;
     private Integer upstream;
     private Integer downstream;
-
-    public String getNodeId() {
-        return nodeId;
-    }
-
-    public void setNodeId(String nodeId) {
-        this.nodeId = nodeId;
-    }
 
     public String getParnter() {
         return parnter;

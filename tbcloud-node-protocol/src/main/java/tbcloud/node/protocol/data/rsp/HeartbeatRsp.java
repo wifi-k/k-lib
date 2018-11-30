@@ -1,11 +1,10 @@
-package tbcloud.node.protocol.data;
+package tbcloud.node.protocol.data.rsp;
 
 /**
  * @author dzh
- * @date 2018-11-25 14:14
+ * @date 2018-11-30 13:54
  */
-public class HeartBeatRsp extends DataRsp {
-
+public class HeartbeatRsp {
     private Ins ins;
 
     public Ins getIns() {

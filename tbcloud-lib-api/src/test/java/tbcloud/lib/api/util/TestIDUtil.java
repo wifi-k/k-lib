@@ -4,6 +4,8 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.UUID;
+
 /**
  * @author dzh
  * @date 2018-11-11 23:42
@@ -12,11 +14,14 @@ public class TestIDUtil {
 
     static Logger LOG = LoggerFactory.getLogger(TestIDUtil.class);
 
+    @Test
     public void genApikeyTest() {
         LOG.info("{} {}", Long.toHexString(Long.MAX_VALUE), Long.toHexString(Long.MAX_VALUE).length());
         LOG.info("{}", Integer.parseInt("e", 16));
-        LOG.info("{} {} ", 36L * 36 * 36 * 36 * 36 * 36 * 36, 36L * 36 * 36 * 36 * 36 - Long.MAX_VALUE / 36);
-        LOG.info("{} {} ", 16L * 16 * 16 * 16 * 16 * 16, 16L * 16 * 16 * 16 * 16 * 16 - Long.MAX_VALUE);
+        // LOG.info("{} {} ", 15L * 15 * 15 * 15 * 15 * 15, 15L * 15 * 15 * 15 * 15 * 15 - Long.MAX_VALUE / (15 * 15 * 15 * 15 * 15 * 15 * 15 * 15 * 15));
+        String hex = Long.toHexString(Long.MAX_VALUE);
+        LOG.info("{} {} {} {}", Long.MAX_VALUE, hex, hex.length(), Long.parseLong(hex.substring(1), 16));
+        LOG.info("{} {}", Integer.toHexString(Integer.MAX_VALUE).length(), Integer.toHexString(Integer.MIN_VALUE).length());
     }
 
     @Test
@@ -45,6 +50,30 @@ public class TestIDUtil {
         long userId = 101L;
         String appKey = IDUtil.genApikeyV1(userId);
         LOG.info("{} {}", appKey, IDUtil.decodeUserIDFromAppId(appKey));
+    }
+
+    @Test
+    public void genNodeToken() {
+        LOG.info("{}{}", Integer.toHexString(100), Long.toHexString(System.currentTimeMillis()));
+
+        LOG.info("{}", IDUtil.genNodeToken("1231245"));
+    }
+
+    @Test
+    public void genInsId() {
+        long ts = System.currentTimeMillis();
+        String id = null;
+        for (int i = 0; i < 100; i++) {
+            id = IDUtil.genInsId("1232312", 1);
+        }
+        LOG.info("{}", System.currentTimeMillis() - ts);
+
+        ts = System.currentTimeMillis();
+        id = null;
+        for (int i = 0; i < 100; i++) {
+            id = UUID.randomUUID().toString();
+        }
+        LOG.info("{}", System.currentTimeMillis() - ts);
     }
 
 

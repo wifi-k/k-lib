@@ -36,7 +36,7 @@ public class IDUtil {
         String hexUsr = Long.toHexString(usrId);
 
         // String hexMS = Long.toHexString(System.currentTimeMillis());
-        String hexID = StringUtil.isEmpty(openID) ? Long.toHexString(System.currentTimeMillis())
+        String hexID = StringUtil.isEmpty(openID) ? Integer.toHexString(new Date().hashCode())
                 : Integer.toHexString(sessionKey.hashCode());
         String hexKey = Integer.toHexString(sessionKey.hashCode());
 
@@ -205,7 +205,7 @@ public class IDUtil {
         try {
             if ('1' == version) {
                 int userIdHexLength = Integer.parseInt(appId.substring(1, 2), 16);
-                if (userIdHexLength > 0 && userIdHexLength <= 16) {
+                if (userIdHexLength > 0 && userIdHexLength < 16) {
                     String userIdHex = appId.substring(2, 2 + userIdHexLength);
                     return Long.parseLong(userIdHex, 16);
                 }
@@ -217,6 +217,53 @@ public class IDUtil {
         }
 
         return 0L;
+    }
+
+    public static final String genNodeToken(String nodeId) {
+        int maxLen = 24;
+
+        String nameHex = Integer.toHexString(nodeId.hashCode());
+        String txHex = Integer.toHexString(new Date().hashCode());
+
+        StringBuffer buf = new StringBuffer(maxLen);
+        buf.append(nameHex);
+        buf.append(txHex);
+
+        //RandomHex
+        int ranlen = maxLen - nameHex.length() - txHex.length();
+        for (int i = 0; i < ranlen; ++i) {
+            buf.append(Integer.toHexString(ThreadLocalRandom.current().nextInt(0, 16)));
+        }
+
+        return buf.toString();
+    }
+
+    public static final boolean isInvalidToken(String token, String nodeId) {
+        String nameHex = Integer.toHexString(nodeId.hashCode());
+        return !token.startsWith(nameHex);
+    }
+
+    public static final String genInsId(String nodeId, int ins) {
+        int maxLen = 32;
+
+        String insHex = Integer.toHexString(ins);
+        String insHexLen = Integer.toHexString(insHex.length());
+        String nodeIdHex = Integer.toHexString(nodeId.hashCode());
+        String tsHex = Integer.toHexString(new Date().hashCode());
+
+        StringBuffer buf = new StringBuffer(maxLen);
+        buf.append(insHexLen);  //1
+        buf.append(insHex); // max 8
+        buf.append(nodeIdHex); // max 8
+        buf.append(tsHex); //max 8
+
+        //RandomHex
+        int ranlen = maxLen - insHexLen.length() - insHex.length() - nodeIdHex.length() - tsHex.length();
+        for (int i = 0; i < ranlen; ++i) {
+            buf.append(Integer.toHexString(ThreadLocalRandom.current().nextInt(0, 16)));
+        }
+
+        return buf.toString();
     }
 
 

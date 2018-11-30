@@ -19,6 +19,14 @@ public class NodeRt {
 
     private Long userId;
 
+    private Integer cpuUsage;
+
+    private Integer memUsage;
+
+    private Integer diskUsage;
+
+    private Long takeTime;
+
     public String getNodeId() {
         return nodeId;
     }
@@ -89,5 +97,37 @@ public class NodeRt {
 
     public void setUserId(Long userId) {
         this.userId = userId;
+    }
+
+    public Integer getCpuUsage() {
+        return cpuUsage;
+    }
+
+    public void setCpuUsage(Integer cpuUsage) {
+        this.cpuUsage = cpuUsage;
+    }
+
+    public Integer getMemUsage() {
+        return memUsage;
+    }
+
+    public void setMemUsage(Integer memUsage) {
+        this.memUsage = memUsage;
+    }
+
+    public Integer getDiskUsage() {
+        return diskUsage;
+    }
+
+    public void setDiskUsage(Integer diskUsage) {
+        this.diskUsage = diskUsage;
+    }
+
+    public Long getTakeTime() {
+        return takeTime;
+    }
+
+    public void setTakeTime(Long takeTime) {
+        this.takeTime = takeTime;
     }
 }

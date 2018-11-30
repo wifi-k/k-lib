@@ -10,11 +10,11 @@ public class DefaultDataCodecFactory implements DataCodecFactory {
 
     private DataCodec json = new JsonDataCodec();
 
-    static DefaultDataCodecFactory Instance = new DefaultDataCodecFactory();
+    public final static DefaultDataCodecFactory Instance = new DefaultDataCodecFactory();
 
     public DataCodec codec(PacketConst.DataFormat format) {
         if (format.equals(PacketConst.DataFormat.JSON)) {
-            return Instance.json;
+            return json;
         }
 
         throw new NullPointerException("Not found DataCodec for format:" + format.ordinal());

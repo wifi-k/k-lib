@@ -1,4 +1,4 @@
-package tbcloud.node.protocol.data;
+package tbcloud.node.protocol.data.rsp;
 
 /**
  * @author dzh
@@ -6,8 +6,9 @@ package tbcloud.node.protocol.data;
  */
 public class Ins {
 
+    private String id; //唯一识别号
     private int ins;
-    private String data;
+    private String val;
 
     public int getIns() {
         return ins;
@@ -17,17 +18,16 @@ public class Ins {
         this.ins = ins;
     }
 
-    public String getData() {
-        return data;
+    public String getVal() {
+        return val;
     }
 
-    public void setData(String data) {
-        this.data = data;
+    public void setVal(String val) {
+        this.val = val;
     }
 
     /**************************指令定义*****************************/
-    public static final int INS_HTTPPROXY_START = 1; //开启http代理
-    public static final int INS_HTTPPROXY_CLOSE = 10001; //关闭http代理
+    public static final int INS_HTTPPROXY = 1; //http代理
 
     /**************************指令状态*****************************/
 //    public static final int STATUS_RECV = 0; //发送指令

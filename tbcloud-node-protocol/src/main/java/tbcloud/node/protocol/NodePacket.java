@@ -44,4 +44,6 @@ public interface NodePacket<T> {
 
     NodePacket<T> hash(long hash); // crc32
 
+//    NodePacket<T> fork();// new NodePacket with the same id
+
 }

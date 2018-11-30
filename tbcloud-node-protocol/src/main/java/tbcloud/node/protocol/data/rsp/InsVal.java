@@ -1,12 +1,12 @@
-package tbcloud.node.protocol.data;
+package tbcloud.node.protocol.data.rsp;
 
 import tbcloud.node.protocol.util.GsonUtil;
 
 /**
  * @author dzh
- * @date 2018-11-26 10:14
+ * @date 2018-11-30 00:26
  */
-public class Data {
+public class InsVal {
 
     @Override
     public String toString() {

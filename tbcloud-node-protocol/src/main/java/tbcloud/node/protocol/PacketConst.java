@@ -13,11 +13,16 @@ public interface PacketConst extends DataType {
 
     int V_20181130 = 20181130;
 
+    int MAX_SIZE = 1024; //byte
+
+    int MONITOR_TYPE_SYS = 1;
+    int MONITOR_TYPE_PID = 2;
+
     enum DataFormat {
         NIL, JSON, KEY_VALUE;
 
-        public static final DataFormat valueOf(int type) {
-            switch (type) {
+        public static final DataFormat valueOf(int format) {
+            switch (format) {
                 case 1:
                     return DataFormat.JSON;
                 case 2:

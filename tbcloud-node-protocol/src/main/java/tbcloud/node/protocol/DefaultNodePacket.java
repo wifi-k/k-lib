@@ -102,4 +102,5 @@ public class DefaultNodePacket<T> implements NodePacket<T> {
         this.hash = hash;
         return this;
     }
+
 }

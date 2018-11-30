@@ -48,6 +48,11 @@
                enableDeleteByExample="${enable.example}" enableSelectByExample="${enable.example}"
                selectByExampleQueryId="${enable.example}">
         </table>
+        <table schema="mybatis" tableName="node_ins" domainObjectName="NodeIns"
+               enableCountByExample="${enable.example}" enableUpdateByExample="${enable.example}"
+               enableDeleteByExample="${enable.example}" enableSelectByExample="${enable.example}"
+               selectByExampleQueryId="${enable.example}">
+        </table>
 
     </context>
 </generatorConfiguration>

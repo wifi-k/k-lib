@@ -4,9 +4,11 @@ package tbcloud.node.protocol.data;
  * @author dzh
  * @date 2018-11-25 13:43
  */
-public class DataRsp extends Data {
+public class DataRsp<T> extends Data {
 
-    private int code;
+    private int code = 0;
+
+    private T data;
 
     public int getCode() {
         return code;
@@ -16,7 +18,11 @@ public class DataRsp extends Data {
         this.code = code;
     }
 
-    public static enum Code {
-        SUCC,
+    public T getData() {
+        return data;
+    }
+
+    public void setData(T data) {
+        this.data = data;
     }
 }

@@ -5,15 +5,20 @@ package tbcloud.node.protocol;
  * @date 2018-11-25 15:44
  */
 public interface DataType {
+    DataType I = new DataType() {
+    };
+
 
     int NIL = 0;
 
     /**************** UDP Node Req [1,1000] *******************/
-    int NODE_AUTH = 1;
+    int AUTH = 1;
     int HEARTBEAT = 2;
-    int NODE_MONITOR = 3;
+    int MONITOR = 3;
     int INS_STATUS = 4;
 
-    /**************** UDP Server RSP [10000,11000] *******************/
+    default int rspType(int reqType) {
+        return 10000 + reqType;
+    }
 
 }

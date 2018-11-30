@@ -1,12 +1,12 @@
-package tbcloud.node.protocol.data;
+package tbcloud.node.protocol.data.rsp;
 
 /**
  * @author dzh
  * @date 2018-11-25 13:44
  */
-public class NodeAuthRsp extends DataRsp {
+public class NodeAuthRsp {
     private String token;
-    private String udpsvr; //host:port,host:port
+    private String insHost; //host:port,host:port
     //private String httpsvr;
 
     public String getToken() {
@@ -17,11 +17,11 @@ public class NodeAuthRsp extends DataRsp {
         this.token = token;
     }
 
-    public String getUdpsvr() {
-        return udpsvr;
+    public String getInsHost() {
+        return insHost;
     }
 
-    public void setUdpsvr(String udpsvr) {
-        this.udpsvr = udpsvr;
+    public void setInsHost(String insHost) {
+        this.insHost = insHost;
     }
 }

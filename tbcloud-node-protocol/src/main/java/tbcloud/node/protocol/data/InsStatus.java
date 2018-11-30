@@ -6,6 +6,7 @@ package tbcloud.node.protocol.data;
  */
 public class InsStatus extends DataReq {
 
+    private String id;
     private int ins;
     private int status;
 
@@ -23,5 +24,13 @@ public class InsStatus extends DataReq {
 
     public void setStatus(int status) {
         this.status = status;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

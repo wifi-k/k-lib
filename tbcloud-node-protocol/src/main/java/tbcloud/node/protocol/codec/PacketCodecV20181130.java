@@ -23,12 +23,16 @@ public class PacketCodecV20181130 implements PacketCodec {
     public ByteBuffer encode(ByteBufNodePacket packet) {
         // int dataType = packet.dataType();
         byte[] id = packet.id().getBytes(PacketConst.CHARSET);
-        byte[] token = packet.token().getBytes(PacketConst.CHARSET);
-        byte[] data = packet.data().array();
+        byte[] token = packet.token() == null ? new byte[0] : packet.token().getBytes(PacketConst.CHARSET);
+        byte[] data = packet.data() == null ? new byte[0] : packet.data().array();
         ByteBuffer buf = ByteBuffer.allocate(9 + id.length + 1 + token.length + 9 + data.length + 8);
+//        LOG.info("{} {} {}", buf.position(), buf.limit(), buf.capacity());
         buf.putInt(PacketConst.M).putInt(PacketConst.V_20181130); // M+V
-        buf.putInt(id.length).put(id); // id
-        buf.putInt(token.length); // token
+//        LOG.info("{} {} {}", buf.position(), buf.limit(), buf.capacity());
+        buf.put((byte) id.length).put(id); // id
+//        LOG.info("{} {} {}", buf.position(), buf.limit(), buf.capacity());
+        buf.put((byte) token.length); // token
+//        LOG.info("{} {} {}", buf.position(), buf.limit(), buf.capacity());
         if (token.length > 0) buf.put(token);
         // dataType + dataFormat + dataSize
         buf.putInt(packet.dataType()).put(packet.dataFormat()).putInt(data.length);
@@ -36,6 +40,7 @@ public class PacketCodecV20181130 implements PacketCodec {
         // crc32
         CRC32 crc32 = new CRC32(); //TODO 32 or 32c
         crc32.update(buf.array(), 0, buf.capacity() - 8);
+//        LOG.info("{} {} {}", buf.position(), buf.limit(), buf.capacity());
         buf.putLong(crc32.getValue());
         return buf.flip();
     }
@@ -46,10 +51,8 @@ public class PacketCodecV20181130 implements PacketCodec {
 
     @Override
     public ByteBufNodePacket decode(ByteBuffer bytes) {
-        // check hash TODO
-
         ByteBufNodePacket packet = new ByteBufNodePacket();
-        int m = bytes.getInt();  // M  TODO check
+        int m = bytes.getInt();  // M
         packet.magic(m);
         int v = bytes.getInt(); // V
         packet.version(v);
@@ -61,11 +64,11 @@ public class PacketCodecV20181130 implements PacketCodec {
         packet.dataType(dataType);
         byte dataFormat = bytes.get(); //dataFormat
         packet.dataFormat(dataFormat);
-        int dataSize = bytes.getInt(); // dataSize
+        int dataSize = bytes.getInt();// dataSize
         if (dataSize > 0) {
             ByteBuffer data = ByteBuffer.allocate(dataSize);
             bytes.get(data.array());
-            packet.data(data.flip());
+            packet.data(data);
         }
         long hash = bytes.getLong();
         packet.hash(hash);

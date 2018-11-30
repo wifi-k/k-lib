@@ -24,11 +24,16 @@ public interface ApiConst extends ConfField {
 
     // redis group ids
     String REDIS_ID_USER = "user";  // 用户缓存
+    String REDIS_ID_NODE = "node"; // 节点缓存
 
     // redis key
     String REDIS_KEY_USER_IMGCODE_ = "user.imgcode.";//id
     String REDIS_KEY_USER_VCODE_ = "user.vcode."; // mobile
     String REDIS_KEY_USER_TOKEN_ = "user.token.";
+
+    String REDIS_KEY_NODE_TOKEN_ = "node.token.";
+    String REDIS_KEY_NODE_INS_ = "node.rsp.";
+    int REDIS_MAX_NODE_INS = 100;
 
     String REDIS_KEY_USER_INFO_ = "user.info.";
     String REDIS_KEY_USER_EMAIL_TOKEN_ = "user.email.token.";
