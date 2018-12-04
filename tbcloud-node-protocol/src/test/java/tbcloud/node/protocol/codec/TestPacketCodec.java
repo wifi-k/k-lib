@@ -37,7 +37,7 @@ public class TestPacketCodec {
         packet.token("222222");
         packet.dataFormat((byte) PacketConst.DataFormat.JSON.ordinal());
         packet.dataType(DataType.INS_STATUS);
-        ByteBuffer dataBuf = dataCodecFactory.codec(PacketConst.DataFormat.JSON).encode(data);
+        ByteBuffer dataBuf = dataCodecFactory.codec(DataType.INS_STATUS, PacketConst.DataFormat.JSON.ordinal()).encode(data);
         packet.data(dataBuf);
 
         PacketCodec codec = new PacketCodecV20181130();
@@ -47,7 +47,7 @@ public class TestPacketCodec {
         packet = codec.decode(bytes);
         LOG.info("{} {} {} {}", packet.magic(), packet.version(), packet.id(), packet.token());
         dataBuf = packet.data();
-        data = dataCodecFactory.codec(PacketConst.DataFormat.valueOf(packet.dataFormat())).
+        data = dataCodecFactory.codec(DataType.INS_STATUS, packet.dataFormat()).
                 decode(dataBuf, InsStatus.class);
         LOG.info("{}", GsonUtil.toJson(data));
 
