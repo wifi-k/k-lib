@@ -19,7 +19,7 @@ public interface PacketConst extends DataType {
     int MONITOR_TYPE_PID = 2;
 
     enum DataFormat {
-        NIL, JSON, KEY_VALUE;
+        NIL, JSON, BINARY, KEY_VALUE;
 
         public static final DataFormat valueOf(int format) {
             switch (format) {
