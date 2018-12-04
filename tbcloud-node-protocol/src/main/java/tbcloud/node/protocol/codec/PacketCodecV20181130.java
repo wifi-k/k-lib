@@ -36,7 +36,7 @@ public class PacketCodecV20181130 implements PacketCodec {
         if (token.length > 0) buf.put(token);
         // dataType + dataFormat + dataSize
         buf.putInt(packet.dataType()).put(packet.dataFormat()).putInt(data.length);
-        if (data.length > 0) buf.put(data);
+        if (data.length > 0) buf.put(data); //TODO limit
         // crc32
         CRC32 crc32 = new CRC32(); //TODO 32 or 32c
         crc32.update(buf.array(), 0, buf.capacity() - 8);

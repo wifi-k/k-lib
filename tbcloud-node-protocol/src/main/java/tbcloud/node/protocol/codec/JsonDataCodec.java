@@ -27,7 +27,7 @@ public class JsonDataCodec implements DataCodec {
 
     @Override
     public <T extends Data> T decode(ByteBuffer bytes, Class<? extends Data> data) {
-        return GSON.<T>fromJson(new String(bytes.array(), PacketConst.CHARSET), data);
+        return GSON.<T>fromJson(new String(bytes.array(), PacketConst.CHARSET).trim(), data);
     }
 
 }

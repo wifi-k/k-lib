@@ -27,5 +27,6 @@ public interface ConfField {
     String NDOE_API_IP = "node.api.ip";
     String NODE_API_PORT = "node.api.port";
     String NODE_API_AUTH_ENABLED = "node.api.auth.enabled";
-    String NODE_API_INS_HOST = "ndoe.api.ins.host";
+    String NODE_API_INS_HOST = "node.api.ins.host";
+    String NODE_API_TOKEN_EXPIRED = "node.api.token.expired";
 }

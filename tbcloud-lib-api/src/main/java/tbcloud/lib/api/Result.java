@@ -8,7 +8,6 @@ import tbcloud.lib.api.util.GsonUtil;
  */
 public class Result<T> {
 
-
     private int code = ApiCode.SUCC;
 
     private T data;
