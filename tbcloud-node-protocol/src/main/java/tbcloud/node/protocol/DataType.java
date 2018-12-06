@@ -11,11 +11,16 @@ public interface DataType {
 
     int NIL = 0;
 
-    /**************** UDP Node Req [1,1000] *******************/
+    /**************** UDP Node [1,200) *******************/
     int AUTH = 1;
     int HEARTBEAT = 2;
     int MONITOR = 3;
     int INS_STATUS = 4;
+
+    /**************** HTTP PROXY [200,300) *******************/
+    int HPROXY_AUTH = 201;
+    int HPROXY_REQUESST = 202;
+    int HPROXY_RESPONSE = 203;
 
     default int rspType(int reqType) {
         return 10000 + reqType;

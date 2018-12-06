@@ -26,13 +26,9 @@ public class PacketCodecV20181130 implements PacketCodec {
         byte[] token = packet.token() == null ? new byte[0] : packet.token().getBytes(PacketConst.CHARSET);
         byte[] data = packet.data() == null ? new byte[0] : packet.data().array();
         ByteBuffer buf = ByteBuffer.allocate(9 + id.length + 1 + token.length + 9 + data.length + 8);
-//        LOG.info("{} {} {}", buf.position(), buf.limit(), buf.capacity());
         buf.putInt(PacketConst.M).putInt(PacketConst.V_20181130); // M+V
-//        LOG.info("{} {} {}", buf.position(), buf.limit(), buf.capacity());
         buf.put((byte) id.length).put(id); // id
-//        LOG.info("{} {} {}", buf.position(), buf.limit(), buf.capacity());
         buf.put((byte) token.length); // token
-//        LOG.info("{} {} {}", buf.position(), buf.limit(), buf.capacity());
         if (token.length > 0) buf.put(token);
         // dataType + dataFormat + dataSize
         buf.putInt(packet.dataType()).put(packet.dataFormat()).putInt(data.length);
@@ -40,8 +36,8 @@ public class PacketCodecV20181130 implements PacketCodec {
         // crc32
         CRC32 crc32 = new CRC32(); //TODO 32 or 32c
         crc32.update(buf.array(), 0, buf.capacity() - 8);
-//        LOG.info("{} {} {}", buf.position(), buf.limit(), buf.capacity());
         buf.putLong(crc32.getValue());
+//        LOG.info("{} {} {}", buf.position(), buf.limit(), buf.capacity());
         return buf.flip();
     }
 

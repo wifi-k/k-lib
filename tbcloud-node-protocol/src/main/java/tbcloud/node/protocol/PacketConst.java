@@ -13,7 +13,7 @@ public interface PacketConst extends DataType {
 
     int V_20181130 = 20181130;
 
-    int MAX_SIZE = 1024; //byte
+    int MAX_SIZE = 4096; //byte NodePacket's max-size
 
     int MONITOR_TYPE_SYS = 1;
     int MONITOR_TYPE_PID = 2;
@@ -26,6 +26,8 @@ public interface PacketConst extends DataType {
                 case 1:
                     return DataFormat.JSON;
                 case 2:
+                    return DataFormat.BINARY;
+                case 3:
                     return DataFormat.KEY_VALUE;
             }
             return DataFormat.NIL;

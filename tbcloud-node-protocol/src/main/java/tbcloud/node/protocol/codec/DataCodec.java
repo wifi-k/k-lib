@@ -17,4 +17,10 @@ public interface DataCodec {
 
     <T extends Data> T decode(ByteBuffer bytes, Class<? extends Data> data);
 
+    default String decodeString(ByteBuffer bytes, int size) {
+        byte[] r = new byte[size];
+        bytes.get(r);
+        return new String(r, PacketConst.CHARSET);
+    }
+
 }
