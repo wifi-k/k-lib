@@ -127,16 +127,16 @@ public class IDUtil {
      */
     public static final String genApikeyV1(long userId) {
         int maxLen = 24;
-        String versionHex = "1";
+        String versionHex = "1";//1-f
 
-        String userIdHex = Long.toHexString(userId); // max length 16
-        String userIdHexLengthHex = Integer.toHexString(userIdHex.length());
+        String userIdHex = Long.toHexString(userId); // max length 1-16
+        String userIdHexLengthHex = Integer.toHexString(userIdHex.length() - 1);
 
         StringBuffer buf = new StringBuffer(24);
         buf.append(versionHex);
         buf.append(userIdHexLengthHex);
         buf.append(userIdHex);
-        //RandomHex
+        // RandomHex
         int ranlen = maxLen - 2 - userIdHex.length();
         for (int i = 0; i < ranlen; ++i) {
             buf.append(Integer.toHexString(ThreadLocalRandom.current().nextInt(0, 16)));
@@ -152,7 +152,7 @@ public class IDUtil {
         char version = apikey.charAt(0);
         try {
             if ('1' == version) {
-                int userIdHexLength = Integer.parseInt(apikey.substring(1, 2), 16);
+                int userIdHexLength = Integer.parseInt(apikey.substring(1, 2), 16) + 1;
                 if (userIdHexLength > 0 && userIdHexLength <= 16) {
                     String userIdHex = apikey.substring(2, 2 + userIdHexLength);
                     return Long.parseLong(userIdHex, 16);
@@ -179,7 +179,7 @@ public class IDUtil {
         String versionHex = "1";
 
         String userIdHex = Long.toHexString(userId); // max length 16
-        String userIdHexLengthHex = Integer.toHexString(userIdHex.length());
+        String userIdHexLengthHex = Integer.toHexString(userIdHex.length() - 1);
         String nameHex = name == null ? "" : Integer.toHexString(name.hashCode());
 
         StringBuffer buf = new StringBuffer(maxLen);
@@ -197,15 +197,15 @@ public class IDUtil {
         return buf.toString();
     }
 
-    public static final long decodeUserIDFromAppId(String appId) {
+    public static final long readUserIDFromAppId(String appId) {
         if (StringUtil.isEmpty(appId))
             return 0L;
 
         char version = appId.charAt(0);
         try {
             if ('1' == version) {
-                int userIdHexLength = Integer.parseInt(appId.substring(1, 2), 16);
-                if (userIdHexLength > 0 && userIdHexLength < 16) {
+                int userIdHexLength = Integer.parseInt(appId.substring(1, 2), 16) + 1;
+                if (userIdHexLength > 0 && userIdHexLength <= 16) {
                     String userIdHex = appId.substring(2, 2 + userIdHexLength);
                     return Long.parseLong(userIdHex, 16);
                 }

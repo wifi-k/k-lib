@@ -42,14 +42,14 @@ public class TestIDUtil {
     public void testAppId() {
         long userId = 1L;
         String appId = IDUtil.genAppId(userId, "tbcloud");
-        LOG.info("{} {}", appId, IDUtil.decodeUserIDFromAppId(appId));
+        LOG.info("{} {}", appId, IDUtil.readUserIDFromAppId(appId));
     }
 
     @Test
     public void testAppKey() {
         long userId = 101L;
         String appKey = IDUtil.genApikeyV1(userId);
-        LOG.info("{} {}", appKey, IDUtil.decodeUserIDFromAppId(appKey));
+        LOG.info("{} {}", appKey, IDUtil.readUserIDFromAppId(appKey));
     }
 
     @Test

@@ -1,5 +1,8 @@
 package tbcloud.lib.api;
 
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+
 /**
  * @author dzh
  * @date 2018-11-08 20:54
@@ -8,8 +11,9 @@ public interface ApiConst extends ConfField {
 
     String API_TOKEN = "Api-Token";
     String API_VERSION = "Api-Version";
+    String API_APIKEY = "Api-Apikey";
 
-    String UTF8 = "utf-8";
+    Charset UTF8 = StandardCharsets.UTF_8;
 
     Integer REDIS_EXPIRED_24H = 24 * 3600;
     Integer REDIS_EXPIRED_1H = 3600;
@@ -111,5 +115,6 @@ public interface ApiConst extends ConfField {
     int MOBILE_VCODE_MOBILE_RESET = 3;//修改手机号
 
     String ALISMS_ID_TBC = "tbc";
+    String ALIDM_ID_TBC = "tbc";
 
 }

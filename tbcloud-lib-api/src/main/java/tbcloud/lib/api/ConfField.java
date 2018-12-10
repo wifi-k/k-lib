@@ -23,6 +23,10 @@ public interface ConfField {
 
     String ENV_NAME = "env.name";
     String DEBUG_ENABLED = "debug.enabled";
+    String USER_EMAIL_MODIFY_FROM = "user.email.modify.from";
+    String USER_EMAIL_MODIFY_LINK = "user.email.modify.link";
+
+    String FTL_DIR = "ftl.dir";
 
     /********************* node ************************/
     String NDOE_API_HOST = "node.api.host";
@@ -34,5 +38,6 @@ public interface ConfField {
     /********************* share ************************/
     String SHARE_HTTPPROXY_HOST = "share.httpproxy.host";
     String SHARE_HTTPPROXY_PORT = "share.httpproxy.port";
+
 
 }
