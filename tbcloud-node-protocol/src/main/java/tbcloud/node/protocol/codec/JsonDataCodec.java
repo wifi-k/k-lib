@@ -22,12 +22,12 @@ public class JsonDataCodec implements DataCodec {
 
     @Override
     public <T extends Data> ByteBuffer encode(T data) {
-        return ByteBuffer.wrap(GSON.toJson(data).getBytes(PacketConst.CHARSET));
+        return ByteBuffer.wrap(GSON.toJson(data).getBytes(PacketConst.UTF_8));
     }
 
     @Override
     public <T extends Data> T decode(ByteBuffer bytes, Class<? extends Data> data) {
-        return GSON.<T>fromJson(new String(bytes.array(), PacketConst.CHARSET).trim(), data);
+        return GSON.<T>fromJson(new String(bytes.array(), PacketConst.UTF_8).trim(), data);
     }
 
 }

@@ -34,5 +34,5 @@ public interface PacketConst extends DataType {
         }
     }
 
-    Charset CHARSET = StandardCharsets.UTF_8;
+    Charset UTF_8 = StandardCharsets.UTF_8;
 }

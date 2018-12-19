@@ -20,10 +20,10 @@ public class PacketCodecV20181130 implements PacketCodec {
     }
 
     @Override
-    public ByteBuffer encode(ByteBufNodePacket packet) {
+    public ByteBuffer encode(ByteBufNodePacket packet) {//TODO opt 多了一次数据拷贝
         // int dataType = packet.dataType();
-        byte[] id = packet.id().getBytes(PacketConst.CHARSET);
-        byte[] token = packet.token() == null ? new byte[0] : packet.token().getBytes(PacketConst.CHARSET);
+        byte[] id = packet.id().getBytes(PacketConst.UTF_8);
+        byte[] token = packet.token() == null ? new byte[0] : packet.token().getBytes(PacketConst.UTF_8);
         byte[] data = packet.data() == null ? new byte[0] : packet.data().array();
         ByteBuffer buf = ByteBuffer.allocate(9 + id.length + 1 + token.length + 9 + data.length + 8);
         buf.putInt(PacketConst.M).putInt(PacketConst.V_20181130); // M+V
@@ -74,6 +74,6 @@ public class PacketCodecV20181130 implements PacketCodec {
     private String decodeString(ByteBuffer bytes, int size) {
         byte[] r = new byte[size];
         bytes.get(r);
-        return new String(r, PacketConst.CHARSET);
+        return new String(r, PacketConst.UTF_8);
     }
 }

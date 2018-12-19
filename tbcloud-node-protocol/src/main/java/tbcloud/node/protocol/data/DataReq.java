@@ -1,10 +1,12 @@
 package tbcloud.node.protocol.data;
 
+import tbcloud.node.protocol.util.GsonUtil;
+
 /**
  * @author dzh
  * @date 2018-11-25 13:43
  */
-public class DataReq extends Data {
+public class DataReq implements Data {
 
     private String nodeId;
 
@@ -14,5 +16,10 @@ public class DataReq extends Data {
 
     public void setNodeId(String nodeId) {
         this.nodeId = nodeId;
+    }
+
+    @Override
+    public String toString() {
+        return GsonUtil.toJson(this);
     }
 }

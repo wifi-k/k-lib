@@ -41,6 +41,8 @@ public class NodeInfo {
 
     private Long userId;
 
+    private String ip;
+
     public String getNodeId() {
         return nodeId;
     }
@@ -199,5 +201,13 @@ public class NodeInfo {
 
     public void setUserId(Long userId) {
         this.userId = userId;
+    }
+
+    public String getIp() {
+        return ip;
+    }
+
+    public void setIp(String ip) {
+        this.ip = ip == null ? null : ip.trim();
     }
 }

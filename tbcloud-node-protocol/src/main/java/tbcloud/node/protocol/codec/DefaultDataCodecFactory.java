@@ -12,15 +12,12 @@ public class DefaultDataCodecFactory implements DataCodecFactory {
 
     public final static DefaultDataCodecFactory Instance = new DefaultDataCodecFactory();
 
+    private DataCodec jsonDataCodec = new JsonDataCodec();
+
     public DataCodec codec(int dataType, int format) throws IllegalFormatException {
         if (format == PacketConst.DataFormat.JSON.ordinal()) {
-            return new JsonDataCodec();
+            return jsonDataCodec;
         }
-        if ((dataType >= 200 && dataType < 300) || (dataType >= 10200 && dataType < 10300)) { //http proxy
-            if (format == PacketConst.DataFormat.BINARY.ordinal())
-                return new HttpProxyDataCodec();
-        }
-
         throw new IllegalArgumentException("Not found DataCodec for format:" + format);
     }
 

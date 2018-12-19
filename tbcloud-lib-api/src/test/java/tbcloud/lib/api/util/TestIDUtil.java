@@ -22,6 +22,8 @@ public class TestIDUtil {
         String hex = Long.toHexString(Long.MAX_VALUE);
         LOG.info("{} {} {} {}", Long.MAX_VALUE, hex, hex.length(), Long.parseLong(hex.substring(1), 16));
         LOG.info("{} {}", Integer.toHexString(Integer.MAX_VALUE).length(), Integer.toHexString(Integer.MIN_VALUE).length());
+
+        LOG.info("{}", Integer.toHexString(Integer.MAX_VALUE).length());
     }
 
     @Test
@@ -41,7 +43,7 @@ public class TestIDUtil {
     @Test
     public void testAppId() {
         long userId = 1L;
-        String appId = IDUtil.genAppId(userId, "tbcloud");
+        String appId = IDUtil.genAppId(userId, "tbcloud-httpproxy");
         LOG.info("{} {}", appId, IDUtil.readUserIDFromAppId(appId));
     }
 
@@ -74,6 +76,8 @@ public class TestIDUtil {
             id = UUID.randomUUID().toString();
         }
         LOG.info("{}", System.currentTimeMillis() - ts);
+
+        LOG.info("{}", IDUtil.uuid());
     }
 
 

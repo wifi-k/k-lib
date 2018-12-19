@@ -23,6 +23,8 @@ public class NodeIns {
 
     private Long endTime;
 
+    private Integer retry;
+
     public String getId() {
         return id;
     }
@@ -109,5 +111,13 @@ public class NodeIns {
 
     public void setEndTime(Long endTime) {
         this.endTime = endTime;
+    }
+
+    public Integer getRetry() {
+        return retry;
+    }
+
+    public void setRetry(Integer retry) {
+        this.retry = retry;
     }
 }

@@ -1,5 +1,7 @@
 package tbcloud.lib.api.util;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.security.MessageDigest;
 
 /**
@@ -19,6 +21,10 @@ public class StringUtil {
             resultSb.append(byteToHexString(b[i]));
 
         return resultSb.toString();
+    }
+
+    public static final String localIp() throws UnknownHostException {
+        return InetAddress.getLocalHost().getHostAddress();
     }
 
     private static String byteToHexString(byte b) {

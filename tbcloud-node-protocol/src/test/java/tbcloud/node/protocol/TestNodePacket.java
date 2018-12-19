@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import tbcloud.node.protocol.data.rsp.Ins;
+import tbcloud.node.protocol.data.ins.Ins;
 
 /**
  * @author dzh

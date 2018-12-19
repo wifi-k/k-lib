@@ -793,6 +793,66 @@ public class NodeInsExample {
             addCriterion("end_time not between", value1, value2, "endTime");
             return (Criteria) this;
         }
+
+        public Criteria andRetryIsNull() {
+            addCriterion("retry is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRetryIsNotNull() {
+            addCriterion("retry is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRetryEqualTo(Integer value) {
+            addCriterion("retry =", value, "retry");
+            return (Criteria) this;
+        }
+
+        public Criteria andRetryNotEqualTo(Integer value) {
+            addCriterion("retry <>", value, "retry");
+            return (Criteria) this;
+        }
+
+        public Criteria andRetryGreaterThan(Integer value) {
+            addCriterion("retry >", value, "retry");
+            return (Criteria) this;
+        }
+
+        public Criteria andRetryGreaterThanOrEqualTo(Integer value) {
+            addCriterion("retry >=", value, "retry");
+            return (Criteria) this;
+        }
+
+        public Criteria andRetryLessThan(Integer value) {
+            addCriterion("retry <", value, "retry");
+            return (Criteria) this;
+        }
+
+        public Criteria andRetryLessThanOrEqualTo(Integer value) {
+            addCriterion("retry <=", value, "retry");
+            return (Criteria) this;
+        }
+
+        public Criteria andRetryIn(List<Integer> values) {
+            addCriterion("retry in", values, "retry");
+            return (Criteria) this;
+        }
+
+        public Criteria andRetryNotIn(List<Integer> values) {
+            addCriterion("retry not in", values, "retry");
+            return (Criteria) this;
+        }
+
+        public Criteria andRetryBetween(Integer value1, Integer value2) {
+            addCriterion("retry between", value1, value2, "retry");
+            return (Criteria) this;
+        }
+
+        public Criteria andRetryNotBetween(Integer value1, Integer value2) {
+            addCriterion("retry not between", value1, value2, "retry");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

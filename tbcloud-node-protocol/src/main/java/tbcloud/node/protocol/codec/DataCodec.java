@@ -20,7 +20,7 @@ public interface DataCodec {
     default String decodeString(ByteBuffer bytes, int size) {
         byte[] r = new byte[size];
         bytes.get(r);
-        return new String(r, PacketConst.CHARSET);
+        return new String(r, PacketConst.UTF_8);
     }
 
 }

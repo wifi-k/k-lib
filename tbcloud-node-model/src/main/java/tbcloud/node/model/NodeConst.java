@@ -25,4 +25,6 @@ public interface NodeConst {
     int INS_STATUS_SUCC = 2;
     int INS_STATUS_FAIL = 3;
 
+    int INS_MAX_RETRY = 10;// TODO
+
 }

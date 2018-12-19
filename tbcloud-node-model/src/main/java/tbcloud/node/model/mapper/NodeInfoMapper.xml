@@ -22,6 +22,7 @@
     <result column="share_time" jdbcType="BIGINT" property="shareTime" />
     <result column="unshare_time" jdbcType="BIGINT" property="unshareTime" />
     <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="ip" jdbcType="VARCHAR" property="ip" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -84,7 +85,7 @@
   <sql id="Base_Column_List">
     node_id, manufactory, model, firmware, bind_time, is_bind, is_share, comment, create_time, 
     update_time, is_delete, partner, memory, disk, upstream, downstream, unbind_time, 
-    share_time, unshare_time, user_id
+    share_time, unshare_time, user_id, ip
   </sql>
   <select id="selectByExample" parameterType="tbcloud.node.model.NodeInfoExample" resultMap="BaseResultMap">
     select
@@ -124,14 +125,16 @@
       update_time, is_delete, partner, 
       memory, disk, upstream, 
       downstream, unbind_time, share_time, 
-      unshare_time, user_id)
+      unshare_time, user_id, ip
+      )
     values (#{nodeId,jdbcType=VARCHAR}, #{manufactory,jdbcType=VARCHAR}, #{model,jdbcType=VARCHAR}, 
       #{firmware,jdbcType=VARCHAR}, #{bindTime,jdbcType=BIGINT}, #{isBind,jdbcType=TINYINT}, 
       #{isShare,jdbcType=TINYINT}, #{comment,jdbcType=VARCHAR}, #{createTime,jdbcType=BIGINT}, 
       #{updateTime,jdbcType=BIGINT}, #{isDelete,jdbcType=TINYINT}, #{partner,jdbcType=VARCHAR}, 
       #{memory,jdbcType=INTEGER}, #{disk,jdbcType=INTEGER}, #{upstream,jdbcType=INTEGER}, 
       #{downstream,jdbcType=INTEGER}, #{unbindTime,jdbcType=BIGINT}, #{shareTime,jdbcType=BIGINT}, 
-      #{unshareTime,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT})
+      #{unshareTime,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{ip,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="tbcloud.node.model.NodeInfo">
     insert into node_info
@@ -196,6 +199,9 @@
       <if test="userId != null">
         user_id,
       </if>
+      <if test="ip != null">
+        ip,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="nodeId != null">
@@ -257,6 +263,9 @@
       </if>
       <if test="userId != null">
         #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="ip != null">
+        #{ip,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -329,6 +338,9 @@
       <if test="record.userId != null">
         user_id = #{record.userId,jdbcType=BIGINT},
       </if>
+      <if test="record.ip != null">
+        ip = #{record.ip,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -355,7 +367,8 @@
       unbind_time = #{record.unbindTime,jdbcType=BIGINT},
       share_time = #{record.shareTime,jdbcType=BIGINT},
       unshare_time = #{record.unshareTime,jdbcType=BIGINT},
-      user_id = #{record.userId,jdbcType=BIGINT}
+      user_id = #{record.userId,jdbcType=BIGINT},
+      ip = #{record.ip,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -420,6 +433,9 @@
       <if test="userId != null">
         user_id = #{userId,jdbcType=BIGINT},
       </if>
+      <if test="ip != null">
+        ip = #{ip,jdbcType=VARCHAR},
+      </if>
     </set>
     where node_id = #{nodeId,jdbcType=VARCHAR}
   </update>
@@ -443,7 +459,8 @@
       unbind_time = #{unbindTime,jdbcType=BIGINT},
       share_time = #{shareTime,jdbcType=BIGINT},
       unshare_time = #{unshareTime,jdbcType=BIGINT},
-      user_id = #{userId,jdbcType=BIGINT}
+      user_id = #{userId,jdbcType=BIGINT},
+      ip = #{ip,jdbcType=VARCHAR}
     where node_id = #{nodeId,jdbcType=VARCHAR}
   </update>
 </mapper>

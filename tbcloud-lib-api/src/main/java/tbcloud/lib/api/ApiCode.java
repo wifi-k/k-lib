@@ -46,12 +46,23 @@ public interface ApiCode {
 
     int NODE_MISS_PARAM = 19; //节点丢失请求参数
 
+    int INVALID_APIKEY = 20;//非法的apikey
+
+    int ERROR_UNKNOWN = 21;//未知异常
+
+    int REQUEST_TIMEOUT = 22; //请求超时
+
+    int RESPONSE_TIMEOUT = 23; //响应超时
+
+    int NODE_NOT_FOUND = 24; //没有节点
+
+    int IO_ERROR = 25;// io流读写错误
+
     /******************* 第三方请求 *******************/
     int WX_API = 100;
 
     /******************* 中间件请求 *******************/
     int REDIS_GET_NULL = 200; // redis获取失败
     int ELASTIC_SEARCH_IO = 201; // elasticsearch网络异常
-
 
 }

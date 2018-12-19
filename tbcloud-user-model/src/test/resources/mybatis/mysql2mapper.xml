@@ -74,5 +74,11 @@
                selectByExampleQueryId="${enable.example}">
         </table>
 
+        <table schema="mybatis" tableName="app_info" domainObjectName="AppInfo"
+               enableCountByExample="${enable.example}" enableUpdateByExample="${enable.example}"
+               enableDeleteByExample="${enable.example}" enableSelectByExample="${enable.example}"
+               selectByExampleQueryId="${enable.example}">
+        </table>
+
     </context>
 </generatorConfiguration>

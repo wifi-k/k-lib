@@ -4,7 +4,7 @@ package tbcloud.node.protocol.data;
  * @author dzh
  * @date 2018-11-25 13:43
  */
-public class DataRsp<T> extends Data {
+public class DataRsp<T> implements Data {
 
     private int code = 0;
 

@@ -9,22 +9,36 @@ import java.nio.charset.StandardCharsets;
  */
 public interface ApiConst extends ConfField {
 
+    /************************ Http Header Fields **********************/
     String API_TOKEN = "Api-Token";
     String API_VERSION = "Api-Version";
     String API_APIKEY = "Api-Apikey";
+    String HTTPPROXY_SSL = "HttpProxy-SSL";// 0-disable,1-enable
+    String HTTPPROXY_PORT = "HttpProxy-Port";// 默认80 or 443
+
+    String HTTPPROXY_NODE = "HttpProxy-Node";// NodeId代理节点
+    String HTTPPROXY_POLICY = "HttpProxy-Policy";//random hold
+    String HTTPPROXY_RECORD = "HttpProxy-Record"; // httpproxy record id
+    //String HTTPPROXY_REQTIME = "HttpProxy-ReqTime";//记录请求时间
 
     Charset UTF8 = StandardCharsets.UTF_8;
 
-    Integer REDIS_EXPIRED_24H = 24 * 3600;
-    Integer REDIS_EXPIRED_1H = 3600;
-    // redis expired seconds
-    Integer REDIS_USER_TOKEN_EXPIRED = 12 * 3600; // 12 hours TODO config
-    Integer REDIS_STAT_PRODUCT_EXPIRED = 3600; // 1 hour
-    Integer REDIS_USER_INFO_EXPIRED = 3600;// 1 hour
+    int HTTPPROXY_SSL_Y = 1;
+    int HTTPPROXY_SSL_N = 0; //默认值
+    String HTTPPROXY_POLICY_RANDOM = "random"; // keepAlive时，不同请求代理到不同的节点
+    String HTTPPROXY_POLICY_HOLD = "hold"; // 默认值 keepAlive时，不同请求代理到相同的节点
 
-    Integer REDIS_BASIC_AREA_EXPIRED = 48 * 3600;// 24 hours province city area
-    Integer REDIS_PRODUCT_EXPIRED = 24 * 3600; // 1 hour
-    Integer REDIS_DATA_VERSION_EXPIRED = 7 * 24 * 3600; // 1 hour
+
+    int REDIS_EXPIRED_24H = 24 * 3600;
+    int REDIS_EXPIRED_1H = 3600;
+    // redis expired seconds
+    int REDIS_USER_TOKEN_EXPIRED = 12 * 3600; // 12 hours TODO config
+    int REDIS_STAT_PRODUCT_EXPIRED = 3600; // 1 hour
+    int REDIS_USER_INFO_EXPIRED = 3600;// 1 hour
+
+    int REDIS_BASIC_AREA_EXPIRED = 48 * 3600;// 24 hours province city area
+    int REDIS_PRODUCT_EXPIRED = 24 * 3600; // 1 hour
+    int REDIS_DATA_VERSION_EXPIRED = 7 * 24 * 3600; // 1 hour
 
     // redis group ids
     String REDIS_ID_USER = "user";  // 用户缓存
@@ -75,8 +89,8 @@ public interface ApiConst extends ConfField {
     int IS_REPLY_Y = 1;
 
     // online
-    int USER_ONLINE = 1;
-    int USER_OFFLINE = 0;
+    int IS_ONLINE = 1;
+    int IS_OFFLINE = 0;
 
     // product used
     int PRODUCT_NOT_USE = 0; // 产品未被用户添加
@@ -116,5 +130,8 @@ public interface ApiConst extends ConfField {
 
     String ALISMS_ID_TBC = "tbc";
     String ALIDM_ID_TBC = "tbc";
+
+    // zk
+    String ZK_ID_TIMER = "timer";
 
 }

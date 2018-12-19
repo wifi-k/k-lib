@@ -1,8 +1,8 @@
 package tbcloud.node.protocol.util;
 
-import tbcloud.node.protocol.data.rsp.Ins;
-import tbcloud.node.protocol.data.rsp.HttpProxy;
-import tbcloud.node.protocol.data.rsp.InsVal;
+import tbcloud.node.protocol.data.ins.Ins;
+import tbcloud.node.protocol.data.ins.HttpProxy;
+import tbcloud.node.protocol.data.ins.InsVal;
 
 /**
  * @author dzh

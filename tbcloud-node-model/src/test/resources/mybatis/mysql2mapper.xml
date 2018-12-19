@@ -41,7 +41,6 @@
                enableCountByExample="${enable.example}"
                enableUpdateByExample="${enable.example}" enableDeleteByExample="${enable.example}"
                enableSelectByExample="${enable.example}" selectByExampleQueryId="${enable.example}">
-            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
         <table schema="mybatis" tableName="node_rt" domainObjectName="NodeRt"
                enableCountByExample="${enable.example}" enableUpdateByExample="${enable.example}"
@@ -52,6 +51,13 @@
                enableCountByExample="${enable.example}" enableUpdateByExample="${enable.example}"
                enableDeleteByExample="${enable.example}" enableSelectByExample="${enable.example}"
                selectByExampleQueryId="${enable.example}">
+        </table>
+
+        <table schema="mybatis" tableName="node_app" domainObjectName="NodeApp"
+               enableCountByExample="${enable.example}"
+               enableUpdateByExample="${enable.example}" enableDeleteByExample="${enable.example}"
+               enableSelectByExample="${enable.example}" selectByExampleQueryId="${enable.example}">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
 
     </context>

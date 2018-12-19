@@ -6,6 +6,7 @@ import tbcloud.lib.api.ApiConst;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
@@ -167,6 +168,49 @@ public class IDUtil {
         return 0L;
     }
 
+    public static final String genHttpProxyId(int serverId) {
+        int maxLen = 32;
+        String versionHex = "1";//1-f
+
+        String idHex = Integer.toHexString(serverId); // max length 1-16
+        String idHexLengthHex = Integer.toHexString(idHex.length() - 1);
+        String tsHex = Long.toHexString(System.currentTimeMillis());
+
+        StringBuffer buf = new StringBuffer(24);
+        buf.append(versionHex);
+        buf.append(idHexLengthHex);
+        buf.append(idHex);
+        buf.append(tsHex);
+        // RandomHex
+        int ranlen = maxLen - 2 - idHex.length() - tsHex.length();
+        for (int i = 0; i < ranlen; ++i) {
+            buf.append(Integer.toHexString(ThreadLocalRandom.current().nextInt(0, 16)));
+        }
+
+        return buf.toString();
+    }
+
+    public static final long readServerIdFromHttpProxyId(String httpProxyId) {
+        if (StringUtil.isEmpty(httpProxyId))
+            return 0L;
+
+        char version = httpProxyId.charAt(0);
+        try {
+            if ('1' == version) {
+                int IdHexLength = Integer.parseInt(httpProxyId.substring(1, 2), 16) + 1;
+                if (IdHexLength > 0 && IdHexLength <= 16) {
+                    String IdHex = httpProxyId.substring(2, 2 + IdHexLength);
+                    return Integer.parseInt(IdHex, 16);
+                }
+            }
+            //TODO else
+        } catch (Exception e) {
+            LOG.error(e.getMessage(), e);
+        }
+
+        return 0L;
+    }
+
     public static final String genUserInviteCode() {
         return "";
     }
@@ -174,6 +218,11 @@ public class IDUtil {
     // private static final char inviteCode[] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"};
 
 
+    /**
+     * @param userId
+     * @param name   app name
+     * @return
+     */
     public static final String genAppId(long userId, String name) {
         int maxLen = 32;
         String versionHex = "1";
@@ -247,7 +296,7 @@ public class IDUtil {
         int maxLen = 32;
 
         String insHex = Integer.toHexString(ins);
-        String insHexLen = Integer.toHexString(insHex.length());
+        String insHexLen = Integer.toHexString(insHex.length() - 1);
         String nodeIdHex = Integer.toHexString(nodeId.hashCode());
         String tsHex = Integer.toHexString(new Date().hashCode());
 
@@ -264,6 +313,10 @@ public class IDUtil {
         }
 
         return buf.toString();
+    }
+
+    public static final String uuid() {
+        return UUID.randomUUID().toString().replaceAll("-", "").toLowerCase();
     }
 
 

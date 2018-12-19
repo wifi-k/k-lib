@@ -28,12 +28,18 @@ public interface ConfField {
 
     String FTL_DIR = "ftl.dir";
 
-    /********************* node ************************/
+    /********************* node udp************************/
     String NDOE_API_HOST = "node.api.host";
     String NODE_API_PORT = "node.api.port";
     String NODE_API_AUTH_ENABLED = "node.api.auth.enabled";
     String NODE_API_INS_HOST = "node.api.ins.host";
     String NODE_API_TOKEN_EXPIRED = "node.api.token.expired";
+
+    /********************* node httproxy********************/
+    String NODE_HTTPPROXY_TCP_HOST = "node.httpproxy.tcp.host";
+    String NODE_HTTPPROXY_TCP_PORT = "node.httpproxy.tcp.port";
+    String NODE_HTTPPROXY_HTTP_HOST = "node.httpproxy.http.host";
+    String NODE_HTTPPROXY_HTTP_PORT = "node.httpproxy.http.port";
 
     /********************* share ************************/
     String SHARE_HTTPPROXY_HOST = "share.httpproxy.host";
