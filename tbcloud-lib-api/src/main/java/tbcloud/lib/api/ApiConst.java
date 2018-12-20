@@ -61,9 +61,7 @@ public interface ApiConst extends ConfField {
     String REDIS_KEY_PRODUCT_ALL = "product.all";
     String REDIS_KEY_SYS_DATA_VERSION = "sys.data.version";
 
-    String REDIS_KEY_NOTICE_INFO_ = "notice.info.";
-
-    String REDIS_KEY_NOTICE_PUB_ = "notice.pub."; // 发布限制 notice.pub.yyyyMMdd.USERId
+    String REDIS_KEY_NODE_HTTPPROXY_ALL = "node.httpproxy.all"; //all online nodes which joined httpproxy
 
     // httpclient service group ids
     String HTTP_CLIENT_ID_WXAPI = "wxApi";

@@ -1,6 +1,8 @@
 package tbcloud.lib.api.msg;
 
 /**
+ * 消息定义
+ *
  * @author dzh
  * @date 2018-11-19 19:46
  */
@@ -14,6 +16,10 @@ public interface MsgType {
     int NODE_QUIT_SHARE = 5; //节点离开共享计算
 
     /************************* node (1000,2000)*****************************/
+    int NODE_ONLINE = 1001; //节点认证UDP
+    int NODE_OFFLINE = 1002; //节点离线
+    int NODE_JOIN_HTTPPROXY = 1003;//加入http代理
+    int NODE_QUIT_HTTPPROXY = 1004;//离开http代理
 
 
     default boolean isUserMsg(int type) {

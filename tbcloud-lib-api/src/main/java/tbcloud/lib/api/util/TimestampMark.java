@@ -1,8 +1,9 @@
 package tbcloud.lib.api.util;
 
 /**
+ * 用于分析代码执行时间
+ *
  * @author dzh
- * @version 0.0.1
  * @date May 21, 2018 7:15:14 PM
  */
 public class TimestampMark {
@@ -31,7 +32,7 @@ public class TimestampMark {
         long st = System.currentTimeMillis();
 
         buf.append(n);
-        buf.append("-" + name + ":"); // previous name
+        buf.append("-" + name + ":");
         buf.append(st - ts);
         buf.append(" ");
 
