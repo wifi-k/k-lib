@@ -36,7 +36,8 @@ public interface ConfField {
     String NODE_API_TOKEN_EXPIRED = "node.api.token.expired";
 
     /********************* node httproxy********************/
-    String NODE_HTTPPROXY_TCP_HOST = "node.httpproxy.tcp.host";
+    String NODE_HTTPPROXY_DOMAIN = "node.httpproxy.domain"; // 通知节点的连接地址
+    String NODE_HTTPPROXY_TCP_HOST = "node.httpproxy.tcp.host";//服务器启动地址，默认0.0.0.0
     String NODE_HTTPPROXY_TCP_PORT = "node.httpproxy.tcp.port";
     String NODE_HTTPPROXY_HTTP_HOST = "node.httpproxy.http.host";
     String NODE_HTTPPROXY_HTTP_PORT = "node.httpproxy.http.port";
