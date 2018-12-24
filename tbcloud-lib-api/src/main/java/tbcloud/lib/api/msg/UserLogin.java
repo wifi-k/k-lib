@@ -6,6 +6,7 @@ package tbcloud.lib.api.msg;
  */
 public class UserLogin {
 
+    private int platform;//1-user 2-open
     private long userId;
     private String token;
     private int status; //0-offline 1-online
@@ -41,5 +42,13 @@ public class UserLogin {
 
     public void setDate(long date) {
         this.date = date;
+    }
+
+    public int getPlatform() {
+        return platform;
+    }
+
+    public void setPlatform(int platform) {
+        this.platform = platform;
     }
 }

@@ -80,5 +80,11 @@
                selectByExampleQueryId="${enable.example}">
         </table>
 
+        <table schema="mybatis" tableName="open_online" domainObjectName="OpenOnline"
+               enableCountByExample="${enable.example}" enableUpdateByExample="${enable.example}"
+               enableDeleteByExample="${enable.example}" enableSelectByExample="${enable.example}"
+               selectByExampleQueryId="${enable.example}">
+        </table>
+
     </context>
 </generatorConfiguration>

@@ -44,10 +44,14 @@ public interface ApiConst extends ConfField {
     String REDIS_ID_USER = "user";  // 用户缓存
     String REDIS_ID_NODE = "node"; // 节点缓存
 
+    int PLATFORM_USER = 1; //用户平台
+    int PLATFORM_OPEN = 2; //开放平台
+
     // redis key
     String REDIS_KEY_USER_IMGCODE_ = "user.imgcode.";//id
     String REDIS_KEY_USER_VCODE_ = "user.vcode."; // mobile
     String REDIS_KEY_USER_TOKEN_ = "user.token.";
+    String REDIS_KEY_OPEN_TOKEN_ = "open.token.";
 
     String REDIS_KEY_NODE_TOKEN_ = "node.token.";
     String REDIS_KEY_NODE_INS_ = "node.rsp.";
@@ -75,7 +79,7 @@ public interface ApiConst extends ConfField {
     int USER_ROLE_USER = 1;
     int USER_ROLE_DEVELOPER = 2;
     int USER_ROLE_COMPANY = 4;
-    int uSER_ROLE_ADMIN = 8;
+    int USER_ROLE_ADMIN = 8;
 
     // USER sex
     int USER_SEX_UNKONW = 0;
