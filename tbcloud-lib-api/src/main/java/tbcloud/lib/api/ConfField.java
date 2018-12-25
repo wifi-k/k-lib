@@ -18,8 +18,10 @@ public interface ConfField {
     String WX_APPSECRET = "wx.appsecret";
 
     //七牛
-    String QINIU_DOMAIN = "qiniu.domain";
-    String QINIU_BUCKET = "quniu.bucket";
+//    String QINIU_DOMAIN = "qiniu.domain";
+//    String QINIU_BUCKET = "quniu.bucket";
+    String QINIU_ID_IMGCODE = "imgcode";  //store imgcode images
+    String QINIU_ID_DEVELOPER = "developer"; //store personal auth images
 
     String ENV_NAME = "env.name";
     String DEBUG_ENABLED = "debug.enabled";
