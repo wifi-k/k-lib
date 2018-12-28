@@ -52,6 +52,7 @@ public interface ApiConst extends ConfField {
     String REDIS_KEY_USER_VCODE_ = "user.vcode."; // mobile
     String REDIS_KEY_USER_TOKEN_ = "user.token.";
     String REDIS_KEY_OPEN_TOKEN_ = "open.token.";
+    String REDIS_KEY_USER_PERSONAL_ = "user.personal.";//个人实名信息
 
     String REDIS_KEY_NODE_TOKEN_ = "node.token.";
     String REDIS_KEY_NODE_INS_ = "node.rsp.";
