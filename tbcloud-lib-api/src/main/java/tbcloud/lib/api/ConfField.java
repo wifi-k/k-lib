@@ -44,9 +44,9 @@ public interface ConfField {
     String NODE_HTTPPROXY_HTTP_HOST = "node.httpproxy.http.host";
     String NODE_HTTPPROXY_HTTP_PORT = "node.httpproxy.http.port";
 
-    /********************* share ************************/
-    String SHARE_HTTPPROXY_HOST = "share.httpproxy.host";
-    String SHARE_HTTPPROXY_PORT = "share.httpproxy.port";
+    /********************* open ************************/
+    String OPEN_HTTPPROXY_HOST = "open.httpproxy.host";
+    String OPEN_HTTPPROXY_PORT = "open.httpproxy.port";
 
 
 }
