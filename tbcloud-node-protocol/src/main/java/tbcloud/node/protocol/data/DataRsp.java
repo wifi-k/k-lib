@@ -1,5 +1,7 @@
 package tbcloud.node.protocol.data;
 
+import tbcloud.node.protocol.util.GsonUtil;
+
 /**
  * @author dzh
  * @date 2018-11-25 13:43
@@ -24,5 +26,10 @@ public class DataRsp<T> implements Data {
 
     public void setData(T data) {
         this.data = data;
+    }
+
+    @Override
+    public String toString() {
+        return GsonUtil.toJson(this);
     }
 }
