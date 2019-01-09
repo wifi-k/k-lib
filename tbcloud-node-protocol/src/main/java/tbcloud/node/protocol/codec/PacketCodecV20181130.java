@@ -49,6 +49,7 @@ public class PacketCodecV20181130 implements PacketCodec {
     public ByteBufNodePacket decode(ByteBuffer bytes) {
         ByteBufNodePacket packet = new ByteBufNodePacket();
         int m = bytes.getInt();  // M
+        if (m != PacketConst.M) return null;
         packet.magic(m);
         int v = bytes.getInt(); // V
         packet.version(v);

@@ -12,6 +12,10 @@ public interface PacketCodec {
 
     ByteBuffer encode(ByteBufNodePacket packet);
 
+    /**
+     * @param bytes
+     * @return null if invalid bytes
+     */
     ByteBufNodePacket decode(ByteBuffer bytes);
 
 }
