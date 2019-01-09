@@ -13,6 +13,7 @@ public interface PacketConst extends DataType {
 
     int V_20181130 = 20181130;
 
+    int MIN_SIZE = 17;
     int MAX_SIZE = 4096; //byte NodePacket's max-size
 
     int MONITOR_TYPE_SYS = 1;
