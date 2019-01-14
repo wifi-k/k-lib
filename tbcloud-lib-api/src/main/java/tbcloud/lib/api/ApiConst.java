@@ -55,7 +55,7 @@ public interface ApiConst extends ConfField {
     String REDIS_KEY_USER_PERSONAL_ = "user.personal.";//个人实名信息
 
     String REDIS_KEY_NODE_TOKEN_ = "node.token.";
-    String REDIS_KEY_NODE_INS_ = "node.rsp.";
+    String REDIS_KEY_NODE_INS_ = "node.ins.";
     int REDIS_MAX_NODE_INS = 100;
 
     String REDIS_KEY_USER_INFO_ = "user.info.";
