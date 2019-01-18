@@ -8,6 +8,7 @@ public class NodeAuthRsp {
     private int tokenExpired; // token expired hours
     private String token;
     private String insHost; //host:port,host:port
+    private int tickTime;
     //private String httpsvr;
 
     public String getToken() {
@@ -32,5 +33,13 @@ public class NodeAuthRsp {
 
     public void setTokenExpired(int tokenExpired) {
         this.tokenExpired = tokenExpired;
+    }
+
+    public int getTickTime() {
+        return tickTime;
+    }
+
+    public void setTickTime(int tickTime) {
+        this.tickTime = tickTime;
     }
 }

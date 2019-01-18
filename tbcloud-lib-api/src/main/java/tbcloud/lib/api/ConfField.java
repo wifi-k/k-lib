@@ -36,6 +36,7 @@ public interface ConfField {
     String NODE_API_AUTH_ENABLED = "node.api.auth.enabled";
     String NODE_API_INS_HOST = "node.api.ins.host";
     String NODE_API_TOKEN_EXPIRED = "node.api.token.expired";
+    String NODE_API_TICK_TIME = "node.api.tick.time";
 
     /********************* node httproxy********************/
     String NODE_HTTPPROXY_DOMAIN = "node.httpproxy.domain"; // 通知节点的连接地址

@@ -43,6 +43,7 @@ public interface ApiConst extends ConfField {
     // redis group ids
     String REDIS_ID_USER = "user";  // 用户缓存
     String REDIS_ID_NODE = "node"; // 节点缓存
+    String REDIS_ID_COMMON = "common"; // 公共信息缓存
 
     int PLATFORM_USER = 1; //用户平台
     int PLATFORM_OPEN = 2; //开放平台
@@ -53,18 +54,23 @@ public interface ApiConst extends ConfField {
     String REDIS_KEY_USER_TOKEN_ = "user.token.";
     String REDIS_KEY_OPEN_TOKEN_ = "open.token.";
     String REDIS_KEY_USER_PERSONAL_ = "user.personal.";//个人实名信息
+    String REDIS_KEY_USER_INFO_ = "user.info.";
+    String REDIS_KEY_USER_EMAIL_TOKEN_ = "user.email.token.";
 
     String REDIS_KEY_NODE_TOKEN_ = "node.token.";
     String REDIS_KEY_NODE_INS_ = "node.ins.";
+    String REDIS_KEY_NODE_INFO_ = "node.info.";
+    String REDIS_KEY_NODE_APP_ = "node.app.";
     int REDIS_MAX_NODE_INS = 100;
 
-    String REDIS_KEY_USER_INFO_ = "user.info.";
-    String REDIS_KEY_USER_EMAIL_TOKEN_ = "user.email.token.";
     String REDIS_KEY_BASIC_PROVINCE_ALL = "basic.province.all";
     String REDIS_KEY_BASIC_CITY_ALL = "basic.city.all";
     String REDIS_KEY_BASIC_AREA_ALL = "basic.area.all";
-    String REDIS_KEY_PRODUCT_ALL = "product.all";
-    String REDIS_KEY_SYS_DATA_VERSION = "sys.data.version";
+    String REDIS_KEY_BASIC_PRODUCT_ALL = "basic.product.all";
+    String REDIS_KEY_BASIC_PROVINCE_ = "basic.province.";
+    String REDIS_KEY_BASIC_CITY_ = "basic.city.";
+    String REDIS_KEY_BASIC_AREA_ = "basic.area.";
+    String REDIS_KEY_BASIC_IPINFO_ = "basic.ipinfo.";
 
     String REDIS_KEY_NODE_HTTPPROXY_ALL = "node.httpproxy.all"; //all online nodes which joined httpproxy
 
