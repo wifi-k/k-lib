@@ -19,6 +19,11 @@ public interface NodeConst {
     int STATUS_WARN = 2;
     int STATUS_ERROR = 3;
 
+    // node health
+    int HEALTH_NORMAL = 1;
+    int HEALTH_WARN = 2;
+    int HEALTH_ERROR = 3;
+
     // ins status
     int INS_STATUS_SEND = 0;
     int INS_STATUS_RECV = 1;

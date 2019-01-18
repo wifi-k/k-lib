@@ -21,6 +21,9 @@ public interface MsgType {
     int NODE_OFFLINE = 1002; //节点离线
     int NODE_JOIN_HTTPPROXY = 1003;//加入http代理
     int NODE_QUIT_HTTPPROXY = 1004;//离开http代理
+    int NODE_INFO_UPDATE = 1005;//更新nodeInfo
+    int NODE_RT_UPDATE = 1006;//更新nodeRt
+    int NODE_INS_UPDATE = 1007;//更新nodeIns
 
 
     default boolean isUserMsg(int type) {

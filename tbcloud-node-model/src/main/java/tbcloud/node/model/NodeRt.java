@@ -27,6 +27,8 @@ public class NodeRt {
 
     private Long takeTime;
 
+    private Integer health;
+
     public String getNodeId() {
         return nodeId;
     }
@@ -129,5 +131,13 @@ public class NodeRt {
 
     public void setTakeTime(Long takeTime) {
         this.takeTime = takeTime;
+    }
+
+    public Integer getHealth() {
+        return health;
+    }
+
+    public void setHealth(Integer health) {
+        this.health = health;
     }
 }

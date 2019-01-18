@@ -903,6 +903,66 @@ public class NodeRtExample {
             addCriterion("take_time not between", value1, value2, "takeTime");
             return (Criteria) this;
         }
+
+        public Criteria andHealthIsNull() {
+            addCriterion("health is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andHealthIsNotNull() {
+            addCriterion("health is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andHealthEqualTo(Integer value) {
+            addCriterion("health =", value, "health");
+            return (Criteria) this;
+        }
+
+        public Criteria andHealthNotEqualTo(Integer value) {
+            addCriterion("health <>", value, "health");
+            return (Criteria) this;
+        }
+
+        public Criteria andHealthGreaterThan(Integer value) {
+            addCriterion("health >", value, "health");
+            return (Criteria) this;
+        }
+
+        public Criteria andHealthGreaterThanOrEqualTo(Integer value) {
+            addCriterion("health >=", value, "health");
+            return (Criteria) this;
+        }
+
+        public Criteria andHealthLessThan(Integer value) {
+            addCriterion("health <", value, "health");
+            return (Criteria) this;
+        }
+
+        public Criteria andHealthLessThanOrEqualTo(Integer value) {
+            addCriterion("health <=", value, "health");
+            return (Criteria) this;
+        }
+
+        public Criteria andHealthIn(List<Integer> values) {
+            addCriterion("health in", values, "health");
+            return (Criteria) this;
+        }
+
+        public Criteria andHealthNotIn(List<Integer> values) {
+            addCriterion("health not in", values, "health");
+            return (Criteria) this;
+        }
+
+        public Criteria andHealthBetween(Integer value1, Integer value2) {
+            addCriterion("health between", value1, value2, "health");
+            return (Criteria) this;
+        }
+
+        public Criteria andHealthNotBetween(Integer value1, Integer value2) {
+            addCriterion("health not between", value1, value2, "health");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

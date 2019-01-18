@@ -11,6 +11,7 @@ public class NodeInfoRt extends NodeInfo {
     private long onlineTime;
     private long offlineTime;
     private String token;
+    private Integer health;
 
     public Integer getStatus() {
         return status;
@@ -42,5 +43,13 @@ public class NodeInfoRt extends NodeInfo {
 
     public void setToken(String token) {
         this.token = token;
+    }
+
+    public Integer getHealth() {
+        return health;
+    }
+
+    public void setHealth(Integer health) {
+        this.health = health;
     }
 }
