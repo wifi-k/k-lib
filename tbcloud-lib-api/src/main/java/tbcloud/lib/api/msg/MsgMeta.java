@@ -8,5 +8,6 @@ public interface MsgMeta {
 
     String Topic_User = "tbcUser";
     String Topic_Node = "tbcNode";
+    String Topic_HttpProxy = "tbcHttpProxy";
 
 }
