@@ -44,6 +44,7 @@ public interface ApiConst extends ConfField {
     String REDIS_ID_USER = "user";  // 用户缓存
     String REDIS_ID_NODE = "node"; // 节点缓存
     String REDIS_ID_COMMON = "common"; // 公共信息缓存
+    String REDIS_ID_HTTPPROXY = "httpproxy"; // http代理
 
     int PLATFORM_USER = 1; //用户平台
     int PLATFORM_OPEN = 2; //开放平台
@@ -73,6 +74,7 @@ public interface ApiConst extends ConfField {
     String REDIS_KEY_BASIC_IPINFO_ = "basic.ipinfo.";
 
     String REDIS_KEY_NODE_HTTPPROXY_ALL = "node.httpproxy.all"; //all online nodes which joined httpproxy
+    String REDIS_KEY_NODE_HTTPPROXY_ONLINE_ = "node.httpproxy.online.";//nodeId
 
     // httpclient service group ids
     String HTTP_CLIENT_ID_WXAPI = "wxApi";
