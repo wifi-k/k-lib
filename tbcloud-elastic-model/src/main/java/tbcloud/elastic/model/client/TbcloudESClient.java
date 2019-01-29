@@ -69,6 +69,19 @@ public class TbcloudESClient extends ESClient {
         return isSuccess(rsp);
     }
 
+    public boolean deleteRecord(HttpProxyRecord record) throws IOException {
+        String indexName = indexAliasWrite(ID_HTTPPROXYRECORD);
+
+        String path = String.join("/", indexName, "_doc", record.getId());
+        if (!StringUtil.isEmpty(record.getNodeId())) {
+            path += "?routing=" + record.getNodeId();
+        }
+        Response rsp = httpReq("DELETE", path, null, null);
+        String json = EntityUtils.toString(rsp.getEntity(), StandardCharsets.UTF_8);
+        LOG.info("deleteRecord rsp {} {} {}", record.getUserId(), record.getId(), json);
+        return isSuccess(rsp);
+    }
+
     /**
      * @param userId
      * @param pageNo

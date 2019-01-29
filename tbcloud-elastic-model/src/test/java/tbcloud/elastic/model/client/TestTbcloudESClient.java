@@ -49,6 +49,18 @@ public class TestTbcloudESClient {
         }
     }
 
+    @Test
+    public void deleteRecordTest() {
+        HttpProxyRecord record = new HttpProxyRecord();
+        record.setId("00018ee722cb13b3c8867d43f11f0a31");
+
+        try {
+            client.deleteRecord(record);
+        } catch (IOException e) {
+            LOG.error(e.getMessage(), e);
+        }
+    }
+
     @AfterClass
     public static void close() {
         client.close();
