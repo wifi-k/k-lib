@@ -1,6 +1,10 @@
 package tbcloud.elastic.model.client;
 
-import com.jayway.jsonpath.JsonPath;
+import com.jayway.jsonpath.*;
+import com.jayway.jsonpath.spi.json.GsonJsonProvider;
+import com.jayway.jsonpath.spi.json.JsonProvider;
+import com.jayway.jsonpath.spi.mapper.GsonMappingProvider;
+import com.jayway.jsonpath.spi.mapper.MappingProvider;
 import org.apache.http.util.EntityUtils;
 import org.elasticsearch.client.Response;
 import tbcloud.elastic.model.*;
@@ -10,10 +14,9 @@ import tbcloud.lib.api.util.StringUtil;
 import tbcloud.lib.api.util.TimestampMark;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author dzh
@@ -23,7 +26,33 @@ public class TbcloudESClient extends ESClient {
 
     private static final String ID_HTTPPROXYRECORD = "httpproxyrecord";
 
+    static {
+        Configuration.setDefaults(new Configuration.Defaults() {
+            private final JsonProvider jsonProvider = new GsonJsonProvider();
+            private final MappingProvider mappingProvider = new GsonMappingProvider();
+
+            @Override
+            public JsonProvider jsonProvider() {
+                return jsonProvider;
+            }
+
+            @Override
+            public MappingProvider mappingProvider() {
+                return mappingProvider;
+            }
+
+            @Override
+            public Set<Option> options() {
+                return EnumSet.noneOf(Option.class);
+            }
+        });
+    }
+
     public TbcloudESClient(String conf) throws IOException {
+        super(conf);
+    }
+
+    public TbcloudESClient(InputStream conf) throws IOException {
         super(conf);
     }
 
@@ -74,8 +103,11 @@ public class TbcloudESClient extends ESClient {
             String json = EntityUtils.toString(rsp.getEntity(), StandardCharsets.UTF_8); // closed rsp
             LOG.info("userRecordList rsp {} {}", userId, json);
 
-            List<HttpProxyRecord> recordList = JsonPath.<List<HttpProxyRecord>>read(json, "$.hits.hits[*]._source");
-            Integer total = JsonPath.<Integer>read(json, "$.hits.total");
+            //List<HttpProxyRecord> recordList = JsonPath.<List<HttpProxyRecord>>read(json, "$.hits.hits[*]._source");
+            DocumentContext doc = JsonPath.parse(json);
+            List<HttpProxyRecord> recordList = doc.read("$.hits.hits[*]._source", new TypeRef<List<HttpProxyRecord>>() {
+            });
+            Integer total = doc.read("$.hits.total", Integer.class);
             result.setPage(recordList);
             result.setTotal(total);
 
@@ -97,7 +129,7 @@ public class TbcloudESClient extends ESClient {
         if (isSuccess(rsp) && rsp.getEntity() != null) {
             String json = EntityUtils.toString(rsp.getEntity(), StandardCharsets.UTF_8); // closed rsp
             LOG.info("userRecordList rsp {} {}", userId, json);
-            record = JsonPath.<HttpProxyRecord>read(json, "$._source");
+            record = JsonPath.parse(json).read("$._source", HttpProxyRecord.class);
             mark.mark("source");
         }
         LOG.info("{} {} {}", mark.toString(), userId, recordId);
