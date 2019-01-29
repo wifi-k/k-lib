@@ -24,6 +24,9 @@ public class TestIDUtil {
         LOG.info("{} {}", Integer.toHexString(Integer.MAX_VALUE).length(), Integer.toHexString(Integer.MIN_VALUE).length());
 
         LOG.info("{}", Integer.toHexString(Integer.MAX_VALUE).length());
+
+        String apikey = IDUtil.genApikeyV1(8);
+        LOG.info("{}", IDUtil.readUserIdFromApikey(apikey));
     }
 
     @Test

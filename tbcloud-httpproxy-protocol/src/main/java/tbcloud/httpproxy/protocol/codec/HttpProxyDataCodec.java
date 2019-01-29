@@ -27,7 +27,7 @@ public class HttpProxyDataCodec implements DataCodec {
             byte[] id = ((HttpProxyRequest) data).getId().getBytes(PacketConst.UTF_8);
             byte[] host = ((HttpProxyRequest) data).getHost().getBytes(PacketConst.UTF_8);
             ByteBuffer http = ((HttpProxyRequest) data).getHttp();
-            ByteBuffer buf = ByteBuffer.allocate(1 + nodeId.length + 1 + id.length + 3 + host.length + 8 + http.remaining());
+            ByteBuffer buf = ByteBuffer.allocate(1 + nodeId.length + 1 + id.length + 5 + host.length + 8 + http.remaining());
             buf.put((byte) nodeId.length).put(nodeId); //nodeId
             buf.put((byte) id.length).put(id);//id
             buf.putShort(((HttpProxyRequest) data).getSeq());//seq
