@@ -168,21 +168,23 @@ public class IDUtil {
         return 0L;
     }
 
-    public static final String genHttpProxyId(int serverId) {
+    public static final String genHttpProxyId(int serverId, long userId) {
         int maxLen = 32;
-        String versionHex = "1";//1-f
 
         String idHex = Integer.toHexString(serverId); // max length 1-16
-        String idHexLengthHex = Integer.toHexString(idHex.length() - 1);
-        String tsHex = Long.toHexString(System.currentTimeMillis());
+        String idHexLen = Integer.toHexString(idHex.length() - 1);
+        String userHex = Long.toHexString(userId);
+        String userHexLen = Integer.toHexString(userHex.length() - 1);
+        String tsHex = Integer.toHexString(Long.toHexString(System.currentTimeMillis()).hashCode());
 
-        StringBuffer buf = new StringBuffer(24);
-        buf.append(versionHex);
-        buf.append(idHexLengthHex);
+        StringBuffer buf = new StringBuffer(maxLen);
+        buf.append(idHexLen);
         buf.append(idHex);
+        buf.append(userHexLen);
+        buf.append(userHex);
         buf.append(tsHex);
         // RandomHex
-        int ranlen = maxLen - 2 - idHex.length() - tsHex.length();
+        int ranlen = maxLen - 2 - idHex.length() - userHex.length() - tsHex.length();
         for (int i = 0; i < ranlen; ++i) {
             buf.append(Integer.toHexString(ThreadLocalRandom.current().nextInt(0, 16)));
         }
@@ -190,25 +192,41 @@ public class IDUtil {
         return buf.toString();
     }
 
-    public static final long readServerIdFromHttpProxyId(String httpProxyId) {
+    public static final long readUserIdFromHttpProxyId(String httpProxyId) {
         if (StringUtil.isEmpty(httpProxyId))
             return 0L;
 
-        char version = httpProxyId.charAt(0);
         try {
-            if ('1' == version) {
-                int IdHexLength = Integer.parseInt(httpProxyId.substring(1, 2), 16) + 1;
-                if (IdHexLength > 0 && IdHexLength <= 16) {
-                    String IdHex = httpProxyId.substring(2, 2 + IdHexLength);
-                    return Integer.parseInt(IdHex, 16);
+            int IdHexLength = Integer.parseInt(httpProxyId.substring(0, 1), 16) + 1;
+            if (IdHexLength >= 0) {
+                int idUserLen = Integer.parseInt(httpProxyId.substring(IdHexLength + 1, IdHexLength + 2), 16) + 1;
+                if (idUserLen > 0 && IdHexLength <= 16) {
+                    String userHex = httpProxyId.substring(IdHexLength + 2, IdHexLength + 2 + idUserLen);
+                    return Long.parseLong(userHex, 16);
                 }
             }
-            //TODO else
         } catch (Exception e) {
             LOG.error(e.getMessage(), e);
         }
 
         return 0L;
+    }
+
+    public static final int readServerIdFromHttpProxyId(String httpProxyId) {
+        if (StringUtil.isEmpty(httpProxyId))
+            return 0;
+
+        try {
+            int IdHexLength = Integer.parseInt(httpProxyId.substring(0, 1), 16) + 1;
+            if (IdHexLength > 0 && IdHexLength <= 16) {
+                String IdHex = httpProxyId.substring(1, 1 + IdHexLength);
+                return Integer.parseInt(IdHex, 16);
+            }
+        } catch (Exception e) {
+            LOG.error(e.getMessage(), e);
+        }
+
+        return 0;
     }
 
     public static final String genUserInviteCode() {

@@ -6,9 +6,9 @@ package tbcloud.httpproxy.protocol;
  */
 public interface HttpProxyConst {
 
-    byte PROXY_STATUS_SUCC = '0';
-    byte PROXY_STATUS_FAIL = '1';
-    byte PROXY_STATUS_TIMEOUT = '2';
+    byte PROXY_STATUS_SUCC = 0;
+    byte PROXY_STATUS_FAIL = 1;
+    byte PROXY_STATUS_TIMEOUT = 2;
 
     byte SCHEME_HTTP = 1;
     byte SCHEME_HTTPS = 2;

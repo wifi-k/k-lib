@@ -81,4 +81,15 @@ public class TestIDUtil {
     }
 
 
+    @Test
+    public void genHttpProxyId() {
+        int serverId = 100;
+        long userId = Long.MAX_VALUE;
+        String id = IDUtil.genHttpProxyId(serverId, userId);
+        LOG.info("{}", 32 - 2 - 3 - Long.toHexString(Long.MAX_VALUE).length() - Integer
+                .toHexString(Integer.MAX_VALUE).length());
+        LOG.info("id-{} serverId-{} userId-{} read {} {}", id, serverId, userId,
+                IDUtil.readServerIdFromHttpProxyId(id), IDUtil.readUserIdFromHttpProxyId(id));
+    }
+
 }

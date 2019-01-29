@@ -13,29 +13,33 @@ public class HttpProxyRecord {
 
     private Integer reqSize;
 
+    private Long reqTime;
+
+    private Byte reqSsl;
+
+    private Integer reqPort;
+
+    private String reqPolicy;
+
+    private String nodeId;
+
+    private Byte proxyStatus;
+
+    private Integer proxyCost;
+
     private Integer rspCode;
 
     private String rspReason;
 
     private Integer rspSize;
 
-    private Long reqTime;
-
     private Long rspTime;
-
-    private Long proxySendTime;
-
-    private Long proxyRecvTime;
 
     private Long createTime;
 
     private Long updateTime;
 
     private Byte isDelete;
-
-    private String nodeId;
-
-    private Integer proxyCost;
 
     public String getId() {
         return id;
@@ -85,6 +89,62 @@ public class HttpProxyRecord {
         this.reqSize = reqSize;
     }
 
+    public Long getReqTime() {
+        return reqTime;
+    }
+
+    public void setReqTime(Long reqTime) {
+        this.reqTime = reqTime;
+    }
+
+    public Byte getReqSsl() {
+        return reqSsl;
+    }
+
+    public void setReqSsl(Byte reqSsl) {
+        this.reqSsl = reqSsl;
+    }
+
+    public Integer getReqPort() {
+        return reqPort;
+    }
+
+    public void setReqPort(Integer reqPort) {
+        this.reqPort = reqPort;
+    }
+
+    public String getReqPolicy() {
+        return reqPolicy;
+    }
+
+    public void setReqPolicy(String reqPolicy) {
+        this.reqPolicy = reqPolicy == null ? null : reqPolicy.trim();
+    }
+
+    public String getNodeId() {
+        return nodeId;
+    }
+
+    public void setNodeId(String nodeId) {
+        this.nodeId = nodeId == null ? null : nodeId.trim();
+    }
+
+    public Byte getProxyStatus() {
+        return proxyStatus;
+    }
+
+    public void setProxyStatus(Byte proxyStatus) {
+        this.proxyStatus = proxyStatus;
+    }
+
+    public Integer getProxyCost() {
+        return proxyCost;
+    }
+
+    public void setProxyCost(Integer proxyCost) {
+        this.proxyCost = proxyCost;
+    }
+
     public Integer getRspCode() {
         return rspCode;
     }
@@ -109,36 +169,12 @@ public class HttpProxyRecord {
         this.rspSize = rspSize;
     }
 
-    public Long getReqTime() {
-        return reqTime;
-    }
-
-    public void setReqTime(Long reqTime) {
-        this.reqTime = reqTime;
-    }
-
     public Long getRspTime() {
         return rspTime;
     }
 
     public void setRspTime(Long rspTime) {
         this.rspTime = rspTime;
-    }
-
-    public Long getProxySendTime() {
-        return proxySendTime;
-    }
-
-    public void setProxySendTime(Long proxySendTime) {
-        this.proxySendTime = proxySendTime;
-    }
-
-    public Long getProxyRecvTime() {
-        return proxyRecvTime;
-    }
-
-    public void setProxyRecvTime(Long proxyRecvTime) {
-        this.proxyRecvTime = proxyRecvTime;
     }
 
     public Long getCreateTime() {
@@ -163,21 +199,5 @@ public class HttpProxyRecord {
 
     public void setIsDelete(Byte isDelete) {
         this.isDelete = isDelete;
-    }
-
-    public String getNodeId() {
-        return nodeId;
-    }
-
-    public void setNodeId(String nodeId) {
-        this.nodeId = nodeId == null ? null : nodeId.trim();
-    }
-
-    public Integer getProxyCost() {
-        return proxyCost;
-    }
-
-    public void setProxyCost(Integer proxyCost) {
-        this.proxyCost = proxyCost;
     }
 }

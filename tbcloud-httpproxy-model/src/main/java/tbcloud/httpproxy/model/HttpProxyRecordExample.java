@@ -504,6 +504,446 @@ public class HttpProxyRecordExample {
             return (Criteria) this;
         }
 
+        public Criteria andReqTimeIsNull() {
+            addCriterion("req_time is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqTimeIsNotNull() {
+            addCriterion("req_time is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqTimeEqualTo(Long value) {
+            addCriterion("req_time =", value, "reqTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqTimeNotEqualTo(Long value) {
+            addCriterion("req_time <>", value, "reqTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqTimeGreaterThan(Long value) {
+            addCriterion("req_time >", value, "reqTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqTimeGreaterThanOrEqualTo(Long value) {
+            addCriterion("req_time >=", value, "reqTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqTimeLessThan(Long value) {
+            addCriterion("req_time <", value, "reqTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqTimeLessThanOrEqualTo(Long value) {
+            addCriterion("req_time <=", value, "reqTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqTimeIn(List<Long> values) {
+            addCriterion("req_time in", values, "reqTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqTimeNotIn(List<Long> values) {
+            addCriterion("req_time not in", values, "reqTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqTimeBetween(Long value1, Long value2) {
+            addCriterion("req_time between", value1, value2, "reqTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqTimeNotBetween(Long value1, Long value2) {
+            addCriterion("req_time not between", value1, value2, "reqTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqSslIsNull() {
+            addCriterion("req_ssl is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqSslIsNotNull() {
+            addCriterion("req_ssl is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqSslEqualTo(Byte value) {
+            addCriterion("req_ssl =", value, "reqSsl");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqSslNotEqualTo(Byte value) {
+            addCriterion("req_ssl <>", value, "reqSsl");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqSslGreaterThan(Byte value) {
+            addCriterion("req_ssl >", value, "reqSsl");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqSslGreaterThanOrEqualTo(Byte value) {
+            addCriterion("req_ssl >=", value, "reqSsl");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqSslLessThan(Byte value) {
+            addCriterion("req_ssl <", value, "reqSsl");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqSslLessThanOrEqualTo(Byte value) {
+            addCriterion("req_ssl <=", value, "reqSsl");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqSslIn(List<Byte> values) {
+            addCriterion("req_ssl in", values, "reqSsl");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqSslNotIn(List<Byte> values) {
+            addCriterion("req_ssl not in", values, "reqSsl");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqSslBetween(Byte value1, Byte value2) {
+            addCriterion("req_ssl between", value1, value2, "reqSsl");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqSslNotBetween(Byte value1, Byte value2) {
+            addCriterion("req_ssl not between", value1, value2, "reqSsl");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqPortIsNull() {
+            addCriterion("req_port is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqPortIsNotNull() {
+            addCriterion("req_port is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqPortEqualTo(Integer value) {
+            addCriterion("req_port =", value, "reqPort");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqPortNotEqualTo(Integer value) {
+            addCriterion("req_port <>", value, "reqPort");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqPortGreaterThan(Integer value) {
+            addCriterion("req_port >", value, "reqPort");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqPortGreaterThanOrEqualTo(Integer value) {
+            addCriterion("req_port >=", value, "reqPort");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqPortLessThan(Integer value) {
+            addCriterion("req_port <", value, "reqPort");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqPortLessThanOrEqualTo(Integer value) {
+            addCriterion("req_port <=", value, "reqPort");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqPortIn(List<Integer> values) {
+            addCriterion("req_port in", values, "reqPort");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqPortNotIn(List<Integer> values) {
+            addCriterion("req_port not in", values, "reqPort");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqPortBetween(Integer value1, Integer value2) {
+            addCriterion("req_port between", value1, value2, "reqPort");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqPortNotBetween(Integer value1, Integer value2) {
+            addCriterion("req_port not between", value1, value2, "reqPort");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqPolicyIsNull() {
+            addCriterion("req_policy is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqPolicyIsNotNull() {
+            addCriterion("req_policy is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqPolicyEqualTo(String value) {
+            addCriterion("req_policy =", value, "reqPolicy");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqPolicyNotEqualTo(String value) {
+            addCriterion("req_policy <>", value, "reqPolicy");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqPolicyGreaterThan(String value) {
+            addCriterion("req_policy >", value, "reqPolicy");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqPolicyGreaterThanOrEqualTo(String value) {
+            addCriterion("req_policy >=", value, "reqPolicy");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqPolicyLessThan(String value) {
+            addCriterion("req_policy <", value, "reqPolicy");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqPolicyLessThanOrEqualTo(String value) {
+            addCriterion("req_policy <=", value, "reqPolicy");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqPolicyLike(String value) {
+            addCriterion("req_policy like", value, "reqPolicy");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqPolicyNotLike(String value) {
+            addCriterion("req_policy not like", value, "reqPolicy");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqPolicyIn(List<String> values) {
+            addCriterion("req_policy in", values, "reqPolicy");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqPolicyNotIn(List<String> values) {
+            addCriterion("req_policy not in", values, "reqPolicy");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqPolicyBetween(String value1, String value2) {
+            addCriterion("req_policy between", value1, value2, "reqPolicy");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqPolicyNotBetween(String value1, String value2) {
+            addCriterion("req_policy not between", value1, value2, "reqPolicy");
+            return (Criteria) this;
+        }
+
+        public Criteria andNodeIdIsNull() {
+            addCriterion("node_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andNodeIdIsNotNull() {
+            addCriterion("node_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andNodeIdEqualTo(String value) {
+            addCriterion("node_id =", value, "nodeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andNodeIdNotEqualTo(String value) {
+            addCriterion("node_id <>", value, "nodeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andNodeIdGreaterThan(String value) {
+            addCriterion("node_id >", value, "nodeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andNodeIdGreaterThanOrEqualTo(String value) {
+            addCriterion("node_id >=", value, "nodeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andNodeIdLessThan(String value) {
+            addCriterion("node_id <", value, "nodeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andNodeIdLessThanOrEqualTo(String value) {
+            addCriterion("node_id <=", value, "nodeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andNodeIdLike(String value) {
+            addCriterion("node_id like", value, "nodeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andNodeIdNotLike(String value) {
+            addCriterion("node_id not like", value, "nodeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andNodeIdIn(List<String> values) {
+            addCriterion("node_id in", values, "nodeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andNodeIdNotIn(List<String> values) {
+            addCriterion("node_id not in", values, "nodeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andNodeIdBetween(String value1, String value2) {
+            addCriterion("node_id between", value1, value2, "nodeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andNodeIdNotBetween(String value1, String value2) {
+            addCriterion("node_id not between", value1, value2, "nodeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andProxyStatusIsNull() {
+            addCriterion("proxy_status is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andProxyStatusIsNotNull() {
+            addCriterion("proxy_status is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andProxyStatusEqualTo(Byte value) {
+            addCriterion("proxy_status =", value, "proxyStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andProxyStatusNotEqualTo(Byte value) {
+            addCriterion("proxy_status <>", value, "proxyStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andProxyStatusGreaterThan(Byte value) {
+            addCriterion("proxy_status >", value, "proxyStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andProxyStatusGreaterThanOrEqualTo(Byte value) {
+            addCriterion("proxy_status >=", value, "proxyStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andProxyStatusLessThan(Byte value) {
+            addCriterion("proxy_status <", value, "proxyStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andProxyStatusLessThanOrEqualTo(Byte value) {
+            addCriterion("proxy_status <=", value, "proxyStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andProxyStatusIn(List<Byte> values) {
+            addCriterion("proxy_status in", values, "proxyStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andProxyStatusNotIn(List<Byte> values) {
+            addCriterion("proxy_status not in", values, "proxyStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andProxyStatusBetween(Byte value1, Byte value2) {
+            addCriterion("proxy_status between", value1, value2, "proxyStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andProxyStatusNotBetween(Byte value1, Byte value2) {
+            addCriterion("proxy_status not between", value1, value2, "proxyStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andProxyCostIsNull() {
+            addCriterion("proxy_cost is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andProxyCostIsNotNull() {
+            addCriterion("proxy_cost is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andProxyCostEqualTo(Integer value) {
+            addCriterion("proxy_cost =", value, "proxyCost");
+            return (Criteria) this;
+        }
+
+        public Criteria andProxyCostNotEqualTo(Integer value) {
+            addCriterion("proxy_cost <>", value, "proxyCost");
+            return (Criteria) this;
+        }
+
+        public Criteria andProxyCostGreaterThan(Integer value) {
+            addCriterion("proxy_cost >", value, "proxyCost");
+            return (Criteria) this;
+        }
+
+        public Criteria andProxyCostGreaterThanOrEqualTo(Integer value) {
+            addCriterion("proxy_cost >=", value, "proxyCost");
+            return (Criteria) this;
+        }
+
+        public Criteria andProxyCostLessThan(Integer value) {
+            addCriterion("proxy_cost <", value, "proxyCost");
+            return (Criteria) this;
+        }
+
+        public Criteria andProxyCostLessThanOrEqualTo(Integer value) {
+            addCriterion("proxy_cost <=", value, "proxyCost");
+            return (Criteria) this;
+        }
+
+        public Criteria andProxyCostIn(List<Integer> values) {
+            addCriterion("proxy_cost in", values, "proxyCost");
+            return (Criteria) this;
+        }
+
+        public Criteria andProxyCostNotIn(List<Integer> values) {
+            addCriterion("proxy_cost not in", values, "proxyCost");
+            return (Criteria) this;
+        }
+
+        public Criteria andProxyCostBetween(Integer value1, Integer value2) {
+            addCriterion("proxy_cost between", value1, value2, "proxyCost");
+            return (Criteria) this;
+        }
+
+        public Criteria andProxyCostNotBetween(Integer value1, Integer value2) {
+            addCriterion("proxy_cost not between", value1, value2, "proxyCost");
+            return (Criteria) this;
+        }
+
         public Criteria andRspCodeIsNull() {
             addCriterion("rsp_code is null");
             return (Criteria) this;
@@ -694,66 +1134,6 @@ public class HttpProxyRecordExample {
             return (Criteria) this;
         }
 
-        public Criteria andReqTimeIsNull() {
-            addCriterion("req_time is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andReqTimeIsNotNull() {
-            addCriterion("req_time is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andReqTimeEqualTo(Long value) {
-            addCriterion("req_time =", value, "reqTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andReqTimeNotEqualTo(Long value) {
-            addCriterion("req_time <>", value, "reqTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andReqTimeGreaterThan(Long value) {
-            addCriterion("req_time >", value, "reqTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andReqTimeGreaterThanOrEqualTo(Long value) {
-            addCriterion("req_time >=", value, "reqTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andReqTimeLessThan(Long value) {
-            addCriterion("req_time <", value, "reqTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andReqTimeLessThanOrEqualTo(Long value) {
-            addCriterion("req_time <=", value, "reqTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andReqTimeIn(List<Long> values) {
-            addCriterion("req_time in", values, "reqTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andReqTimeNotIn(List<Long> values) {
-            addCriterion("req_time not in", values, "reqTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andReqTimeBetween(Long value1, Long value2) {
-            addCriterion("req_time between", value1, value2, "reqTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andReqTimeNotBetween(Long value1, Long value2) {
-            addCriterion("req_time not between", value1, value2, "reqTime");
-            return (Criteria) this;
-        }
-
         public Criteria andRspTimeIsNull() {
             addCriterion("rsp_time is null");
             return (Criteria) this;
@@ -811,126 +1191,6 @@ public class HttpProxyRecordExample {
 
         public Criteria andRspTimeNotBetween(Long value1, Long value2) {
             addCriterion("rsp_time not between", value1, value2, "rspTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andProxySendTimeIsNull() {
-            addCriterion("proxy_send_time is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andProxySendTimeIsNotNull() {
-            addCriterion("proxy_send_time is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andProxySendTimeEqualTo(Long value) {
-            addCriterion("proxy_send_time =", value, "proxySendTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andProxySendTimeNotEqualTo(Long value) {
-            addCriterion("proxy_send_time <>", value, "proxySendTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andProxySendTimeGreaterThan(Long value) {
-            addCriterion("proxy_send_time >", value, "proxySendTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andProxySendTimeGreaterThanOrEqualTo(Long value) {
-            addCriterion("proxy_send_time >=", value, "proxySendTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andProxySendTimeLessThan(Long value) {
-            addCriterion("proxy_send_time <", value, "proxySendTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andProxySendTimeLessThanOrEqualTo(Long value) {
-            addCriterion("proxy_send_time <=", value, "proxySendTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andProxySendTimeIn(List<Long> values) {
-            addCriterion("proxy_send_time in", values, "proxySendTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andProxySendTimeNotIn(List<Long> values) {
-            addCriterion("proxy_send_time not in", values, "proxySendTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andProxySendTimeBetween(Long value1, Long value2) {
-            addCriterion("proxy_send_time between", value1, value2, "proxySendTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andProxySendTimeNotBetween(Long value1, Long value2) {
-            addCriterion("proxy_send_time not between", value1, value2, "proxySendTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andProxyRecvTimeIsNull() {
-            addCriterion("proxy_recv_time is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andProxyRecvTimeIsNotNull() {
-            addCriterion("proxy_recv_time is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andProxyRecvTimeEqualTo(Long value) {
-            addCriterion("proxy_recv_time =", value, "proxyRecvTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andProxyRecvTimeNotEqualTo(Long value) {
-            addCriterion("proxy_recv_time <>", value, "proxyRecvTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andProxyRecvTimeGreaterThan(Long value) {
-            addCriterion("proxy_recv_time >", value, "proxyRecvTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andProxyRecvTimeGreaterThanOrEqualTo(Long value) {
-            addCriterion("proxy_recv_time >=", value, "proxyRecvTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andProxyRecvTimeLessThan(Long value) {
-            addCriterion("proxy_recv_time <", value, "proxyRecvTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andProxyRecvTimeLessThanOrEqualTo(Long value) {
-            addCriterion("proxy_recv_time <=", value, "proxyRecvTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andProxyRecvTimeIn(List<Long> values) {
-            addCriterion("proxy_recv_time in", values, "proxyRecvTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andProxyRecvTimeNotIn(List<Long> values) {
-            addCriterion("proxy_recv_time not in", values, "proxyRecvTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andProxyRecvTimeBetween(Long value1, Long value2) {
-            addCriterion("proxy_recv_time between", value1, value2, "proxyRecvTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andProxyRecvTimeNotBetween(Long value1, Long value2) {
-            addCriterion("proxy_recv_time not between", value1, value2, "proxyRecvTime");
             return (Criteria) this;
         }
 
@@ -1111,136 +1371,6 @@ public class HttpProxyRecordExample {
 
         public Criteria andIsDeleteNotBetween(Byte value1, Byte value2) {
             addCriterion("is_delete not between", value1, value2, "isDelete");
-            return (Criteria) this;
-        }
-
-        public Criteria andNodeIdIsNull() {
-            addCriterion("node_id is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andNodeIdIsNotNull() {
-            addCriterion("node_id is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andNodeIdEqualTo(String value) {
-            addCriterion("node_id =", value, "nodeId");
-            return (Criteria) this;
-        }
-
-        public Criteria andNodeIdNotEqualTo(String value) {
-            addCriterion("node_id <>", value, "nodeId");
-            return (Criteria) this;
-        }
-
-        public Criteria andNodeIdGreaterThan(String value) {
-            addCriterion("node_id >", value, "nodeId");
-            return (Criteria) this;
-        }
-
-        public Criteria andNodeIdGreaterThanOrEqualTo(String value) {
-            addCriterion("node_id >=", value, "nodeId");
-            return (Criteria) this;
-        }
-
-        public Criteria andNodeIdLessThan(String value) {
-            addCriterion("node_id <", value, "nodeId");
-            return (Criteria) this;
-        }
-
-        public Criteria andNodeIdLessThanOrEqualTo(String value) {
-            addCriterion("node_id <=", value, "nodeId");
-            return (Criteria) this;
-        }
-
-        public Criteria andNodeIdLike(String value) {
-            addCriterion("node_id like", value, "nodeId");
-            return (Criteria) this;
-        }
-
-        public Criteria andNodeIdNotLike(String value) {
-            addCriterion("node_id not like", value, "nodeId");
-            return (Criteria) this;
-        }
-
-        public Criteria andNodeIdIn(List<String> values) {
-            addCriterion("node_id in", values, "nodeId");
-            return (Criteria) this;
-        }
-
-        public Criteria andNodeIdNotIn(List<String> values) {
-            addCriterion("node_id not in", values, "nodeId");
-            return (Criteria) this;
-        }
-
-        public Criteria andNodeIdBetween(String value1, String value2) {
-            addCriterion("node_id between", value1, value2, "nodeId");
-            return (Criteria) this;
-        }
-
-        public Criteria andNodeIdNotBetween(String value1, String value2) {
-            addCriterion("node_id not between", value1, value2, "nodeId");
-            return (Criteria) this;
-        }
-
-        public Criteria andProxyCostIsNull() {
-            addCriterion("proxy_cost is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andProxyCostIsNotNull() {
-            addCriterion("proxy_cost is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andProxyCostEqualTo(Integer value) {
-            addCriterion("proxy_cost =", value, "proxyCost");
-            return (Criteria) this;
-        }
-
-        public Criteria andProxyCostNotEqualTo(Integer value) {
-            addCriterion("proxy_cost <>", value, "proxyCost");
-            return (Criteria) this;
-        }
-
-        public Criteria andProxyCostGreaterThan(Integer value) {
-            addCriterion("proxy_cost >", value, "proxyCost");
-            return (Criteria) this;
-        }
-
-        public Criteria andProxyCostGreaterThanOrEqualTo(Integer value) {
-            addCriterion("proxy_cost >=", value, "proxyCost");
-            return (Criteria) this;
-        }
-
-        public Criteria andProxyCostLessThan(Integer value) {
-            addCriterion("proxy_cost <", value, "proxyCost");
-            return (Criteria) this;
-        }
-
-        public Criteria andProxyCostLessThanOrEqualTo(Integer value) {
-            addCriterion("proxy_cost <=", value, "proxyCost");
-            return (Criteria) this;
-        }
-
-        public Criteria andProxyCostIn(List<Integer> values) {
-            addCriterion("proxy_cost in", values, "proxyCost");
-            return (Criteria) this;
-        }
-
-        public Criteria andProxyCostNotIn(List<Integer> values) {
-            addCriterion("proxy_cost not in", values, "proxyCost");
-            return (Criteria) this;
-        }
-
-        public Criteria andProxyCostBetween(Integer value1, Integer value2) {
-            addCriterion("proxy_cost between", value1, value2, "proxyCost");
-            return (Criteria) this;
-        }
-
-        public Criteria andProxyCostNotBetween(Integer value1, Integer value2) {
-            addCriterion("proxy_cost not between", value1, value2, "proxyCost");
             return (Criteria) this;
         }
     }

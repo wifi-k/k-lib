@@ -15,15 +15,16 @@ public interface MsgType {
     int NODE_JOIN_SHARE = 4; //节点加入共享计算
     int NODE_QUIT_SHARE = 5; //节点离开共享计算
     int DELETE_QINIU_OBJECT = 6; //删除七牛对象
+    int HTTPPROXY_RECORD_ADD = 7; //增加HttpProxyRecord
 
     /************************* node产生的事件 (1000,2000)*****************************/
     int NODE_ONLINE = 1001; //节点认证UDP
     int NODE_OFFLINE = 1002; //节点离线
-    int NODE_JOIN_HTTPPROXY = 1003;//加入http代理
-    int NODE_QUIT_HTTPPROXY = 1004;//离开http代理
-    int NODE_INFO_UPDATE = 1005;//更新nodeInfo
-    int NODE_RT_UPDATE = 1006;//更新nodeRt
-    int NODE_INS_UPDATE = 1007;//更新nodeIns
+    int NODE_INFO_UPDATE = 1003;//更新nodeInfo
+    int NODE_RT_UPDATE = 1004;//更新nodeRt
+    int NODE_INS_UPDATE = 1005;//更新nodeIns
+    int NODE_JOIN_HTTPPROXY = 1006;//加入http代理
+    int NODE_QUIT_HTTPPROXY = 1007;//离开http代理
 
 
     default boolean isUserMsg(int type) {

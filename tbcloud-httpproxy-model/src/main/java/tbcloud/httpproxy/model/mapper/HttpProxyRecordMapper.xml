@@ -8,18 +8,20 @@
     <result column="req_method" jdbcType="VARCHAR" property="reqMethod" />
     <result column="req_protocol" jdbcType="VARCHAR" property="reqProtocol" />
     <result column="req_size" jdbcType="INTEGER" property="reqSize" />
+    <result column="req_time" jdbcType="BIGINT" property="reqTime" />
+    <result column="req_ssl" jdbcType="TINYINT" property="reqSsl" />
+    <result column="req_port" jdbcType="INTEGER" property="reqPort" />
+    <result column="req_policy" jdbcType="VARCHAR" property="reqPolicy" />
+    <result column="node_id" jdbcType="VARCHAR" property="nodeId" />
+    <result column="proxy_status" jdbcType="TINYINT" property="proxyStatus" />
+    <result column="proxy_cost" jdbcType="INTEGER" property="proxyCost" />
     <result column="rsp_code" jdbcType="INTEGER" property="rspCode" />
     <result column="rsp_reason" jdbcType="VARCHAR" property="rspReason" />
     <result column="rsp_size" jdbcType="INTEGER" property="rspSize" />
-    <result column="req_time" jdbcType="BIGINT" property="reqTime" />
     <result column="rsp_time" jdbcType="BIGINT" property="rspTime" />
-    <result column="proxy_send_time" jdbcType="BIGINT" property="proxySendTime" />
-    <result column="proxy_recv_time" jdbcType="BIGINT" property="proxyRecvTime" />
     <result column="create_time" jdbcType="BIGINT" property="createTime" />
     <result column="update_time" jdbcType="BIGINT" property="updateTime" />
     <result column="is_delete" jdbcType="TINYINT" property="isDelete" />
-    <result column="node_id" jdbcType="VARCHAR" property="nodeId" />
-    <result column="proxy_cost" jdbcType="INTEGER" property="proxyCost" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -80,9 +82,9 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, user_id, req_uri, req_method, req_protocol, req_size, rsp_code, rsp_reason, rsp_size, 
-    req_time, rsp_time, proxy_send_time, proxy_recv_time, create_time, update_time, is_delete, 
-    node_id, proxy_cost
+    id, user_id, req_uri, req_method, req_protocol, req_size, req_time, req_ssl, req_port, 
+    req_policy, node_id, proxy_status, proxy_cost, rsp_code, rsp_reason, rsp_size, rsp_time, 
+    create_time, update_time, is_delete
   </sql>
   <select id="selectByExample" parameterType="tbcloud.httpproxy.model.HttpProxyRecordExample" resultMap="BaseResultMap">
     select
@@ -118,18 +120,18 @@
   <insert id="insert" parameterType="tbcloud.httpproxy.model.HttpProxyRecord">
     insert into httpproxy_record (id, user_id, req_uri, 
       req_method, req_protocol, req_size, 
-      rsp_code, rsp_reason, rsp_size, 
-      req_time, rsp_time, proxy_send_time, 
-      proxy_recv_time, create_time, update_time, 
-      is_delete, node_id, proxy_cost
-      )
+      req_time, req_ssl, req_port, 
+      req_policy, node_id, proxy_status, 
+      proxy_cost, rsp_code, rsp_reason, 
+      rsp_size, rsp_time, create_time, 
+      update_time, is_delete)
     values (#{id,jdbcType=VARCHAR}, #{userId,jdbcType=BIGINT}, #{reqUri,jdbcType=VARCHAR}, 
       #{reqMethod,jdbcType=VARCHAR}, #{reqProtocol,jdbcType=VARCHAR}, #{reqSize,jdbcType=INTEGER}, 
-      #{rspCode,jdbcType=INTEGER}, #{rspReason,jdbcType=VARCHAR}, #{rspSize,jdbcType=INTEGER}, 
-      #{reqTime,jdbcType=BIGINT}, #{rspTime,jdbcType=BIGINT}, #{proxySendTime,jdbcType=BIGINT}, 
-      #{proxyRecvTime,jdbcType=BIGINT}, #{createTime,jdbcType=BIGINT}, #{updateTime,jdbcType=BIGINT}, 
-      #{isDelete,jdbcType=TINYINT}, #{nodeId,jdbcType=VARCHAR}, #{proxyCost,jdbcType=INTEGER}
-      )
+      #{reqTime,jdbcType=BIGINT}, #{reqSsl,jdbcType=TINYINT}, #{reqPort,jdbcType=INTEGER}, 
+      #{reqPolicy,jdbcType=VARCHAR}, #{nodeId,jdbcType=VARCHAR}, #{proxyStatus,jdbcType=TINYINT}, 
+      #{proxyCost,jdbcType=INTEGER}, #{rspCode,jdbcType=INTEGER}, #{rspReason,jdbcType=VARCHAR}, 
+      #{rspSize,jdbcType=INTEGER}, #{rspTime,jdbcType=BIGINT}, #{createTime,jdbcType=BIGINT}, 
+      #{updateTime,jdbcType=BIGINT}, #{isDelete,jdbcType=TINYINT})
   </insert>
   <insert id="insertSelective" parameterType="tbcloud.httpproxy.model.HttpProxyRecord">
     insert into httpproxy_record
@@ -152,6 +154,27 @@
       <if test="reqSize != null">
         req_size,
       </if>
+      <if test="reqTime != null">
+        req_time,
+      </if>
+      <if test="reqSsl != null">
+        req_ssl,
+      </if>
+      <if test="reqPort != null">
+        req_port,
+      </if>
+      <if test="reqPolicy != null">
+        req_policy,
+      </if>
+      <if test="nodeId != null">
+        node_id,
+      </if>
+      <if test="proxyStatus != null">
+        proxy_status,
+      </if>
+      <if test="proxyCost != null">
+        proxy_cost,
+      </if>
       <if test="rspCode != null">
         rsp_code,
       </if>
@@ -161,17 +184,8 @@
       <if test="rspSize != null">
         rsp_size,
       </if>
-      <if test="reqTime != null">
-        req_time,
-      </if>
       <if test="rspTime != null">
         rsp_time,
-      </if>
-      <if test="proxySendTime != null">
-        proxy_send_time,
-      </if>
-      <if test="proxyRecvTime != null">
-        proxy_recv_time,
       </if>
       <if test="createTime != null">
         create_time,
@@ -181,12 +195,6 @@
       </if>
       <if test="isDelete != null">
         is_delete,
-      </if>
-      <if test="nodeId != null">
-        node_id,
-      </if>
-      <if test="proxyCost != null">
-        proxy_cost,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -208,6 +216,27 @@
       <if test="reqSize != null">
         #{reqSize,jdbcType=INTEGER},
       </if>
+      <if test="reqTime != null">
+        #{reqTime,jdbcType=BIGINT},
+      </if>
+      <if test="reqSsl != null">
+        #{reqSsl,jdbcType=TINYINT},
+      </if>
+      <if test="reqPort != null">
+        #{reqPort,jdbcType=INTEGER},
+      </if>
+      <if test="reqPolicy != null">
+        #{reqPolicy,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeId != null">
+        #{nodeId,jdbcType=VARCHAR},
+      </if>
+      <if test="proxyStatus != null">
+        #{proxyStatus,jdbcType=TINYINT},
+      </if>
+      <if test="proxyCost != null">
+        #{proxyCost,jdbcType=INTEGER},
+      </if>
       <if test="rspCode != null">
         #{rspCode,jdbcType=INTEGER},
       </if>
@@ -217,17 +246,8 @@
       <if test="rspSize != null">
         #{rspSize,jdbcType=INTEGER},
       </if>
-      <if test="reqTime != null">
-        #{reqTime,jdbcType=BIGINT},
-      </if>
       <if test="rspTime != null">
         #{rspTime,jdbcType=BIGINT},
-      </if>
-      <if test="proxySendTime != null">
-        #{proxySendTime,jdbcType=BIGINT},
-      </if>
-      <if test="proxyRecvTime != null">
-        #{proxyRecvTime,jdbcType=BIGINT},
       </if>
       <if test="createTime != null">
         #{createTime,jdbcType=BIGINT},
@@ -237,12 +257,6 @@
       </if>
       <if test="isDelete != null">
         #{isDelete,jdbcType=TINYINT},
-      </if>
-      <if test="nodeId != null">
-        #{nodeId,jdbcType=VARCHAR},
-      </if>
-      <if test="proxyCost != null">
-        #{proxyCost,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -273,6 +287,27 @@
       <if test="record.reqSize != null">
         req_size = #{record.reqSize,jdbcType=INTEGER},
       </if>
+      <if test="record.reqTime != null">
+        req_time = #{record.reqTime,jdbcType=BIGINT},
+      </if>
+      <if test="record.reqSsl != null">
+        req_ssl = #{record.reqSsl,jdbcType=TINYINT},
+      </if>
+      <if test="record.reqPort != null">
+        req_port = #{record.reqPort,jdbcType=INTEGER},
+      </if>
+      <if test="record.reqPolicy != null">
+        req_policy = #{record.reqPolicy,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nodeId != null">
+        node_id = #{record.nodeId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.proxyStatus != null">
+        proxy_status = #{record.proxyStatus,jdbcType=TINYINT},
+      </if>
+      <if test="record.proxyCost != null">
+        proxy_cost = #{record.proxyCost,jdbcType=INTEGER},
+      </if>
       <if test="record.rspCode != null">
         rsp_code = #{record.rspCode,jdbcType=INTEGER},
       </if>
@@ -282,17 +317,8 @@
       <if test="record.rspSize != null">
         rsp_size = #{record.rspSize,jdbcType=INTEGER},
       </if>
-      <if test="record.reqTime != null">
-        req_time = #{record.reqTime,jdbcType=BIGINT},
-      </if>
       <if test="record.rspTime != null">
         rsp_time = #{record.rspTime,jdbcType=BIGINT},
-      </if>
-      <if test="record.proxySendTime != null">
-        proxy_send_time = #{record.proxySendTime,jdbcType=BIGINT},
-      </if>
-      <if test="record.proxyRecvTime != null">
-        proxy_recv_time = #{record.proxyRecvTime,jdbcType=BIGINT},
       </if>
       <if test="record.createTime != null">
         create_time = #{record.createTime,jdbcType=BIGINT},
@@ -302,12 +328,6 @@
       </if>
       <if test="record.isDelete != null">
         is_delete = #{record.isDelete,jdbcType=TINYINT},
-      </if>
-      <if test="record.nodeId != null">
-        node_id = #{record.nodeId,jdbcType=VARCHAR},
-      </if>
-      <if test="record.proxyCost != null">
-        proxy_cost = #{record.proxyCost,jdbcType=INTEGER},
       </if>
     </set>
     <if test="_parameter != null">
@@ -322,18 +342,20 @@
       req_method = #{record.reqMethod,jdbcType=VARCHAR},
       req_protocol = #{record.reqProtocol,jdbcType=VARCHAR},
       req_size = #{record.reqSize,jdbcType=INTEGER},
+      req_time = #{record.reqTime,jdbcType=BIGINT},
+      req_ssl = #{record.reqSsl,jdbcType=TINYINT},
+      req_port = #{record.reqPort,jdbcType=INTEGER},
+      req_policy = #{record.reqPolicy,jdbcType=VARCHAR},
+      node_id = #{record.nodeId,jdbcType=VARCHAR},
+      proxy_status = #{record.proxyStatus,jdbcType=TINYINT},
+      proxy_cost = #{record.proxyCost,jdbcType=INTEGER},
       rsp_code = #{record.rspCode,jdbcType=INTEGER},
       rsp_reason = #{record.rspReason,jdbcType=VARCHAR},
       rsp_size = #{record.rspSize,jdbcType=INTEGER},
-      req_time = #{record.reqTime,jdbcType=BIGINT},
       rsp_time = #{record.rspTime,jdbcType=BIGINT},
-      proxy_send_time = #{record.proxySendTime,jdbcType=BIGINT},
-      proxy_recv_time = #{record.proxyRecvTime,jdbcType=BIGINT},
       create_time = #{record.createTime,jdbcType=BIGINT},
       update_time = #{record.updateTime,jdbcType=BIGINT},
-      is_delete = #{record.isDelete,jdbcType=TINYINT},
-      node_id = #{record.nodeId,jdbcType=VARCHAR},
-      proxy_cost = #{record.proxyCost,jdbcType=INTEGER}
+      is_delete = #{record.isDelete,jdbcType=TINYINT}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -356,6 +378,27 @@
       <if test="reqSize != null">
         req_size = #{reqSize,jdbcType=INTEGER},
       </if>
+      <if test="reqTime != null">
+        req_time = #{reqTime,jdbcType=BIGINT},
+      </if>
+      <if test="reqSsl != null">
+        req_ssl = #{reqSsl,jdbcType=TINYINT},
+      </if>
+      <if test="reqPort != null">
+        req_port = #{reqPort,jdbcType=INTEGER},
+      </if>
+      <if test="reqPolicy != null">
+        req_policy = #{reqPolicy,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeId != null">
+        node_id = #{nodeId,jdbcType=VARCHAR},
+      </if>
+      <if test="proxyStatus != null">
+        proxy_status = #{proxyStatus,jdbcType=TINYINT},
+      </if>
+      <if test="proxyCost != null">
+        proxy_cost = #{proxyCost,jdbcType=INTEGER},
+      </if>
       <if test="rspCode != null">
         rsp_code = #{rspCode,jdbcType=INTEGER},
       </if>
@@ -365,17 +408,8 @@
       <if test="rspSize != null">
         rsp_size = #{rspSize,jdbcType=INTEGER},
       </if>
-      <if test="reqTime != null">
-        req_time = #{reqTime,jdbcType=BIGINT},
-      </if>
       <if test="rspTime != null">
         rsp_time = #{rspTime,jdbcType=BIGINT},
-      </if>
-      <if test="proxySendTime != null">
-        proxy_send_time = #{proxySendTime,jdbcType=BIGINT},
-      </if>
-      <if test="proxyRecvTime != null">
-        proxy_recv_time = #{proxyRecvTime,jdbcType=BIGINT},
       </if>
       <if test="createTime != null">
         create_time = #{createTime,jdbcType=BIGINT},
@@ -385,12 +419,6 @@
       </if>
       <if test="isDelete != null">
         is_delete = #{isDelete,jdbcType=TINYINT},
-      </if>
-      <if test="nodeId != null">
-        node_id = #{nodeId,jdbcType=VARCHAR},
-      </if>
-      <if test="proxyCost != null">
-        proxy_cost = #{proxyCost,jdbcType=INTEGER},
       </if>
     </set>
     where id = #{id,jdbcType=VARCHAR}
@@ -402,18 +430,20 @@
       req_method = #{reqMethod,jdbcType=VARCHAR},
       req_protocol = #{reqProtocol,jdbcType=VARCHAR},
       req_size = #{reqSize,jdbcType=INTEGER},
+      req_time = #{reqTime,jdbcType=BIGINT},
+      req_ssl = #{reqSsl,jdbcType=TINYINT},
+      req_port = #{reqPort,jdbcType=INTEGER},
+      req_policy = #{reqPolicy,jdbcType=VARCHAR},
+      node_id = #{nodeId,jdbcType=VARCHAR},
+      proxy_status = #{proxyStatus,jdbcType=TINYINT},
+      proxy_cost = #{proxyCost,jdbcType=INTEGER},
       rsp_code = #{rspCode,jdbcType=INTEGER},
       rsp_reason = #{rspReason,jdbcType=VARCHAR},
       rsp_size = #{rspSize,jdbcType=INTEGER},
-      req_time = #{reqTime,jdbcType=BIGINT},
       rsp_time = #{rspTime,jdbcType=BIGINT},
-      proxy_send_time = #{proxySendTime,jdbcType=BIGINT},
-      proxy_recv_time = #{proxyRecvTime,jdbcType=BIGINT},
       create_time = #{createTime,jdbcType=BIGINT},
       update_time = #{updateTime,jdbcType=BIGINT},
-      is_delete = #{isDelete,jdbcType=TINYINT},
-      node_id = #{nodeId,jdbcType=VARCHAR},
-      proxy_cost = #{proxyCost,jdbcType=INTEGER}
+      is_delete = #{isDelete,jdbcType=TINYINT}
     where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

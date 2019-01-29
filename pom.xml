@@ -14,12 +14,15 @@
         <module>tbcloud-httpproxy-model</module>
         <module>tbcloud-common-model</module>
         <module>tbcloud-httpproxy-protocol</module>
+        <module>tbcloud-elastic-model</module>
     </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jdk.version>11</jdk.version>
         <gson.version>2.8.5</gson.version>
+        <es.version>6.5.4</es.version>
+        <jframe.version>2.0.0-SNAPSHOT</jframe.version>
     </properties>
 
     <build>
@@ -123,6 +126,21 @@
                 <artifactId>mybatis-generator-core</artifactId>
                 <version>1.3.7</version>
                 <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.elasticsearch.client</groupId>
+                <artifactId>elasticsearch-rest-client</artifactId>
+                <version>${es.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.jayway.jsonpath</groupId>
+                <artifactId>json-path</artifactId>
+                <version>2.4.0</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.dzh</groupId>
+                <artifactId>jframe-core</artifactId>
+                <version>${jframe.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

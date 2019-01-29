@@ -11,11 +11,15 @@
 
     <artifactId>tbcloud-lib-api</artifactId>
 
-
     <dependencies>
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
         </dependency>
+        <dependency>
+            <groupId>io.github.dzh</groupId>
+            <artifactId>jframe-core</artifactId>
+        </dependency>
     </dependencies>
+
 </project>

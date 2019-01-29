@@ -6,6 +6,9 @@ package tbcloud.lib.api;
  */
 public interface ConfField {
 
+    /********************* common ************************/
+    String FILE_ES = "file.es";//elasticsearch conf file path
+
     /********************* user ************************/
     String HTTP_PORT = "api.http.port";
     String HTTP_HOST = "api.http.host";
@@ -45,9 +48,8 @@ public interface ConfField {
     String NODE_HTTPPROXY_HTTP_HOST = "node.httpproxy.http.host";
     String NODE_HTTPPROXY_HTTP_PORT = "node.httpproxy.http.port";
 
-    /********************* open ************************/
+    /********************* open httpproxy************************/
     String OPEN_HTTPPROXY_HOST = "open.httpproxy.host";
     String OPEN_HTTPPROXY_PORT = "open.httpproxy.port";
-
 
 }
