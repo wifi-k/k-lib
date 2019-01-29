@@ -22,7 +22,7 @@ public class TestTbcloudESClient {
 
     static int serverId = 0;
 
-    static long userId = 1L;
+    static long userId = 15L;
 
     @BeforeClass
     public static void init() {
