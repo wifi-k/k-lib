@@ -13,15 +13,12 @@ public interface ApiConst extends ConfField {
     String API_TOKEN = "Api-Token";
     String API_VERSION = "Api-Version";
     String API_APIKEY = "Api-Apikey";
-    String HTTPPROXY_SSL = "HttpProxy-SSL";// 0-disable,1-enable
-    String HTTPPROXY_PORT = "HttpProxy-Port";// 默认80 or 443
 
     String HTTPPROXY_NODE = "HttpProxy-Node";// NodeId代理节点
     String HTTPPROXY_POLICY = "HttpProxy-Policy";//random hold
     String HTTPPROXY_RECORD = "HttpProxy-Record"; // httpproxy record id
     String HTTPPROXY_ERROR_CODE = "HttpProxy-Error-Code";//标示代理发生的自定义错误响应
     String HTTPPROXY_ERROR_MSG = "HttpProxy-Error-Msg";//标示代理发生的自定义错误响应
-    //String HTTPPROXY_REQTIME = "HttpProxy-ReqTime";//记录请求时间
 
     Charset UTF8 = StandardCharsets.UTF_8;
 

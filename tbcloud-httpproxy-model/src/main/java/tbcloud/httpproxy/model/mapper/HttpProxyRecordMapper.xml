@@ -4,13 +4,15 @@
   <resultMap id="BaseResultMap" type="tbcloud.httpproxy.model.HttpProxyRecord">
     <id column="id" jdbcType="VARCHAR" property="id" />
     <result column="user_id" jdbcType="BIGINT" property="userId" />
-    <result column="req_uri" jdbcType="VARCHAR" property="reqUri" />
     <result column="req_method" jdbcType="VARCHAR" property="reqMethod" />
     <result column="req_protocol" jdbcType="VARCHAR" property="reqProtocol" />
     <result column="req_size" jdbcType="INTEGER" property="reqSize" />
     <result column="req_time" jdbcType="BIGINT" property="reqTime" />
-    <result column="req_ssl" jdbcType="TINYINT" property="reqSsl" />
+    <result column="req_scheme" jdbcType="VARCHAR" property="reqScheme" />
+    <result column="req_host" jdbcType="VARCHAR" property="reqHost" />
     <result column="req_port" jdbcType="INTEGER" property="reqPort" />
+    <result column="req_path" jdbcType="VARCHAR" property="reqPath" />
+    <result column="req_query" jdbcType="VARCHAR" property="reqQuery" />
     <result column="req_policy" jdbcType="VARCHAR" property="reqPolicy" />
     <result column="node_id" jdbcType="VARCHAR" property="nodeId" />
     <result column="proxy_status" jdbcType="TINYINT" property="proxyStatus" />
@@ -82,9 +84,9 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, user_id, req_uri, req_method, req_protocol, req_size, req_time, req_ssl, req_port, 
-    req_policy, node_id, proxy_status, proxy_cost, rsp_code, rsp_reason, rsp_size, rsp_time, 
-    create_time, update_time, is_delete
+    id, user_id, req_method, req_protocol, req_size, req_time, req_scheme, req_host, 
+    req_port, req_path, req_query, req_policy, node_id, proxy_status, proxy_cost, rsp_code, 
+    rsp_reason, rsp_size, rsp_time, create_time, update_time, is_delete
   </sql>
   <select id="selectByExample" parameterType="tbcloud.httpproxy.model.HttpProxyRecordExample" resultMap="BaseResultMap">
     select
@@ -118,20 +120,22 @@
     </if>
   </delete>
   <insert id="insert" parameterType="tbcloud.httpproxy.model.HttpProxyRecord">
-    insert into httpproxy_record (id, user_id, req_uri, 
-      req_method, req_protocol, req_size, 
-      req_time, req_ssl, req_port, 
-      req_policy, node_id, proxy_status, 
-      proxy_cost, rsp_code, rsp_reason, 
-      rsp_size, rsp_time, create_time, 
-      update_time, is_delete)
-    values (#{id,jdbcType=VARCHAR}, #{userId,jdbcType=BIGINT}, #{reqUri,jdbcType=VARCHAR}, 
-      #{reqMethod,jdbcType=VARCHAR}, #{reqProtocol,jdbcType=VARCHAR}, #{reqSize,jdbcType=INTEGER}, 
-      #{reqTime,jdbcType=BIGINT}, #{reqSsl,jdbcType=TINYINT}, #{reqPort,jdbcType=INTEGER}, 
-      #{reqPolicy,jdbcType=VARCHAR}, #{nodeId,jdbcType=VARCHAR}, #{proxyStatus,jdbcType=TINYINT}, 
-      #{proxyCost,jdbcType=INTEGER}, #{rspCode,jdbcType=INTEGER}, #{rspReason,jdbcType=VARCHAR}, 
-      #{rspSize,jdbcType=INTEGER}, #{rspTime,jdbcType=BIGINT}, #{createTime,jdbcType=BIGINT}, 
-      #{updateTime,jdbcType=BIGINT}, #{isDelete,jdbcType=TINYINT})
+    insert into httpproxy_record (id, user_id, req_method, 
+      req_protocol, req_size, req_time, 
+      req_scheme, req_host, req_port, 
+      req_path, req_query, req_policy, 
+      node_id, proxy_status, proxy_cost, 
+      rsp_code, rsp_reason, rsp_size, 
+      rsp_time, create_time, update_time, 
+      is_delete)
+    values (#{id,jdbcType=VARCHAR}, #{userId,jdbcType=BIGINT}, #{reqMethod,jdbcType=VARCHAR}, 
+      #{reqProtocol,jdbcType=VARCHAR}, #{reqSize,jdbcType=INTEGER}, #{reqTime,jdbcType=BIGINT}, 
+      #{reqScheme,jdbcType=VARCHAR}, #{reqHost,jdbcType=VARCHAR}, #{reqPort,jdbcType=INTEGER}, 
+      #{reqPath,jdbcType=VARCHAR}, #{reqQuery,jdbcType=VARCHAR}, #{reqPolicy,jdbcType=VARCHAR}, 
+      #{nodeId,jdbcType=VARCHAR}, #{proxyStatus,jdbcType=TINYINT}, #{proxyCost,jdbcType=INTEGER}, 
+      #{rspCode,jdbcType=INTEGER}, #{rspReason,jdbcType=VARCHAR}, #{rspSize,jdbcType=INTEGER}, 
+      #{rspTime,jdbcType=BIGINT}, #{createTime,jdbcType=BIGINT}, #{updateTime,jdbcType=BIGINT}, 
+      #{isDelete,jdbcType=TINYINT})
   </insert>
   <insert id="insertSelective" parameterType="tbcloud.httpproxy.model.HttpProxyRecord">
     insert into httpproxy_record
@@ -141,9 +145,6 @@
       </if>
       <if test="userId != null">
         user_id,
-      </if>
-      <if test="reqUri != null">
-        req_uri,
       </if>
       <if test="reqMethod != null">
         req_method,
@@ -157,11 +158,20 @@
       <if test="reqTime != null">
         req_time,
       </if>
-      <if test="reqSsl != null">
-        req_ssl,
+      <if test="reqScheme != null">
+        req_scheme,
+      </if>
+      <if test="reqHost != null">
+        req_host,
       </if>
       <if test="reqPort != null">
         req_port,
+      </if>
+      <if test="reqPath != null">
+        req_path,
+      </if>
+      <if test="reqQuery != null">
+        req_query,
       </if>
       <if test="reqPolicy != null">
         req_policy,
@@ -204,9 +214,6 @@
       <if test="userId != null">
         #{userId,jdbcType=BIGINT},
       </if>
-      <if test="reqUri != null">
-        #{reqUri,jdbcType=VARCHAR},
-      </if>
       <if test="reqMethod != null">
         #{reqMethod,jdbcType=VARCHAR},
       </if>
@@ -219,11 +226,20 @@
       <if test="reqTime != null">
         #{reqTime,jdbcType=BIGINT},
       </if>
-      <if test="reqSsl != null">
-        #{reqSsl,jdbcType=TINYINT},
+      <if test="reqScheme != null">
+        #{reqScheme,jdbcType=VARCHAR},
+      </if>
+      <if test="reqHost != null">
+        #{reqHost,jdbcType=VARCHAR},
       </if>
       <if test="reqPort != null">
         #{reqPort,jdbcType=INTEGER},
+      </if>
+      <if test="reqPath != null">
+        #{reqPath,jdbcType=VARCHAR},
+      </if>
+      <if test="reqQuery != null">
+        #{reqQuery,jdbcType=VARCHAR},
       </if>
       <if test="reqPolicy != null">
         #{reqPolicy,jdbcType=VARCHAR},
@@ -275,9 +291,6 @@
       <if test="record.userId != null">
         user_id = #{record.userId,jdbcType=BIGINT},
       </if>
-      <if test="record.reqUri != null">
-        req_uri = #{record.reqUri,jdbcType=VARCHAR},
-      </if>
       <if test="record.reqMethod != null">
         req_method = #{record.reqMethod,jdbcType=VARCHAR},
       </if>
@@ -290,11 +303,20 @@
       <if test="record.reqTime != null">
         req_time = #{record.reqTime,jdbcType=BIGINT},
       </if>
-      <if test="record.reqSsl != null">
-        req_ssl = #{record.reqSsl,jdbcType=TINYINT},
+      <if test="record.reqScheme != null">
+        req_scheme = #{record.reqScheme,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reqHost != null">
+        req_host = #{record.reqHost,jdbcType=VARCHAR},
       </if>
       <if test="record.reqPort != null">
         req_port = #{record.reqPort,jdbcType=INTEGER},
+      </if>
+      <if test="record.reqPath != null">
+        req_path = #{record.reqPath,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reqQuery != null">
+        req_query = #{record.reqQuery,jdbcType=VARCHAR},
       </if>
       <if test="record.reqPolicy != null">
         req_policy = #{record.reqPolicy,jdbcType=VARCHAR},
@@ -338,13 +360,15 @@
     update httpproxy_record
     set id = #{record.id,jdbcType=VARCHAR},
       user_id = #{record.userId,jdbcType=BIGINT},
-      req_uri = #{record.reqUri,jdbcType=VARCHAR},
       req_method = #{record.reqMethod,jdbcType=VARCHAR},
       req_protocol = #{record.reqProtocol,jdbcType=VARCHAR},
       req_size = #{record.reqSize,jdbcType=INTEGER},
       req_time = #{record.reqTime,jdbcType=BIGINT},
-      req_ssl = #{record.reqSsl,jdbcType=TINYINT},
+      req_scheme = #{record.reqScheme,jdbcType=VARCHAR},
+      req_host = #{record.reqHost,jdbcType=VARCHAR},
       req_port = #{record.reqPort,jdbcType=INTEGER},
+      req_path = #{record.reqPath,jdbcType=VARCHAR},
+      req_query = #{record.reqQuery,jdbcType=VARCHAR},
       req_policy = #{record.reqPolicy,jdbcType=VARCHAR},
       node_id = #{record.nodeId,jdbcType=VARCHAR},
       proxy_status = #{record.proxyStatus,jdbcType=TINYINT},
@@ -366,9 +390,6 @@
       <if test="userId != null">
         user_id = #{userId,jdbcType=BIGINT},
       </if>
-      <if test="reqUri != null">
-        req_uri = #{reqUri,jdbcType=VARCHAR},
-      </if>
       <if test="reqMethod != null">
         req_method = #{reqMethod,jdbcType=VARCHAR},
       </if>
@@ -381,11 +402,20 @@
       <if test="reqTime != null">
         req_time = #{reqTime,jdbcType=BIGINT},
       </if>
-      <if test="reqSsl != null">
-        req_ssl = #{reqSsl,jdbcType=TINYINT},
+      <if test="reqScheme != null">
+        req_scheme = #{reqScheme,jdbcType=VARCHAR},
+      </if>
+      <if test="reqHost != null">
+        req_host = #{reqHost,jdbcType=VARCHAR},
       </if>
       <if test="reqPort != null">
         req_port = #{reqPort,jdbcType=INTEGER},
+      </if>
+      <if test="reqPath != null">
+        req_path = #{reqPath,jdbcType=VARCHAR},
+      </if>
+      <if test="reqQuery != null">
+        req_query = #{reqQuery,jdbcType=VARCHAR},
       </if>
       <if test="reqPolicy != null">
         req_policy = #{reqPolicy,jdbcType=VARCHAR},
@@ -426,13 +456,15 @@
   <update id="updateByPrimaryKey" parameterType="tbcloud.httpproxy.model.HttpProxyRecord">
     update httpproxy_record
     set user_id = #{userId,jdbcType=BIGINT},
-      req_uri = #{reqUri,jdbcType=VARCHAR},
       req_method = #{reqMethod,jdbcType=VARCHAR},
       req_protocol = #{reqProtocol,jdbcType=VARCHAR},
       req_size = #{reqSize,jdbcType=INTEGER},
       req_time = #{reqTime,jdbcType=BIGINT},
-      req_ssl = #{reqSsl,jdbcType=TINYINT},
+      req_scheme = #{reqScheme,jdbcType=VARCHAR},
+      req_host = #{reqHost,jdbcType=VARCHAR},
       req_port = #{reqPort,jdbcType=INTEGER},
+      req_path = #{reqPath,jdbcType=VARCHAR},
+      req_query = #{reqQuery,jdbcType=VARCHAR},
       req_policy = #{reqPolicy,jdbcType=VARCHAR},
       node_id = #{nodeId,jdbcType=VARCHAR},
       proxy_status = #{proxyStatus,jdbcType=TINYINT},

@@ -234,76 +234,6 @@ public class HttpProxyRecordExample {
             return (Criteria) this;
         }
 
-        public Criteria andReqUriIsNull() {
-            addCriterion("req_uri is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andReqUriIsNotNull() {
-            addCriterion("req_uri is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andReqUriEqualTo(String value) {
-            addCriterion("req_uri =", value, "reqUri");
-            return (Criteria) this;
-        }
-
-        public Criteria andReqUriNotEqualTo(String value) {
-            addCriterion("req_uri <>", value, "reqUri");
-            return (Criteria) this;
-        }
-
-        public Criteria andReqUriGreaterThan(String value) {
-            addCriterion("req_uri >", value, "reqUri");
-            return (Criteria) this;
-        }
-
-        public Criteria andReqUriGreaterThanOrEqualTo(String value) {
-            addCriterion("req_uri >=", value, "reqUri");
-            return (Criteria) this;
-        }
-
-        public Criteria andReqUriLessThan(String value) {
-            addCriterion("req_uri <", value, "reqUri");
-            return (Criteria) this;
-        }
-
-        public Criteria andReqUriLessThanOrEqualTo(String value) {
-            addCriterion("req_uri <=", value, "reqUri");
-            return (Criteria) this;
-        }
-
-        public Criteria andReqUriLike(String value) {
-            addCriterion("req_uri like", value, "reqUri");
-            return (Criteria) this;
-        }
-
-        public Criteria andReqUriNotLike(String value) {
-            addCriterion("req_uri not like", value, "reqUri");
-            return (Criteria) this;
-        }
-
-        public Criteria andReqUriIn(List<String> values) {
-            addCriterion("req_uri in", values, "reqUri");
-            return (Criteria) this;
-        }
-
-        public Criteria andReqUriNotIn(List<String> values) {
-            addCriterion("req_uri not in", values, "reqUri");
-            return (Criteria) this;
-        }
-
-        public Criteria andReqUriBetween(String value1, String value2) {
-            addCriterion("req_uri between", value1, value2, "reqUri");
-            return (Criteria) this;
-        }
-
-        public Criteria andReqUriNotBetween(String value1, String value2) {
-            addCriterion("req_uri not between", value1, value2, "reqUri");
-            return (Criteria) this;
-        }
-
         public Criteria andReqMethodIsNull() {
             addCriterion("req_method is null");
             return (Criteria) this;
@@ -564,63 +494,143 @@ public class HttpProxyRecordExample {
             return (Criteria) this;
         }
 
-        public Criteria andReqSslIsNull() {
-            addCriterion("req_ssl is null");
+        public Criteria andReqSchemeIsNull() {
+            addCriterion("req_scheme is null");
             return (Criteria) this;
         }
 
-        public Criteria andReqSslIsNotNull() {
-            addCriterion("req_ssl is not null");
+        public Criteria andReqSchemeIsNotNull() {
+            addCriterion("req_scheme is not null");
             return (Criteria) this;
         }
 
-        public Criteria andReqSslEqualTo(Byte value) {
-            addCriterion("req_ssl =", value, "reqSsl");
+        public Criteria andReqSchemeEqualTo(String value) {
+            addCriterion("req_scheme =", value, "reqScheme");
             return (Criteria) this;
         }
 
-        public Criteria andReqSslNotEqualTo(Byte value) {
-            addCriterion("req_ssl <>", value, "reqSsl");
+        public Criteria andReqSchemeNotEqualTo(String value) {
+            addCriterion("req_scheme <>", value, "reqScheme");
             return (Criteria) this;
         }
 
-        public Criteria andReqSslGreaterThan(Byte value) {
-            addCriterion("req_ssl >", value, "reqSsl");
+        public Criteria andReqSchemeGreaterThan(String value) {
+            addCriterion("req_scheme >", value, "reqScheme");
             return (Criteria) this;
         }
 
-        public Criteria andReqSslGreaterThanOrEqualTo(Byte value) {
-            addCriterion("req_ssl >=", value, "reqSsl");
+        public Criteria andReqSchemeGreaterThanOrEqualTo(String value) {
+            addCriterion("req_scheme >=", value, "reqScheme");
             return (Criteria) this;
         }
 
-        public Criteria andReqSslLessThan(Byte value) {
-            addCriterion("req_ssl <", value, "reqSsl");
+        public Criteria andReqSchemeLessThan(String value) {
+            addCriterion("req_scheme <", value, "reqScheme");
             return (Criteria) this;
         }
 
-        public Criteria andReqSslLessThanOrEqualTo(Byte value) {
-            addCriterion("req_ssl <=", value, "reqSsl");
+        public Criteria andReqSchemeLessThanOrEqualTo(String value) {
+            addCriterion("req_scheme <=", value, "reqScheme");
             return (Criteria) this;
         }
 
-        public Criteria andReqSslIn(List<Byte> values) {
-            addCriterion("req_ssl in", values, "reqSsl");
+        public Criteria andReqSchemeLike(String value) {
+            addCriterion("req_scheme like", value, "reqScheme");
             return (Criteria) this;
         }
 
-        public Criteria andReqSslNotIn(List<Byte> values) {
-            addCriterion("req_ssl not in", values, "reqSsl");
+        public Criteria andReqSchemeNotLike(String value) {
+            addCriterion("req_scheme not like", value, "reqScheme");
             return (Criteria) this;
         }
 
-        public Criteria andReqSslBetween(Byte value1, Byte value2) {
-            addCriterion("req_ssl between", value1, value2, "reqSsl");
+        public Criteria andReqSchemeIn(List<String> values) {
+            addCriterion("req_scheme in", values, "reqScheme");
             return (Criteria) this;
         }
 
-        public Criteria andReqSslNotBetween(Byte value1, Byte value2) {
-            addCriterion("req_ssl not between", value1, value2, "reqSsl");
+        public Criteria andReqSchemeNotIn(List<String> values) {
+            addCriterion("req_scheme not in", values, "reqScheme");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqSchemeBetween(String value1, String value2) {
+            addCriterion("req_scheme between", value1, value2, "reqScheme");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqSchemeNotBetween(String value1, String value2) {
+            addCriterion("req_scheme not between", value1, value2, "reqScheme");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqHostIsNull() {
+            addCriterion("req_host is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqHostIsNotNull() {
+            addCriterion("req_host is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqHostEqualTo(String value) {
+            addCriterion("req_host =", value, "reqHost");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqHostNotEqualTo(String value) {
+            addCriterion("req_host <>", value, "reqHost");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqHostGreaterThan(String value) {
+            addCriterion("req_host >", value, "reqHost");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqHostGreaterThanOrEqualTo(String value) {
+            addCriterion("req_host >=", value, "reqHost");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqHostLessThan(String value) {
+            addCriterion("req_host <", value, "reqHost");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqHostLessThanOrEqualTo(String value) {
+            addCriterion("req_host <=", value, "reqHost");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqHostLike(String value) {
+            addCriterion("req_host like", value, "reqHost");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqHostNotLike(String value) {
+            addCriterion("req_host not like", value, "reqHost");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqHostIn(List<String> values) {
+            addCriterion("req_host in", values, "reqHost");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqHostNotIn(List<String> values) {
+            addCriterion("req_host not in", values, "reqHost");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqHostBetween(String value1, String value2) {
+            addCriterion("req_host between", value1, value2, "reqHost");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqHostNotBetween(String value1, String value2) {
+            addCriterion("req_host not between", value1, value2, "reqHost");
             return (Criteria) this;
         }
 
@@ -681,6 +691,146 @@ public class HttpProxyRecordExample {
 
         public Criteria andReqPortNotBetween(Integer value1, Integer value2) {
             addCriterion("req_port not between", value1, value2, "reqPort");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqPathIsNull() {
+            addCriterion("req_path is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqPathIsNotNull() {
+            addCriterion("req_path is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqPathEqualTo(String value) {
+            addCriterion("req_path =", value, "reqPath");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqPathNotEqualTo(String value) {
+            addCriterion("req_path <>", value, "reqPath");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqPathGreaterThan(String value) {
+            addCriterion("req_path >", value, "reqPath");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqPathGreaterThanOrEqualTo(String value) {
+            addCriterion("req_path >=", value, "reqPath");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqPathLessThan(String value) {
+            addCriterion("req_path <", value, "reqPath");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqPathLessThanOrEqualTo(String value) {
+            addCriterion("req_path <=", value, "reqPath");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqPathLike(String value) {
+            addCriterion("req_path like", value, "reqPath");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqPathNotLike(String value) {
+            addCriterion("req_path not like", value, "reqPath");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqPathIn(List<String> values) {
+            addCriterion("req_path in", values, "reqPath");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqPathNotIn(List<String> values) {
+            addCriterion("req_path not in", values, "reqPath");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqPathBetween(String value1, String value2) {
+            addCriterion("req_path between", value1, value2, "reqPath");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqPathNotBetween(String value1, String value2) {
+            addCriterion("req_path not between", value1, value2, "reqPath");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqQueryIsNull() {
+            addCriterion("req_query is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqQueryIsNotNull() {
+            addCriterion("req_query is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqQueryEqualTo(String value) {
+            addCriterion("req_query =", value, "reqQuery");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqQueryNotEqualTo(String value) {
+            addCriterion("req_query <>", value, "reqQuery");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqQueryGreaterThan(String value) {
+            addCriterion("req_query >", value, "reqQuery");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqQueryGreaterThanOrEqualTo(String value) {
+            addCriterion("req_query >=", value, "reqQuery");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqQueryLessThan(String value) {
+            addCriterion("req_query <", value, "reqQuery");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqQueryLessThanOrEqualTo(String value) {
+            addCriterion("req_query <=", value, "reqQuery");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqQueryLike(String value) {
+            addCriterion("req_query like", value, "reqQuery");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqQueryNotLike(String value) {
+            addCriterion("req_query not like", value, "reqQuery");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqQueryIn(List<String> values) {
+            addCriterion("req_query in", values, "reqQuery");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqQueryNotIn(List<String> values) {
+            addCriterion("req_query not in", values, "reqQuery");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqQueryBetween(String value1, String value2) {
+            addCriterion("req_query between", value1, value2, "reqQuery");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqQueryNotBetween(String value1, String value2) {
+            addCriterion("req_query not between", value1, value2, "reqQuery");
             return (Criteria) this;
         }
 

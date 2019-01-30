@@ -5,8 +5,6 @@ public class HttpProxyRecord {
 
     private Long userId;
 
-    private String reqUri;
-
     private String reqMethod;
 
     private String reqProtocol;
@@ -15,9 +13,15 @@ public class HttpProxyRecord {
 
     private Long reqTime;
 
-    private Byte reqSsl;
+    private String reqScheme;
+
+    private String reqHost;
 
     private Integer reqPort;
+
+    private String reqPath;
+
+    private String reqQuery;
 
     private String reqPolicy;
 
@@ -57,14 +61,6 @@ public class HttpProxyRecord {
         this.userId = userId;
     }
 
-    public String getReqUri() {
-        return reqUri;
-    }
-
-    public void setReqUri(String reqUri) {
-        this.reqUri = reqUri == null ? null : reqUri.trim();
-    }
-
     public String getReqMethod() {
         return reqMethod;
     }
@@ -97,12 +93,20 @@ public class HttpProxyRecord {
         this.reqTime = reqTime;
     }
 
-    public Byte getReqSsl() {
-        return reqSsl;
+    public String getReqScheme() {
+        return reqScheme;
     }
 
-    public void setReqSsl(Byte reqSsl) {
-        this.reqSsl = reqSsl;
+    public void setReqScheme(String reqScheme) {
+        this.reqScheme = reqScheme == null ? null : reqScheme.trim();
+    }
+
+    public String getReqHost() {
+        return reqHost;
+    }
+
+    public void setReqHost(String reqHost) {
+        this.reqHost = reqHost == null ? null : reqHost.trim();
     }
 
     public Integer getReqPort() {
@@ -111,6 +115,22 @@ public class HttpProxyRecord {
 
     public void setReqPort(Integer reqPort) {
         this.reqPort = reqPort;
+    }
+
+    public String getReqPath() {
+        return reqPath;
+    }
+
+    public void setReqPath(String reqPath) {
+        this.reqPath = reqPath == null ? null : reqPath.trim();
+    }
+
+    public String getReqQuery() {
+        return reqQuery;
+    }
+
+    public void setReqQuery(String reqQuery) {
+        this.reqQuery = reqQuery == null ? null : reqQuery.trim();
     }
 
     public String getReqPolicy() {
