@@ -22,19 +22,23 @@ public class HttpProxyDataCodec implements DataCodec {
         if (data == null) return ByteBuffer.allocate(0);
 
         //nodeIdSize[1] + nodeId[] + IdSize[1] + Id[] + Seq[2] + Scheme[1] + HostSize[2] + Host[] + Port[4] + HttpSize[4] + Http[]
-        if (data instanceof HttpProxyRequest) {
+        if (data instanceof HttpProxyRequest) { //TODO
             byte[] nodeId = ((HttpProxyRequest) data).getNodeId().getBytes(PacketConst.UTF_8);
             byte[] id = ((HttpProxyRequest) data).getId().getBytes(PacketConst.UTF_8);
-            byte[] host = ((HttpProxyRequest) data).getHost().getBytes(PacketConst.UTF_8);
+            String hostStr = ((HttpProxyRequest) data).getHost();
+            byte[] host = hostStr == null ? new byte[0] : hostStr.getBytes(PacketConst.UTF_8);
+
             ByteBuffer http = ((HttpProxyRequest) data).getHttp();
-            ByteBuffer buf = ByteBuffer.allocate(1 + nodeId.length + 1 + id.length + 5 + host.length + 8 + http.remaining());
+            int httpSize = http.remaining();
+            ByteBuffer buf = ByteBuffer.allocate(1 + nodeId.length + 1 + id.length + 5 + host.length + 8 + httpSize);
             buf.put((byte) nodeId.length).put(nodeId); //nodeId
             buf.put((byte) id.length).put(id);//id
             buf.putShort(((HttpProxyRequest) data).getSeq());//seq
             buf.put(((HttpProxyRequest) data).getScheme());//scheme
             buf.putShort((short) host.length).put(host);//host
             buf.putInt(((HttpProxyRequest) data).getPort());//port
-            buf.putInt(http.remaining()).put(http);//http
+            if (httpSize > 0)
+                buf.putInt(http.remaining()).put(http);//http
             return buf.flip();
         }
         if (data instanceof DataAck) {
