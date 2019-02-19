@@ -137,6 +137,7 @@ public interface ApiConst extends ConfField {
     int MOBILE_VCODE_USER_REG = 1;//注册
     int MOBILE_VCODE_PASSWD_RESET = 2;//忘记密码
     int MOBILE_VCODE_MOBILE_RESET = 3;//修改手机号
+    int MOBILE_VCODE_USER_LOGIN = 4; //用户短信登录
 
     String ALISMS_ID_TBC = "tbc";
     String ALIDM_ID_TBC = "tbc";
