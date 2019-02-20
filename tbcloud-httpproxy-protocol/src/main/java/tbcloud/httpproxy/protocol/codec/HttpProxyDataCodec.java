@@ -71,6 +71,7 @@ public class HttpProxyDataCodec implements DataCodec {
             req.setSeq(bytes.getShort());
             req.setProxyStatus(bytes.get());
             req.setProxyCost(bytes.getInt());
+            bytes.getInt(); // discard HttpSize
             req.setHttp(bytes);
             return (T) req;
         }
