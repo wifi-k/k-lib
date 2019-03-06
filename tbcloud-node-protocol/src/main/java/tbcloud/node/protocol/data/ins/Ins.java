@@ -37,6 +37,7 @@ public class Ins {
 
     /**************************指令定义*****************************/
     public static final int INS_HTTPPROXY = 1; //http代理
+    public static final int INS_FIRMWAREUPGRADE = 2; //固件升级
 
     /**************************指令状态*****************************/
 //    public static final int STATUS_RECV = 0; //发送指令
