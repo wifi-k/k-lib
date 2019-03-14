@@ -10,4 +10,6 @@ public interface MsgMeta {
     String Topic_Node = "tbcNode";
     String Topic_HttpProxy = "tbcHttpProxy";
 
+    String Node_Ssid_List = "nodeSsidList"; //[{"freq":1, "ssid":"","rssi":-60}, {"freq":2, "ssid":"","rssi":-60}]
+
 }

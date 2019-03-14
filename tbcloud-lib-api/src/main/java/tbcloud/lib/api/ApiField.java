@@ -6,6 +6,7 @@ package tbcloud.lib.api;
  */
 public interface ApiField {
 
+    String F_name = "name";
     String F_email = "email";
     String F_nodeId = "nodeId";
     String F_file = "file";

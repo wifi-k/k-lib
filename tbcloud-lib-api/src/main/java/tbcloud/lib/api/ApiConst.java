@@ -145,4 +145,8 @@ public interface ApiConst extends ConfField {
     // zk
     String ZK_ID_TIMER = "timer";
 
+    int WIFI_FREQ_ALL = 0;
+    int WIFI_FREQ_24G = 1; //2.4GHZ
+    int WIFI_FREQ_5G = 2; //5GHZ
+
 }

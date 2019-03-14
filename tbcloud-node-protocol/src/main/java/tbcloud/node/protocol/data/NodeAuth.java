@@ -15,6 +15,15 @@ public class NodeAuth extends DataReq {
     private Integer disk;
     private Integer upstream;
     private Integer downstream;
+    private String ssid; // json [{"freq":1, "ssid":"","rssi":-60}, {"freq":2, "ssid":"","rssi":-60}]
+
+    public String getSsid() {
+        return ssid;
+    }
+
+    public void setSsid(String ssid) {
+        this.ssid = ssid;
+    }
 
     public String getParnter() {
         return parnter;
