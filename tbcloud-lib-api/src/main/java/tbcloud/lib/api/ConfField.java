@@ -25,6 +25,7 @@ public interface ConfField {
 //    String QINIU_BUCKET = "quniu.bucket";
     String QINIU_ID_IMGCODE = "imgcode";  //store imgcode images
     String QINIU_ID_DEVELOPER = "developer"; //store personal auth images
+    String QINIU_ID_USER = "user";
 
     String ENV_NAME = "env.name";
     String DEBUG_ENABLED = "debug.enabled";
