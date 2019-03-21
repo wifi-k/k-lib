@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="tbcloud.node.model.mapper.NodeFirmwareMapper">
+  <resultMap id="BaseResultMap" type="tbcloud.node.model.NodeFirmware">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="model" jdbcType="VARCHAR" property="model" />
+    <result column="firmware" jdbcType="VARCHAR" property="firmware" />
+    <result column="start_time" jdbcType="BIGINT" property="startTime" />
+    <result column="download" jdbcType="VARCHAR" property="download" />
+    <result column="note" jdbcType="VARCHAR" property="note" />
+    <result column="create_time" jdbcType="BIGINT" property="createTime" />
+    <result column="update_time" jdbcType="BIGINT" property="updateTime" />
+    <result column="is_delete" jdbcType="TINYINT" property="isDelete" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, model, firmware, start_time, download, note, create_time, update_time, is_delete
+  </sql>
+  <select id="selectByExample" parameterType="tbcloud.node.model.NodeFirmwareExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from node_firmware
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from node_firmware
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from node_firmware
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="tbcloud.node.model.NodeFirmwareExample">
+    delete from node_firmware
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="tbcloud.node.model.NodeFirmware">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into node_firmware (model, firmware, start_time, 
+      download, note, create_time, 
+      update_time, is_delete)
+    values (#{model,jdbcType=VARCHAR}, #{firmware,jdbcType=VARCHAR}, #{startTime,jdbcType=BIGINT}, 
+      #{download,jdbcType=VARCHAR}, #{note,jdbcType=VARCHAR}, #{createTime,jdbcType=BIGINT}, 
+      #{updateTime,jdbcType=BIGINT}, #{isDelete,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="tbcloud.node.model.NodeFirmware">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into node_firmware
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="model != null">
+        model,
+      </if>
+      <if test="firmware != null">
+        firmware,
+      </if>
+      <if test="startTime != null">
+        start_time,
+      </if>
+      <if test="download != null">
+        download,
+      </if>
+      <if test="note != null">
+        note,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="isDelete != null">
+        is_delete,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="model != null">
+        #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="firmware != null">
+        #{firmware,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null">
+        #{startTime,jdbcType=BIGINT},
+      </if>
+      <if test="download != null">
+        #{download,jdbcType=VARCHAR},
+      </if>
+      <if test="note != null">
+        #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=BIGINT},
+      </if>
+      <if test="isDelete != null">
+        #{isDelete,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="tbcloud.node.model.NodeFirmwareExample" resultType="java.lang.Long">
+    select count(*) from node_firmware
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update node_firmware
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.model != null">
+        model = #{record.model,jdbcType=VARCHAR},
+      </if>
+      <if test="record.firmware != null">
+        firmware = #{record.firmware,jdbcType=VARCHAR},
+      </if>
+      <if test="record.startTime != null">
+        start_time = #{record.startTime,jdbcType=BIGINT},
+      </if>
+      <if test="record.download != null">
+        download = #{record.download,jdbcType=VARCHAR},
+      </if>
+      <if test="record.note != null">
+        note = #{record.note,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null">
+        create_time = #{record.createTime,jdbcType=BIGINT},
+      </if>
+      <if test="record.updateTime != null">
+        update_time = #{record.updateTime,jdbcType=BIGINT},
+      </if>
+      <if test="record.isDelete != null">
+        is_delete = #{record.isDelete,jdbcType=TINYINT},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update node_firmware
+    set id = #{record.id,jdbcType=BIGINT},
+      model = #{record.model,jdbcType=VARCHAR},
+      firmware = #{record.firmware,jdbcType=VARCHAR},
+      start_time = #{record.startTime,jdbcType=BIGINT},
+      download = #{record.download,jdbcType=VARCHAR},
+      note = #{record.note,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=BIGINT},
+      update_time = #{record.updateTime,jdbcType=BIGINT},
+      is_delete = #{record.isDelete,jdbcType=TINYINT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="tbcloud.node.model.NodeFirmware">
+    update node_firmware
+    <set>
+      <if test="model != null">
+        model = #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="firmware != null">
+        firmware = #{firmware,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null">
+        start_time = #{startTime,jdbcType=BIGINT},
+      </if>
+      <if test="download != null">
+        download = #{download,jdbcType=VARCHAR},
+      </if>
+      <if test="note != null">
+        note = #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=BIGINT},
+      </if>
+      <if test="isDelete != null">
+        is_delete = #{isDelete,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="tbcloud.node.model.NodeFirmware">
+    update node_firmware
+    set model = #{model,jdbcType=VARCHAR},
+      firmware = #{firmware,jdbcType=VARCHAR},
+      start_time = #{startTime,jdbcType=BIGINT},
+      download = #{download,jdbcType=VARCHAR},
+      note = #{note,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=BIGINT},
+      update_time = #{updateTime,jdbcType=BIGINT},
+      is_delete = #{isDelete,jdbcType=TINYINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
