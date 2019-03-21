@@ -58,6 +58,10 @@ public interface ApiCode {
 
     int IO_ERROR = 25;// io流读写错误
 
+    int NODE_FIRMWARE_LATEST = 26;// 固件版本最新
+
+    int NODE_FIRMWARE_UPGRADING = 27;// 固件版本升级中
+
     /******************* 第三方请求 *******************/
     int WX_API = 100;
 

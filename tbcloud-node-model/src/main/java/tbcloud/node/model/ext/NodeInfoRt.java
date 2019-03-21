@@ -12,6 +12,15 @@ public class NodeInfoRt extends NodeInfo {
     private long offlineTime;
     private String token;
     private Integer health;
+    private String firmwareUpgrade; //待升级的固件版本
+
+    public String getFirmwareUpgrade() {
+        return firmwareUpgrade;
+    }
+
+    public void setFirmwareUpgrade(String firmwareUpgrade) {
+        this.firmwareUpgrade = firmwareUpgrade;
+    }
 
     public Integer getStatus() {
         return status;

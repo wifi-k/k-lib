@@ -16,6 +16,7 @@ public interface MsgType {
     int NODE_QUIT_SHARE = 5; //节点离开共享计算
     int DELETE_QINIU_OBJECT = 6; //删除七牛对象
     int HTTPPROXY_RECORD_ADD = 7; //增加HttpProxyRecord
+    int NODE_FIRMWARE_UPGRADE = 8; //升级固件
 
     /************************* node产生的事件 (1000,2000)*****************************/
     int NODE_ONLINE = 1001; //节点认证UDP
