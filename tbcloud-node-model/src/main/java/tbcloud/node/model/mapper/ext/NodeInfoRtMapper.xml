@@ -3,6 +3,7 @@
 <mapper namespace="tbcloud.node.model.mapper.ext.NodeInfoRtMapper">
     <resultMap id="BaseResultMap" type="tbcloud.node.model.ext.NodeInfoRt">
         <id column="node_id" jdbcType="VARCHAR" property="nodeId"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
         <result column="manufactory" jdbcType="VARCHAR" property="manufactory"/>
         <result column="model" jdbcType="VARCHAR" property="model"/>
         <result column="firmware" jdbcType="VARCHAR" property="firmware"/>
