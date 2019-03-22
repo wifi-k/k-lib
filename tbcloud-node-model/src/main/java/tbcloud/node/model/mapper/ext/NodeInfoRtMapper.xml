@@ -28,6 +28,7 @@
         <result column="offline_time" jdbcType="BIGINT" property="offlineTime"/>
         <result column="token" jdbcType="VARCHAR" property="token"/>
         <result column="health" jdbcType="INTEGER" property="health"/>
+        <result column="is_select" jdbcType="TINYINT" property="isSelect"/>
     </resultMap>
     <sql id="Example_Where_Clause">
         <where>

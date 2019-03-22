@@ -13,6 +13,15 @@ public class NodeInfoRt extends NodeInfo {
     private String token;
     private Integer health;
     private String firmwareUpgrade; //待升级的固件版本
+    private Byte isSelect;
+
+    public Byte getIsSelect() {
+        return isSelect;
+    }
+
+    public void setIsSelect(Byte isSelect) {
+        this.isSelect = isSelect;
+    }
 
     public String getFirmwareUpgrade() {
         return firmwareUpgrade;

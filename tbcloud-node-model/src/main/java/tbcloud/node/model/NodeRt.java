@@ -29,6 +29,8 @@ public class NodeRt {
 
     private Integer health;
 
+    private Byte isSelect;
+
     public String getNodeId() {
         return nodeId;
     }
@@ -139,5 +141,13 @@ public class NodeRt {
 
     public void setHealth(Integer health) {
         this.health = health;
+    }
+
+    public Byte getIsSelect() {
+        return isSelect;
+    }
+
+    public void setIsSelect(Byte isSelect) {
+        this.isSelect = isSelect;
     }
 }

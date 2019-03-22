@@ -131,6 +131,9 @@ public interface ApiConst extends ConfField {
     byte IS_DELETE_N = 0;
     byte IS_DELETE_Y = 1;
 
+    byte IS_SELECT_N = 0;
+    byte IS_SELECT_Y = 1;
+
     String USER_PASSWD_SALT_1 = "TBCLOUD2018";
 
     // mobile vcode type
