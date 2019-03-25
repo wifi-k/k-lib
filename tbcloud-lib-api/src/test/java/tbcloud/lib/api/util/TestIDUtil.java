@@ -95,4 +95,10 @@ public class TestIDUtil {
                 IDUtil.readServerIdFromHttpProxyId(id), IDUtil.readUserIdFromHttpProxyId(id));
     }
 
+    @Test
+    public void genNodeInvateCode() {
+        String icode = IDUtil.genNodeInviteCode();
+        LOG.info("invite code {}", icode);
+    }
+
 }

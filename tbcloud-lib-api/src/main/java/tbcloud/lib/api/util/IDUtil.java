@@ -337,5 +337,17 @@ public class IDUtil {
         return UUID.randomUUID().toString().replaceAll("-", "").toLowerCase();
     }
 
+    /**
+     * 生成邀请码
+     *
+     * @return
+     */
+    public static String genNodeInviteCode() {
+        StringBuilder buf = new StringBuilder();
+        for (int i = 0; i < 8; i++) {
+            buf.append((char) ((ThreadLocalRandom.current().nextInt(1, 26) % 26 + 97) & 0xffff));
+        }
+        return buf.toString().toUpperCase();
+    }
 
 }

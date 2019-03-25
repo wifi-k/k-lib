@@ -152,4 +152,8 @@ public interface ApiConst extends ConfField {
     int WIFI_FREQ_24G = 1; //2.4GHZ
     int WIFI_FREQ_5G = 2; //5GHZ
 
+    int USER_NODE_ROLE_ROOT = 0;
+    int USER_NODE_ROLE_ADMIN = 1;
+    int USER_NODE_ROLE_COMMON = 2;
+
 }

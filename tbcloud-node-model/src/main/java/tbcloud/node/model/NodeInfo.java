@@ -45,6 +45,8 @@ public class NodeInfo {
 
     private String name;
 
+    private String inviteCode;
+
     public String getNodeId() {
         return nodeId;
     }
@@ -219,5 +221,13 @@ public class NodeInfo {
 
     public void setName(String name) {
         this.name = name == null ? null : name.trim();
+    }
+
+    public String getInviteCode() {
+        return inviteCode;
+    }
+
+    public void setInviteCode(String inviteCode) {
+        this.inviteCode = inviteCode == null ? null : inviteCode.trim();
     }
 }

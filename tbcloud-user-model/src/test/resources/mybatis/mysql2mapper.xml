@@ -79,6 +79,12 @@
                selectByExampleQueryId="${enable.example}">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
+        <table schema="mybatis" tableName="user_node" domainObjectName="UserNode"
+               enableCountByExample="${enable.example}" enableUpdateByExample="${enable.example}"
+               enableDeleteByExample="${enable.example}" enableSelectByExample="${enable.example}"
+               selectByExampleQueryId="${enable.example}">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
 
         <table schema="mybatis" tableName="app_info" domainObjectName="AppInfo"
                enableCountByExample="${enable.example}" enableUpdateByExample="${enable.example}"
