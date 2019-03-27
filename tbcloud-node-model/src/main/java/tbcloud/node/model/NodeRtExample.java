@@ -963,66 +963,6 @@ public class NodeRtExample {
             addCriterion("health not between", value1, value2, "health");
             return (Criteria) this;
         }
-
-        public Criteria andIsSelectIsNull() {
-            addCriterion("is_select is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsSelectIsNotNull() {
-            addCriterion("is_select is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsSelectEqualTo(Byte value) {
-            addCriterion("is_select =", value, "isSelect");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsSelectNotEqualTo(Byte value) {
-            addCriterion("is_select <>", value, "isSelect");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsSelectGreaterThan(Byte value) {
-            addCriterion("is_select >", value, "isSelect");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsSelectGreaterThanOrEqualTo(Byte value) {
-            addCriterion("is_select >=", value, "isSelect");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsSelectLessThan(Byte value) {
-            addCriterion("is_select <", value, "isSelect");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsSelectLessThanOrEqualTo(Byte value) {
-            addCriterion("is_select <=", value, "isSelect");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsSelectIn(List<Byte> values) {
-            addCriterion("is_select in", values, "isSelect");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsSelectNotIn(List<Byte> values) {
-            addCriterion("is_select not in", values, "isSelect");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsSelectBetween(Byte value1, Byte value2) {
-            addCriterion("is_select between", value1, value2, "isSelect");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsSelectNotBetween(Byte value1, Byte value2) {
-            addCriterion("is_select not between", value1, value2, "isSelect");
-            return (Criteria) this;
-        }
     }
 
     public static class Criteria extends GeneratedCriteria {

@@ -23,6 +23,8 @@ public class UserNode {
 
     private String userAvatar;
 
+    private Byte isSelect;
+
     public Long getId() {
         return id;
     }
@@ -109,5 +111,13 @@ public class UserNode {
 
     public void setUserAvatar(String userAvatar) {
         this.userAvatar = userAvatar == null ? null : userAvatar.trim();
+    }
+
+    public Byte getIsSelect() {
+        return isSelect;
+    }
+
+    public void setIsSelect(Byte isSelect) {
+        this.isSelect = isSelect;
     }
 }

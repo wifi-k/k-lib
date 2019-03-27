@@ -16,7 +16,6 @@
     <result column="disk_usage" jdbcType="INTEGER" property="diskUsage" />
     <result column="take_time" jdbcType="BIGINT" property="takeTime" />
     <result column="health" jdbcType="INTEGER" property="health" />
-    <result column="is_select" jdbcType="TINYINT" property="isSelect" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -78,7 +77,7 @@
   </sql>
   <sql id="Base_Column_List">
     node_id, status, online_time, offline_time, token, create_time, update_time, is_delete, 
-    user_id, cpu_usage, mem_usage, disk_usage, take_time, health, is_select
+    user_id, cpu_usage, mem_usage, disk_usage, take_time, health
   </sql>
   <select id="selectByExample" parameterType="tbcloud.node.model.NodeRtExample" resultMap="BaseResultMap">
     select
@@ -116,14 +115,12 @@
       offline_time, token, create_time, 
       update_time, is_delete, user_id, 
       cpu_usage, mem_usage, disk_usage, 
-      take_time, health, is_select
-      )
+      take_time, health)
     values (#{nodeId,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, #{onlineTime,jdbcType=BIGINT}, 
       #{offlineTime,jdbcType=BIGINT}, #{token,jdbcType=VARCHAR}, #{createTime,jdbcType=BIGINT}, 
       #{updateTime,jdbcType=BIGINT}, #{isDelete,jdbcType=TINYINT}, #{userId,jdbcType=BIGINT}, 
       #{cpuUsage,jdbcType=INTEGER}, #{memUsage,jdbcType=INTEGER}, #{diskUsage,jdbcType=INTEGER}, 
-      #{takeTime,jdbcType=BIGINT}, #{health,jdbcType=INTEGER}, #{isSelect,jdbcType=TINYINT}
-      )
+      #{takeTime,jdbcType=BIGINT}, #{health,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="tbcloud.node.model.NodeRt">
     insert into node_rt
@@ -170,9 +167,6 @@
       <if test="health != null">
         health,
       </if>
-      <if test="isSelect != null">
-        is_select,
-      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="nodeId != null">
@@ -216,9 +210,6 @@
       </if>
       <if test="health != null">
         #{health,jdbcType=INTEGER},
-      </if>
-      <if test="isSelect != null">
-        #{isSelect,jdbcType=TINYINT},
       </if>
     </trim>
   </insert>
@@ -273,9 +264,6 @@
       <if test="record.health != null">
         health = #{record.health,jdbcType=INTEGER},
       </if>
-      <if test="record.isSelect != null">
-        is_select = #{record.isSelect,jdbcType=TINYINT},
-      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -296,8 +284,7 @@
       mem_usage = #{record.memUsage,jdbcType=INTEGER},
       disk_usage = #{record.diskUsage,jdbcType=INTEGER},
       take_time = #{record.takeTime,jdbcType=BIGINT},
-      health = #{record.health,jdbcType=INTEGER},
-      is_select = #{record.isSelect,jdbcType=TINYINT}
+      health = #{record.health,jdbcType=INTEGER}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -344,9 +331,6 @@
       <if test="health != null">
         health = #{health,jdbcType=INTEGER},
       </if>
-      <if test="isSelect != null">
-        is_select = #{isSelect,jdbcType=TINYINT},
-      </if>
     </set>
     where node_id = #{nodeId,jdbcType=VARCHAR}
   </update>
@@ -364,8 +348,7 @@
       mem_usage = #{memUsage,jdbcType=INTEGER},
       disk_usage = #{diskUsage,jdbcType=INTEGER},
       take_time = #{takeTime,jdbcType=BIGINT},
-      health = #{health,jdbcType=INTEGER},
-      is_select = #{isSelect,jdbcType=TINYINT}
+      health = #{health,jdbcType=INTEGER}
     where node_id = #{nodeId,jdbcType=VARCHAR}
   </update>
 </mapper>
