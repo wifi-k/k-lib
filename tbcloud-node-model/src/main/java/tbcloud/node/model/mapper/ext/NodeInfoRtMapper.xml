@@ -64,7 +64,7 @@
     <sql id="Base_Column_List">
         rt.node_id, name, manufactory, model, firmware, bind_time, is_bind, is_share, comment, rt.create_time,
         rt.update_time, rt.is_delete, partner, memory, disk, upstream, downstream, unbind_time,
-        share_time, unshare_time, info.user_id, rt.status,rt.online_time,rt.offline_time,rt.token,rt.health
+        share_time, unshare_time, info.user_id, rt.status,rt.online_time,rt.offline_time,rt.token,rt.health,is_select
     </sql>
     <select id="selectByExampleLeftJoinRt" parameterType="tbcloud.node.model.NodeInfoExample" resultMap="BaseResultMap">
         select
