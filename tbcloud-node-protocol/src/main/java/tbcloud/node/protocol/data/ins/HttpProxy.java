@@ -6,10 +6,6 @@ package tbcloud.node.protocol.data.ins;
  */
 public class HttpProxy extends InsVal {
 
-    public static final int OP_ENABLE = 1;
-    public static final int OP_DISABLE = 0;
-
-
     private int op; // 0-disable 1-enable
     private String host;
 

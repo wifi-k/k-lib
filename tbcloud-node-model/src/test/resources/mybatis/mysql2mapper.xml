@@ -71,6 +71,11 @@
                enableSelectByExample="${enable.example}" selectByExampleQueryId="${enable.example}">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
+        <table schema="mybatis" tableName="node_wifi_timer" domainObjectName="NodeWifiTimer"
+               enableCountByExample="${enable.example}"
+               enableUpdateByExample="${enable.example}" enableDeleteByExample="${enable.example}"
+               enableSelectByExample="${enable.example}" selectByExampleQueryId="${enable.example}">
+        </table>
 
     </context>
 </generatorConfiguration>

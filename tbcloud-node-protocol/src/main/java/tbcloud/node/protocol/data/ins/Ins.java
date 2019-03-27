@@ -10,7 +10,6 @@ public class Ins {
     private int ins;
     private String val; // InsVal's string
 
-
     public String getId() {
         return id;
     }
@@ -38,6 +37,8 @@ public class Ins {
     /**************************指令定义*****************************/
     public static final int INS_HTTPPROXY = 1; //http代理
     public static final int INS_FIRMWAREUPGRADE = 2; //固件升级
+    public static final int INS_DEVICEBLOCK = 3; //防蹭网
+    public static final int INS_WIFITIMER = 4; //信号定时设置
 
     /**************************指令状态*****************************/
 //    public static final int STATUS_RECV = 0; //发送指令
