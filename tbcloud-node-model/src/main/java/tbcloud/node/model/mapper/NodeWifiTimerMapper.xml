@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="tbcloud.node.model.mapper.NodeWifiTimerMapper">
+  <resultMap id="BaseResultMap" type="tbcloud.node.model.NodeWifiTimer">
+    <id column="node_id" jdbcType="VARCHAR" property="nodeId" />
+    <result column="op" jdbcType="INTEGER" property="op" />
+    <result column="wifi" jdbcType="VARCHAR" property="wifi" />
+    <result column="create_time" jdbcType="BIGINT" property="createTime" />
+    <result column="update_time" jdbcType="BIGINT" property="updateTime" />
+    <result column="is_delete" jdbcType="TINYINT" property="isDelete" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    node_id, op, wifi, create_time, update_time, is_delete
+  </sql>
+  <select id="selectByExample" parameterType="tbcloud.node.model.NodeWifiTimerExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from node_wifi_timer
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from node_wifi_timer
+    where node_id = #{nodeId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from node_wifi_timer
+    where node_id = #{nodeId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="tbcloud.node.model.NodeWifiTimerExample">
+    delete from node_wifi_timer
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="tbcloud.node.model.NodeWifiTimer">
+    insert into node_wifi_timer (node_id, op, wifi, 
+      create_time, update_time, is_delete
+      )
+    values (#{nodeId,jdbcType=VARCHAR}, #{op,jdbcType=INTEGER}, #{wifi,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=BIGINT}, #{updateTime,jdbcType=BIGINT}, #{isDelete,jdbcType=TINYINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="tbcloud.node.model.NodeWifiTimer">
+    insert into node_wifi_timer
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="nodeId != null">
+        node_id,
+      </if>
+      <if test="op != null">
+        op,
+      </if>
+      <if test="wifi != null">
+        wifi,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="isDelete != null">
+        is_delete,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="nodeId != null">
+        #{nodeId,jdbcType=VARCHAR},
+      </if>
+      <if test="op != null">
+        #{op,jdbcType=INTEGER},
+      </if>
+      <if test="wifi != null">
+        #{wifi,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=BIGINT},
+      </if>
+      <if test="isDelete != null">
+        #{isDelete,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="tbcloud.node.model.NodeWifiTimerExample" resultType="java.lang.Long">
+    select count(*) from node_wifi_timer
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update node_wifi_timer
+    <set>
+      <if test="record.nodeId != null">
+        node_id = #{record.nodeId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.op != null">
+        op = #{record.op,jdbcType=INTEGER},
+      </if>
+      <if test="record.wifi != null">
+        wifi = #{record.wifi,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null">
+        create_time = #{record.createTime,jdbcType=BIGINT},
+      </if>
+      <if test="record.updateTime != null">
+        update_time = #{record.updateTime,jdbcType=BIGINT},
+      </if>
+      <if test="record.isDelete != null">
+        is_delete = #{record.isDelete,jdbcType=TINYINT},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update node_wifi_timer
+    set node_id = #{record.nodeId,jdbcType=VARCHAR},
+      op = #{record.op,jdbcType=INTEGER},
+      wifi = #{record.wifi,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=BIGINT},
+      update_time = #{record.updateTime,jdbcType=BIGINT},
+      is_delete = #{record.isDelete,jdbcType=TINYINT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="tbcloud.node.model.NodeWifiTimer">
+    update node_wifi_timer
+    <set>
+      <if test="op != null">
+        op = #{op,jdbcType=INTEGER},
+      </if>
+      <if test="wifi != null">
+        wifi = #{wifi,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=BIGINT},
+      </if>
+      <if test="isDelete != null">
+        is_delete = #{isDelete,jdbcType=TINYINT},
+      </if>
+    </set>
+    where node_id = #{nodeId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="tbcloud.node.model.NodeWifiTimer">
+    update node_wifi_timer
+    set op = #{op,jdbcType=INTEGER},
+      wifi = #{wifi,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=BIGINT},
+      update_time = #{updateTime,jdbcType=BIGINT},
+      is_delete = #{isDelete,jdbcType=TINYINT}
+    where node_id = #{nodeId,jdbcType=VARCHAR}
+  </update>
+</mapper>
