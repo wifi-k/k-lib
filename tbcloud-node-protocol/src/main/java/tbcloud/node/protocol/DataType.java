@@ -16,6 +16,7 @@ public interface DataType {
     int HEARTBEAT = 2;
     int MONITOR = 3;
     int INS_STATUS = 4;
+    int DEVICE = 5; // 设备在线
 
     default int rspType(int reqType) {
         return 10000 + reqType;

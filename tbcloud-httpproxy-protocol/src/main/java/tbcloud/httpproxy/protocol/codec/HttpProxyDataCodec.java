@@ -5,6 +5,7 @@ import tbcloud.node.protocol.PacketConst;
 import tbcloud.node.protocol.codec.DataCodec;
 import tbcloud.node.protocol.data.Data;
 
+import java.lang.reflect.Type;
 import java.nio.ByteBuffer;
 
 /**
@@ -83,4 +84,9 @@ public class HttpProxyDataCodec implements DataCodec {
         }
         throw new IllegalArgumentException("couldn't decode for data " + data.getName());
     }
+
+//    @Override
+//    public <T extends Data> T decode(ByteBuffer bytes, Type type) {
+//        return null; //TODO
+//    }
 }

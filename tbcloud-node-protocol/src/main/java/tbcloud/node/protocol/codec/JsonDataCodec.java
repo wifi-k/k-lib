@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder;
 import tbcloud.node.protocol.PacketConst;
 import tbcloud.node.protocol.data.Data;
 
+import java.lang.reflect.Type;
 import java.nio.ByteBuffer;
 
 /**
@@ -29,5 +30,10 @@ public class JsonDataCodec implements DataCodec {
     public <T extends Data> T decode(ByteBuffer bytes, Class<? extends Data> data) {
         return GSON.<T>fromJson(new String(bytes.array(), PacketConst.UTF_8).trim(), data);
     }
+
+//    @Override
+//    public <T extends Data> T decode(ByteBuffer bytes, Type type) {
+//        return GSON.<T>fromJson(new String(bytes.array(), PacketConst.UTF_8).trim(), type);
+//    }
 
 }
