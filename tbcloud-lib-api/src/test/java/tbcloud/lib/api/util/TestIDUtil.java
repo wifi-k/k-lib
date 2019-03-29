@@ -3,6 +3,7 @@ package tbcloud.lib.api.util;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import tbcloud.lib.api.VendorEnum;
 
 import java.util.UUID;
 
@@ -99,6 +100,8 @@ public class TestIDUtil {
     public void genNodeInvateCode() {
         String icode = IDUtil.genNodeInviteCode();
         LOG.info("invite code {}", icode);
+
+        VendorEnum.values();
     }
 
 }
