@@ -39,6 +39,7 @@ public class Ins {
     public static final int INS_FIRMWAREUPGRADE = 2; //固件升级
     public static final int INS_DEVICEBLOCK = 3; //防蹭网
     public static final int INS_WIFITIMER = 4; //信号定时设置
+    public static final int INS_DEVICEALLOW = 5; //信号定时设置
 
     /**************************指令状态*****************************/
 //    public static final int STATUS_RECV = 0; //发送指令

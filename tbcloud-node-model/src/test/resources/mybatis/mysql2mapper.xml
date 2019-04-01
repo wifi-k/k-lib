@@ -81,6 +81,12 @@
                enableUpdateByExample="${enable.example}" enableDeleteByExample="${enable.example}"
                enableSelectByExample="${enable.example}" selectByExampleQueryId="${enable.example}">
         </table>
+        <table schema="mybatis" tableName="node_device_allow" domainObjectName="NodeDeviceAllow"
+               enableCountByExample="${enable.example}"
+               enableUpdateByExample="${enable.example}" enableDeleteByExample="${enable.example}"
+               enableSelectByExample="${enable.example}" selectByExampleQueryId="${enable.example}">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
 
     </context>
 </generatorConfiguration>

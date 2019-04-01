@@ -19,6 +19,7 @@ public interface MsgType {
     int NODE_FIRMWARE_UPGRADE = 8; //升级固件
     int NODE_WIFI_TIMER = 9; //设置wifi信号定时配置
     int NODE_DEVICE_BLOCK = 10; //设备防蹭网
+    int NODE_DEVICE_ALLOW = 11; //设备允许上网
 
     /************************* node产生的事件 (1000,2000)*****************************/
     int NODE_ONLINE = 1001; //节点认证UDP
