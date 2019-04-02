@@ -87,6 +87,11 @@
                enableSelectByExample="${enable.example}" selectByExampleQueryId="${enable.example}">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
+        <table schema="mybatis" tableName="mac_space" domainObjectName="MacSpace"
+               enableCountByExample="${enable.example}"
+               enableUpdateByExample="${enable.example}" enableDeleteByExample="${enable.example}"
+               enableSelectByExample="${enable.example}" selectByExampleQueryId="${enable.example}">
+        </table>
 
     </context>
 </generatorConfiguration>

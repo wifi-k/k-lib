@@ -23,6 +23,10 @@ public class NodeDevice {
 
     private Byte isBlock;
 
+    private String macVendor;
+
+    private String macIcon;
+
     public String getMac() {
         return mac;
     }
@@ -109,5 +113,21 @@ public class NodeDevice {
 
     public void setIsBlock(Byte isBlock) {
         this.isBlock = isBlock;
+    }
+
+    public String getMacVendor() {
+        return macVendor;
+    }
+
+    public void setMacVendor(String macVendor) {
+        this.macVendor = macVendor == null ? null : macVendor.trim();
+    }
+
+    public String getMacIcon() {
+        return macIcon;
+    }
+
+    public void setMacIcon(String macIcon) {
+        this.macIcon = macIcon == null ? null : macIcon.trim();
     }
 }

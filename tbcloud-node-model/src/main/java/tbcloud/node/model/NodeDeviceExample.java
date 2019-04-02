@@ -803,6 +803,146 @@ public class NodeDeviceExample {
             addCriterion("is_block not between", value1, value2, "isBlock");
             return (Criteria) this;
         }
+
+        public Criteria andMacVendorIsNull() {
+            addCriterion("mac_vendor is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMacVendorIsNotNull() {
+            addCriterion("mac_vendor is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMacVendorEqualTo(String value) {
+            addCriterion("mac_vendor =", value, "macVendor");
+            return (Criteria) this;
+        }
+
+        public Criteria andMacVendorNotEqualTo(String value) {
+            addCriterion("mac_vendor <>", value, "macVendor");
+            return (Criteria) this;
+        }
+
+        public Criteria andMacVendorGreaterThan(String value) {
+            addCriterion("mac_vendor >", value, "macVendor");
+            return (Criteria) this;
+        }
+
+        public Criteria andMacVendorGreaterThanOrEqualTo(String value) {
+            addCriterion("mac_vendor >=", value, "macVendor");
+            return (Criteria) this;
+        }
+
+        public Criteria andMacVendorLessThan(String value) {
+            addCriterion("mac_vendor <", value, "macVendor");
+            return (Criteria) this;
+        }
+
+        public Criteria andMacVendorLessThanOrEqualTo(String value) {
+            addCriterion("mac_vendor <=", value, "macVendor");
+            return (Criteria) this;
+        }
+
+        public Criteria andMacVendorLike(String value) {
+            addCriterion("mac_vendor like", value, "macVendor");
+            return (Criteria) this;
+        }
+
+        public Criteria andMacVendorNotLike(String value) {
+            addCriterion("mac_vendor not like", value, "macVendor");
+            return (Criteria) this;
+        }
+
+        public Criteria andMacVendorIn(List<String> values) {
+            addCriterion("mac_vendor in", values, "macVendor");
+            return (Criteria) this;
+        }
+
+        public Criteria andMacVendorNotIn(List<String> values) {
+            addCriterion("mac_vendor not in", values, "macVendor");
+            return (Criteria) this;
+        }
+
+        public Criteria andMacVendorBetween(String value1, String value2) {
+            addCriterion("mac_vendor between", value1, value2, "macVendor");
+            return (Criteria) this;
+        }
+
+        public Criteria andMacVendorNotBetween(String value1, String value2) {
+            addCriterion("mac_vendor not between", value1, value2, "macVendor");
+            return (Criteria) this;
+        }
+
+        public Criteria andMacIconIsNull() {
+            addCriterion("mac_icon is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMacIconIsNotNull() {
+            addCriterion("mac_icon is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMacIconEqualTo(String value) {
+            addCriterion("mac_icon =", value, "macIcon");
+            return (Criteria) this;
+        }
+
+        public Criteria andMacIconNotEqualTo(String value) {
+            addCriterion("mac_icon <>", value, "macIcon");
+            return (Criteria) this;
+        }
+
+        public Criteria andMacIconGreaterThan(String value) {
+            addCriterion("mac_icon >", value, "macIcon");
+            return (Criteria) this;
+        }
+
+        public Criteria andMacIconGreaterThanOrEqualTo(String value) {
+            addCriterion("mac_icon >=", value, "macIcon");
+            return (Criteria) this;
+        }
+
+        public Criteria andMacIconLessThan(String value) {
+            addCriterion("mac_icon <", value, "macIcon");
+            return (Criteria) this;
+        }
+
+        public Criteria andMacIconLessThanOrEqualTo(String value) {
+            addCriterion("mac_icon <=", value, "macIcon");
+            return (Criteria) this;
+        }
+
+        public Criteria andMacIconLike(String value) {
+            addCriterion("mac_icon like", value, "macIcon");
+            return (Criteria) this;
+        }
+
+        public Criteria andMacIconNotLike(String value) {
+            addCriterion("mac_icon not like", value, "macIcon");
+            return (Criteria) this;
+        }
+
+        public Criteria andMacIconIn(List<String> values) {
+            addCriterion("mac_icon in", values, "macIcon");
+            return (Criteria) this;
+        }
+
+        public Criteria andMacIconNotIn(List<String> values) {
+            addCriterion("mac_icon not in", values, "macIcon");
+            return (Criteria) this;
+        }
+
+        public Criteria andMacIconBetween(String value1, String value2) {
+            addCriterion("mac_icon between", value1, value2, "macIcon");
+            return (Criteria) this;
+        }
+
+        public Criteria andMacIconNotBetween(String value1, String value2) {
+            addCriterion("mac_icon not between", value1, value2, "macIcon");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {
