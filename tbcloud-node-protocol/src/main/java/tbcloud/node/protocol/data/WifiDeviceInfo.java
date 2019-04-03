@@ -24,6 +24,15 @@ public class WifiDeviceInfo extends DataReq {
         private String name;//hostname
         private Long onTime;
         private Long offTime;
+        private String ip; //local ip
+
+        public String getIp() {
+            return ip;
+        }
+
+        public void setIp(String ip) {
+            this.ip = ip;
+        }
 
         public String getMac() {
             return mac;

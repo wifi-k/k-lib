@@ -1,6 +1,8 @@
 package tbcloud.node.model;
 
 public class NodeDevice {
+    private Long id;
+
     private String mac;
 
     private String name;
@@ -26,6 +28,16 @@ public class NodeDevice {
     private String macVendor;
 
     private String macIcon;
+
+    private String localIp;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getMac() {
         return mac;
@@ -129,5 +141,13 @@ public class NodeDevice {
 
     public void setMacIcon(String macIcon) {
         this.macIcon = macIcon == null ? null : macIcon.trim();
+    }
+
+    public String getLocalIp() {
+        return localIp;
+    }
+
+    public void setLocalIp(String localIp) {
+        this.localIp = localIp == null ? null : localIp.trim();
     }
 }

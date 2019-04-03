@@ -2,7 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="tbcloud.node.model.mapper.NodeDeviceMapper">
   <resultMap id="BaseResultMap" type="tbcloud.node.model.NodeDevice">
-    <id column="mac" jdbcType="VARCHAR" property="mac" />
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="mac" jdbcType="VARCHAR" property="mac" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="on_time" jdbcType="BIGINT" property="onTime" />
     <result column="off_time" jdbcType="BIGINT" property="offTime" />
@@ -15,6 +16,7 @@
     <result column="is_block" jdbcType="TINYINT" property="isBlock" />
     <result column="mac_vendor" jdbcType="VARCHAR" property="macVendor" />
     <result column="mac_icon" jdbcType="VARCHAR" property="macIcon" />
+    <result column="local_ip" jdbcType="VARCHAR" property="localIp" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -75,8 +77,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    mac, name, on_time, off_time, status, note, node_id, create_time, update_time, is_delete, 
-    is_block, mac_vendor, mac_icon
+    id, mac, name, on_time, off_time, status, note, node_id, create_time, update_time, 
+    is_delete, is_block, mac_vendor, mac_icon, local_ip
   </sql>
   <select id="selectByExample" parameterType="tbcloud.node.model.NodeDeviceExample" resultMap="BaseResultMap">
     select
@@ -93,15 +95,15 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from node_device
-    where mac = #{mac,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from node_device
-    where mac = #{mac,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
   </delete>
   <delete id="deleteByExample" parameterType="tbcloud.node.model.NodeDeviceExample">
     delete from node_device
@@ -110,20 +112,25 @@
     </if>
   </delete>
   <insert id="insert" parameterType="tbcloud.node.model.NodeDevice">
-    insert into node_device (mac, name, on_time, 
-      off_time, status, note, 
-      node_id, create_time, update_time, 
-      is_delete, is_block, mac_vendor, 
-      mac_icon)
-    values (#{mac,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{onTime,jdbcType=BIGINT}, 
-      #{offTime,jdbcType=BIGINT}, #{status,jdbcType=INTEGER}, #{note,jdbcType=VARCHAR}, 
-      #{nodeId,jdbcType=VARCHAR}, #{createTime,jdbcType=BIGINT}, #{updateTime,jdbcType=BIGINT}, 
-      #{isDelete,jdbcType=TINYINT}, #{isBlock,jdbcType=TINYINT}, #{macVendor,jdbcType=VARCHAR}, 
-      #{macIcon,jdbcType=VARCHAR})
+    insert into node_device (id, mac, name, 
+      on_time, off_time, status, 
+      note, node_id, create_time, 
+      update_time, is_delete, is_block, 
+      mac_vendor, mac_icon, local_ip
+      )
+    values (#{id,jdbcType=BIGINT}, #{mac,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{onTime,jdbcType=BIGINT}, #{offTime,jdbcType=BIGINT}, #{status,jdbcType=INTEGER}, 
+      #{note,jdbcType=VARCHAR}, #{nodeId,jdbcType=VARCHAR}, #{createTime,jdbcType=BIGINT}, 
+      #{updateTime,jdbcType=BIGINT}, #{isDelete,jdbcType=TINYINT}, #{isBlock,jdbcType=TINYINT}, 
+      #{macVendor,jdbcType=VARCHAR}, #{macIcon,jdbcType=VARCHAR}, #{localIp,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="tbcloud.node.model.NodeDevice">
     insert into node_device
     <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
       <if test="mac != null">
         mac,
       </if>
@@ -163,8 +170,14 @@
       <if test="macIcon != null">
         mac_icon,
       </if>
+      <if test="localIp != null">
+        local_ip,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
       <if test="mac != null">
         #{mac,jdbcType=VARCHAR},
       </if>
@@ -204,6 +217,9 @@
       <if test="macIcon != null">
         #{macIcon,jdbcType=VARCHAR},
       </if>
+      <if test="localIp != null">
+        #{localIp,jdbcType=VARCHAR},
+      </if>
     </trim>
   </insert>
   <select id="countByExample" parameterType="tbcloud.node.model.NodeDeviceExample" resultType="java.lang.Long">
@@ -215,6 +231,9 @@
   <update id="updateByExampleSelective" parameterType="map">
     update node_device
     <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
       <if test="record.mac != null">
         mac = #{record.mac,jdbcType=VARCHAR},
       </if>
@@ -254,6 +273,9 @@
       <if test="record.macIcon != null">
         mac_icon = #{record.macIcon,jdbcType=VARCHAR},
       </if>
+      <if test="record.localIp != null">
+        local_ip = #{record.localIp,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -261,7 +283,8 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update node_device
-    set mac = #{record.mac,jdbcType=VARCHAR},
+    set id = #{record.id,jdbcType=BIGINT},
+      mac = #{record.mac,jdbcType=VARCHAR},
       name = #{record.name,jdbcType=VARCHAR},
       on_time = #{record.onTime,jdbcType=BIGINT},
       off_time = #{record.offTime,jdbcType=BIGINT},
@@ -273,7 +296,8 @@
       is_delete = #{record.isDelete,jdbcType=TINYINT},
       is_block = #{record.isBlock,jdbcType=TINYINT},
       mac_vendor = #{record.macVendor,jdbcType=VARCHAR},
-      mac_icon = #{record.macIcon,jdbcType=VARCHAR}
+      mac_icon = #{record.macIcon,jdbcType=VARCHAR},
+      local_ip = #{record.localIp,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -281,6 +305,9 @@
   <update id="updateByPrimaryKeySelective" parameterType="tbcloud.node.model.NodeDevice">
     update node_device
     <set>
+      <if test="mac != null">
+        mac = #{mac,jdbcType=VARCHAR},
+      </if>
       <if test="name != null">
         name = #{name,jdbcType=VARCHAR},
       </if>
@@ -317,12 +344,16 @@
       <if test="macIcon != null">
         mac_icon = #{macIcon,jdbcType=VARCHAR},
       </if>
+      <if test="localIp != null">
+        local_ip = #{localIp,jdbcType=VARCHAR},
+      </if>
     </set>
-    where mac = #{mac,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="tbcloud.node.model.NodeDevice">
     update node_device
-    set name = #{name,jdbcType=VARCHAR},
+    set mac = #{mac,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
       on_time = #{onTime,jdbcType=BIGINT},
       off_time = #{offTime,jdbcType=BIGINT},
       status = #{status,jdbcType=INTEGER},
@@ -333,7 +364,8 @@
       is_delete = #{isDelete,jdbcType=TINYINT},
       is_block = #{isBlock,jdbcType=TINYINT},
       mac_vendor = #{macVendor,jdbcType=VARCHAR},
-      mac_icon = #{macIcon,jdbcType=VARCHAR}
-    where mac = #{mac,jdbcType=VARCHAR}
+      mac_icon = #{macIcon,jdbcType=VARCHAR},
+      local_ip = #{localIp,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

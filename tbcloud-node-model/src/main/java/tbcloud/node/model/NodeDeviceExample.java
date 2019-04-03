@@ -104,6 +104,66 @@ public class NodeDeviceExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
+        public Criteria andIdIsNull() {
+            addCriterion("id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdIsNotNull() {
+            addCriterion("id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdEqualTo(Long value) {
+            addCriterion("id =", value, "id");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdNotEqualTo(Long value) {
+            addCriterion("id <>", value, "id");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdGreaterThan(Long value) {
+            addCriterion("id >", value, "id");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("id >=", value, "id");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdLessThan(Long value) {
+            addCriterion("id <", value, "id");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdLessThanOrEqualTo(Long value) {
+            addCriterion("id <=", value, "id");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdIn(List<Long> values) {
+            addCriterion("id in", values, "id");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdNotIn(List<Long> values) {
+            addCriterion("id not in", values, "id");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdBetween(Long value1, Long value2) {
+            addCriterion("id between", value1, value2, "id");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdNotBetween(Long value1, Long value2) {
+            addCriterion("id not between", value1, value2, "id");
+            return (Criteria) this;
+        }
+
         public Criteria andMacIsNull() {
             addCriterion("mac is null");
             return (Criteria) this;
@@ -941,6 +1001,76 @@ public class NodeDeviceExample {
 
         public Criteria andMacIconNotBetween(String value1, String value2) {
             addCriterion("mac_icon not between", value1, value2, "macIcon");
+            return (Criteria) this;
+        }
+
+        public Criteria andLocalIpIsNull() {
+            addCriterion("local_ip is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLocalIpIsNotNull() {
+            addCriterion("local_ip is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLocalIpEqualTo(String value) {
+            addCriterion("local_ip =", value, "localIp");
+            return (Criteria) this;
+        }
+
+        public Criteria andLocalIpNotEqualTo(String value) {
+            addCriterion("local_ip <>", value, "localIp");
+            return (Criteria) this;
+        }
+
+        public Criteria andLocalIpGreaterThan(String value) {
+            addCriterion("local_ip >", value, "localIp");
+            return (Criteria) this;
+        }
+
+        public Criteria andLocalIpGreaterThanOrEqualTo(String value) {
+            addCriterion("local_ip >=", value, "localIp");
+            return (Criteria) this;
+        }
+
+        public Criteria andLocalIpLessThan(String value) {
+            addCriterion("local_ip <", value, "localIp");
+            return (Criteria) this;
+        }
+
+        public Criteria andLocalIpLessThanOrEqualTo(String value) {
+            addCriterion("local_ip <=", value, "localIp");
+            return (Criteria) this;
+        }
+
+        public Criteria andLocalIpLike(String value) {
+            addCriterion("local_ip like", value, "localIp");
+            return (Criteria) this;
+        }
+
+        public Criteria andLocalIpNotLike(String value) {
+            addCriterion("local_ip not like", value, "localIp");
+            return (Criteria) this;
+        }
+
+        public Criteria andLocalIpIn(List<String> values) {
+            addCriterion("local_ip in", values, "localIp");
+            return (Criteria) this;
+        }
+
+        public Criteria andLocalIpNotIn(List<String> values) {
+            addCriterion("local_ip not in", values, "localIp");
+            return (Criteria) this;
+        }
+
+        public Criteria andLocalIpBetween(String value1, String value2) {
+            addCriterion("local_ip between", value1, value2, "localIp");
+            return (Criteria) this;
+        }
+
+        public Criteria andLocalIpNotBetween(String value1, String value2) {
+            addCriterion("local_ip not between", value1, value2, "localIp");
             return (Criteria) this;
         }
     }

@@ -10,7 +10,7 @@ public interface NodeDeviceMapper {
 
     int deleteByExample(NodeDeviceExample example);
 
-    int deleteByPrimaryKey(String mac);
+    int deleteByPrimaryKey(Long id);
 
     int insert(NodeDevice record);
 
@@ -18,7 +18,7 @@ public interface NodeDeviceMapper {
 
     List<NodeDevice> selectByExample(NodeDeviceExample example);
 
-    NodeDevice selectByPrimaryKey(String mac);
+    NodeDevice selectByPrimaryKey(Long id);
 
     int updateByExampleSelective(@Param("record") NodeDevice record, @Param("example") NodeDeviceExample example);
 
