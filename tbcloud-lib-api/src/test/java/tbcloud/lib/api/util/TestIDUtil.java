@@ -109,6 +109,7 @@ public class TestIDUtil {
     public void weekTest() {
         Calendar c = Calendar.getInstance();
         LOG.info("{} {} {}", c.get(Calendar.DAY_OF_WEEK) - 1, c.get(Calendar.WEEK_OF_YEAR), c.getFirstDayOfWeek());
+        LOG.info("{}", c.get(Calendar.YEAR));
     }
 
 }
