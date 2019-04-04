@@ -31,6 +31,8 @@ public class NodeDevice {
 
     private String localIp;
 
+    private Byte isRecord;
+
     public Long getId() {
         return id;
     }
@@ -149,5 +151,13 @@ public class NodeDevice {
 
     public void setLocalIp(String localIp) {
         this.localIp = localIp == null ? null : localIp.trim();
+    }
+
+    public Byte getIsRecord() {
+        return isRecord;
+    }
+
+    public void setIsRecord(Byte isRecord) {
+        this.isRecord = isRecord;
     }
 }

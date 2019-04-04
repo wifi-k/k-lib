@@ -17,6 +17,7 @@
     <result column="mac_vendor" jdbcType="VARCHAR" property="macVendor" />
     <result column="mac_icon" jdbcType="VARCHAR" property="macIcon" />
     <result column="local_ip" jdbcType="VARCHAR" property="localIp" />
+    <result column="is_record" jdbcType="TINYINT" property="isRecord" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -78,7 +79,7 @@
   </sql>
   <sql id="Base_Column_List">
     id, mac, name, on_time, off_time, status, note, node_id, create_time, update_time, 
-    is_delete, is_block, mac_vendor, mac_icon, local_ip
+    is_delete, is_block, mac_vendor, mac_icon, local_ip, is_record
   </sql>
   <select id="selectByExample" parameterType="tbcloud.node.model.NodeDeviceExample" resultMap="BaseResultMap">
     select
@@ -116,14 +117,14 @@
       on_time, off_time, status, 
       note, node_id, create_time, 
       update_time, is_delete, is_block, 
-      mac_vendor, mac_icon, local_ip
-      )
+      mac_vendor, mac_icon, local_ip, 
+      is_record)
     values (#{id,jdbcType=BIGINT}, #{mac,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
       #{onTime,jdbcType=BIGINT}, #{offTime,jdbcType=BIGINT}, #{status,jdbcType=INTEGER}, 
       #{note,jdbcType=VARCHAR}, #{nodeId,jdbcType=VARCHAR}, #{createTime,jdbcType=BIGINT}, 
       #{updateTime,jdbcType=BIGINT}, #{isDelete,jdbcType=TINYINT}, #{isBlock,jdbcType=TINYINT}, 
-      #{macVendor,jdbcType=VARCHAR}, #{macIcon,jdbcType=VARCHAR}, #{localIp,jdbcType=VARCHAR}
-      )
+      #{macVendor,jdbcType=VARCHAR}, #{macIcon,jdbcType=VARCHAR}, #{localIp,jdbcType=VARCHAR}, 
+      #{isRecord,jdbcType=TINYINT})
   </insert>
   <insert id="insertSelective" parameterType="tbcloud.node.model.NodeDevice">
     insert into node_device
@@ -173,6 +174,9 @@
       <if test="localIp != null">
         local_ip,
       </if>
+      <if test="isRecord != null">
+        is_record,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -219,6 +223,9 @@
       </if>
       <if test="localIp != null">
         #{localIp,jdbcType=VARCHAR},
+      </if>
+      <if test="isRecord != null">
+        #{isRecord,jdbcType=TINYINT},
       </if>
     </trim>
   </insert>
@@ -276,6 +283,9 @@
       <if test="record.localIp != null">
         local_ip = #{record.localIp,jdbcType=VARCHAR},
       </if>
+      <if test="record.isRecord != null">
+        is_record = #{record.isRecord,jdbcType=TINYINT},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -297,7 +307,8 @@
       is_block = #{record.isBlock,jdbcType=TINYINT},
       mac_vendor = #{record.macVendor,jdbcType=VARCHAR},
       mac_icon = #{record.macIcon,jdbcType=VARCHAR},
-      local_ip = #{record.localIp,jdbcType=VARCHAR}
+      local_ip = #{record.localIp,jdbcType=VARCHAR},
+      is_record = #{record.isRecord,jdbcType=TINYINT}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -347,6 +358,9 @@
       <if test="localIp != null">
         local_ip = #{localIp,jdbcType=VARCHAR},
       </if>
+      <if test="isRecord != null">
+        is_record = #{isRecord,jdbcType=TINYINT},
+      </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
@@ -365,7 +379,8 @@
       is_block = #{isBlock,jdbcType=TINYINT},
       mac_vendor = #{macVendor,jdbcType=VARCHAR},
       mac_icon = #{macIcon,jdbcType=VARCHAR},
-      local_ip = #{localIp,jdbcType=VARCHAR}
+      local_ip = #{localIp,jdbcType=VARCHAR},
+      is_record = #{isRecord,jdbcType=TINYINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

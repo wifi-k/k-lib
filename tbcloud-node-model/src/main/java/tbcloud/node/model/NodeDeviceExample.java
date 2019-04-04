@@ -1073,6 +1073,66 @@ public class NodeDeviceExample {
             addCriterion("local_ip not between", value1, value2, "localIp");
             return (Criteria) this;
         }
+
+        public Criteria andIsRecordIsNull() {
+            addCriterion("is_record is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsRecordIsNotNull() {
+            addCriterion("is_record is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsRecordEqualTo(Byte value) {
+            addCriterion("is_record =", value, "isRecord");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsRecordNotEqualTo(Byte value) {
+            addCriterion("is_record <>", value, "isRecord");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsRecordGreaterThan(Byte value) {
+            addCriterion("is_record >", value, "isRecord");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsRecordGreaterThanOrEqualTo(Byte value) {
+            addCriterion("is_record >=", value, "isRecord");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsRecordLessThan(Byte value) {
+            addCriterion("is_record <", value, "isRecord");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsRecordLessThanOrEqualTo(Byte value) {
+            addCriterion("is_record <=", value, "isRecord");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsRecordIn(List<Byte> values) {
+            addCriterion("is_record in", values, "isRecord");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsRecordNotIn(List<Byte> values) {
+            addCriterion("is_record not in", values, "isRecord");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsRecordBetween(Byte value1, Byte value2) {
+            addCriterion("is_record between", value1, value2, "isRecord");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsRecordNotBetween(Byte value1, Byte value2) {
+            addCriterion("is_record not between", value1, value2, "isRecord");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

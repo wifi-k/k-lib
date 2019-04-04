@@ -5,6 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import tbcloud.lib.api.VendorEnum;
 
+import java.util.Calendar;
 import java.util.UUID;
 
 /**
@@ -102,6 +103,12 @@ public class TestIDUtil {
         LOG.info("invite code {}", icode);
 
         VendorEnum.values();
+    }
+
+    @Test
+    public void weekTest() {
+        Calendar c = Calendar.getInstance();
+        LOG.info("{} {} {}", c.get(Calendar.DAY_OF_WEEK) - 1, c.get(Calendar.WEEK_OF_YEAR), c.getFirstDayOfWeek());
     }
 
 }
