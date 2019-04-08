@@ -33,6 +33,8 @@ public class NodeDevice {
 
     private Byte isRecord;
 
+    private Byte isOnline;
+
     public Long getId() {
         return id;
     }
@@ -159,5 +161,13 @@ public class NodeDevice {
 
     public void setIsRecord(Byte isRecord) {
         this.isRecord = isRecord;
+    }
+
+    public Byte getIsOnline() {
+        return isOnline;
+    }
+
+    public void setIsOnline(Byte isOnline) {
+        this.isOnline = isOnline;
     }
 }
