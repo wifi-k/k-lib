@@ -3,14 +3,14 @@ package tbcloud.node.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NodeDeviceDayExample {
+public class NodeDeviceRecordExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public NodeDeviceDayExample() {
+    public NodeDeviceRecordExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -304,63 +304,123 @@ public class NodeDeviceDayExample {
             return (Criteria) this;
         }
 
-        public Criteria andTotalTimeIsNull() {
-            addCriterion("total_time is null");
+        public Criteria andTimeIsNull() {
+            addCriterion("time is null");
             return (Criteria) this;
         }
 
-        public Criteria andTotalTimeIsNotNull() {
-            addCriterion("total_time is not null");
+        public Criteria andTimeIsNotNull() {
+            addCriterion("time is not null");
             return (Criteria) this;
         }
 
-        public Criteria andTotalTimeEqualTo(Long value) {
-            addCriterion("total_time =", value, "totalTime");
+        public Criteria andTimeEqualTo(Long value) {
+            addCriterion("time =", value, "time");
             return (Criteria) this;
         }
 
-        public Criteria andTotalTimeNotEqualTo(Long value) {
-            addCriterion("total_time <>", value, "totalTime");
+        public Criteria andTimeNotEqualTo(Long value) {
+            addCriterion("time <>", value, "time");
             return (Criteria) this;
         }
 
-        public Criteria andTotalTimeGreaterThan(Long value) {
-            addCriterion("total_time >", value, "totalTime");
+        public Criteria andTimeGreaterThan(Long value) {
+            addCriterion("time >", value, "time");
             return (Criteria) this;
         }
 
-        public Criteria andTotalTimeGreaterThanOrEqualTo(Long value) {
-            addCriterion("total_time >=", value, "totalTime");
+        public Criteria andTimeGreaterThanOrEqualTo(Long value) {
+            addCriterion("time >=", value, "time");
             return (Criteria) this;
         }
 
-        public Criteria andTotalTimeLessThan(Long value) {
-            addCriterion("total_time <", value, "totalTime");
+        public Criteria andTimeLessThan(Long value) {
+            addCriterion("time <", value, "time");
             return (Criteria) this;
         }
 
-        public Criteria andTotalTimeLessThanOrEqualTo(Long value) {
-            addCriterion("total_time <=", value, "totalTime");
+        public Criteria andTimeLessThanOrEqualTo(Long value) {
+            addCriterion("time <=", value, "time");
             return (Criteria) this;
         }
 
-        public Criteria andTotalTimeIn(List<Long> values) {
-            addCriterion("total_time in", values, "totalTime");
+        public Criteria andTimeIn(List<Long> values) {
+            addCriterion("time in", values, "time");
             return (Criteria) this;
         }
 
-        public Criteria andTotalTimeNotIn(List<Long> values) {
-            addCriterion("total_time not in", values, "totalTime");
+        public Criteria andTimeNotIn(List<Long> values) {
+            addCriterion("time not in", values, "time");
             return (Criteria) this;
         }
 
-        public Criteria andTotalTimeBetween(Long value1, Long value2) {
-            addCriterion("total_time between", value1, value2, "totalTime");
+        public Criteria andTimeBetween(Long value1, Long value2) {
+            addCriterion("time between", value1, value2, "time");
             return (Criteria) this;
         }
 
-        public Criteria andTotalTimeNotBetween(Long value1, Long value2) {
-            addCriterion("total_time not between", value1, value2, "totalTime");
+        public Criteria andTimeNotBetween(Long value1, Long value2) {
+            addCriterion("time not between", value1, value2, "time");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusIsNull() {
+            addCriterion("status is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusIsNotNull() {
+            addCriterion("status is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusEqualTo(Byte value) {
+            addCriterion("status =", value, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusNotEqualTo(Byte value) {
+            addCriterion("status <>", value, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusGreaterThan(Byte value) {
+            addCriterion("status >", value, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusGreaterThanOrEqualTo(Byte value) {
+            addCriterion("status >=", value, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusLessThan(Byte value) {
+            addCriterion("status <", value, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusLessThanOrEqualTo(Byte value) {
+            addCriterion("status <=", value, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusIn(List<Byte> values) {
+            addCriterion("status in", values, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusNotIn(List<Byte> values) {
+            addCriterion("status not in", values, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusBetween(Byte value1, Byte value2) {
+            addCriterion("status between", value1, value2, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusNotBetween(Byte value1, Byte value2) {
+            addCriterion("status not between", value1, value2, "status");
             return (Criteria) this;
         }
 

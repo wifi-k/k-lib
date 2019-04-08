@@ -12,6 +12,34 @@ public class UserLogin {
     private int status; //0-offline 1-online
     private long date; // timestamp
 
+    private Integer devType;
+    private String devToken;
+    private String devOs;
+
+    public Integer getDevType() {
+        return devType;
+    }
+
+    public void setDevType(Integer devType) {
+        this.devType = devType;
+    }
+
+    public String getDevToken() {
+        return devToken;
+    }
+
+    public void setDevToken(String devToken) {
+        this.devToken = devToken;
+    }
+
+    public String getDevOs() {
+        return devOs;
+    }
+
+    public void setDevOs(String devOs) {
+        this.devOs = devOs;
+    }
+
     public String getToken() {
         return token;
     }

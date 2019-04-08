@@ -22,6 +22,12 @@ public interface ApiConst extends ConfField {
 
     Charset UTF8 = StandardCharsets.UTF_8;
 
+    String UMENG_ID_IOSU = "iosu";
+    String UMENG_ID_ANDU = "andu";
+
+    int DEV_TYPE_IOS = 1;
+    int DEV_TYPE_AND = 2;
+
     int HTTPPROXY_SSL_Y = 1;
     int HTTPPROXY_SSL_N = 0; //默认值
     String HTTPPROXY_POLICY_RANDOM = "random"; // keepAlive时，不同请求代理到不同的节点

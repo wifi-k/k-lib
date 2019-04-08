@@ -533,6 +533,206 @@ public class UserOnlineExample {
             addCriterion("update_time not between", value1, value2, "updateTime");
             return (Criteria) this;
         }
+
+        public Criteria andDevTokenIsNull() {
+            addCriterion("dev_token is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDevTokenIsNotNull() {
+            addCriterion("dev_token is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDevTokenEqualTo(String value) {
+            addCriterion("dev_token =", value, "devToken");
+            return (Criteria) this;
+        }
+
+        public Criteria andDevTokenNotEqualTo(String value) {
+            addCriterion("dev_token <>", value, "devToken");
+            return (Criteria) this;
+        }
+
+        public Criteria andDevTokenGreaterThan(String value) {
+            addCriterion("dev_token >", value, "devToken");
+            return (Criteria) this;
+        }
+
+        public Criteria andDevTokenGreaterThanOrEqualTo(String value) {
+            addCriterion("dev_token >=", value, "devToken");
+            return (Criteria) this;
+        }
+
+        public Criteria andDevTokenLessThan(String value) {
+            addCriterion("dev_token <", value, "devToken");
+            return (Criteria) this;
+        }
+
+        public Criteria andDevTokenLessThanOrEqualTo(String value) {
+            addCriterion("dev_token <=", value, "devToken");
+            return (Criteria) this;
+        }
+
+        public Criteria andDevTokenLike(String value) {
+            addCriterion("dev_token like", value, "devToken");
+            return (Criteria) this;
+        }
+
+        public Criteria andDevTokenNotLike(String value) {
+            addCriterion("dev_token not like", value, "devToken");
+            return (Criteria) this;
+        }
+
+        public Criteria andDevTokenIn(List<String> values) {
+            addCriterion("dev_token in", values, "devToken");
+            return (Criteria) this;
+        }
+
+        public Criteria andDevTokenNotIn(List<String> values) {
+            addCriterion("dev_token not in", values, "devToken");
+            return (Criteria) this;
+        }
+
+        public Criteria andDevTokenBetween(String value1, String value2) {
+            addCriterion("dev_token between", value1, value2, "devToken");
+            return (Criteria) this;
+        }
+
+        public Criteria andDevTokenNotBetween(String value1, String value2) {
+            addCriterion("dev_token not between", value1, value2, "devToken");
+            return (Criteria) this;
+        }
+
+        public Criteria andDevTypeIsNull() {
+            addCriterion("dev_type is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDevTypeIsNotNull() {
+            addCriterion("dev_type is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDevTypeEqualTo(Integer value) {
+            addCriterion("dev_type =", value, "devType");
+            return (Criteria) this;
+        }
+
+        public Criteria andDevTypeNotEqualTo(Integer value) {
+            addCriterion("dev_type <>", value, "devType");
+            return (Criteria) this;
+        }
+
+        public Criteria andDevTypeGreaterThan(Integer value) {
+            addCriterion("dev_type >", value, "devType");
+            return (Criteria) this;
+        }
+
+        public Criteria andDevTypeGreaterThanOrEqualTo(Integer value) {
+            addCriterion("dev_type >=", value, "devType");
+            return (Criteria) this;
+        }
+
+        public Criteria andDevTypeLessThan(Integer value) {
+            addCriterion("dev_type <", value, "devType");
+            return (Criteria) this;
+        }
+
+        public Criteria andDevTypeLessThanOrEqualTo(Integer value) {
+            addCriterion("dev_type <=", value, "devType");
+            return (Criteria) this;
+        }
+
+        public Criteria andDevTypeIn(List<Integer> values) {
+            addCriterion("dev_type in", values, "devType");
+            return (Criteria) this;
+        }
+
+        public Criteria andDevTypeNotIn(List<Integer> values) {
+            addCriterion("dev_type not in", values, "devType");
+            return (Criteria) this;
+        }
+
+        public Criteria andDevTypeBetween(Integer value1, Integer value2) {
+            addCriterion("dev_type between", value1, value2, "devType");
+            return (Criteria) this;
+        }
+
+        public Criteria andDevTypeNotBetween(Integer value1, Integer value2) {
+            addCriterion("dev_type not between", value1, value2, "devType");
+            return (Criteria) this;
+        }
+
+        public Criteria andDevOsIsNull() {
+            addCriterion("dev_os is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDevOsIsNotNull() {
+            addCriterion("dev_os is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDevOsEqualTo(String value) {
+            addCriterion("dev_os =", value, "devOs");
+            return (Criteria) this;
+        }
+
+        public Criteria andDevOsNotEqualTo(String value) {
+            addCriterion("dev_os <>", value, "devOs");
+            return (Criteria) this;
+        }
+
+        public Criteria andDevOsGreaterThan(String value) {
+            addCriterion("dev_os >", value, "devOs");
+            return (Criteria) this;
+        }
+
+        public Criteria andDevOsGreaterThanOrEqualTo(String value) {
+            addCriterion("dev_os >=", value, "devOs");
+            return (Criteria) this;
+        }
+
+        public Criteria andDevOsLessThan(String value) {
+            addCriterion("dev_os <", value, "devOs");
+            return (Criteria) this;
+        }
+
+        public Criteria andDevOsLessThanOrEqualTo(String value) {
+            addCriterion("dev_os <=", value, "devOs");
+            return (Criteria) this;
+        }
+
+        public Criteria andDevOsLike(String value) {
+            addCriterion("dev_os like", value, "devOs");
+            return (Criteria) this;
+        }
+
+        public Criteria andDevOsNotLike(String value) {
+            addCriterion("dev_os not like", value, "devOs");
+            return (Criteria) this;
+        }
+
+        public Criteria andDevOsIn(List<String> values) {
+            addCriterion("dev_os in", values, "devOs");
+            return (Criteria) this;
+        }
+
+        public Criteria andDevOsNotIn(List<String> values) {
+            addCriterion("dev_os not in", values, "devOs");
+            return (Criteria) this;
+        }
+
+        public Criteria andDevOsBetween(String value1, String value2) {
+            addCriterion("dev_os between", value1, value2, "devOs");
+            return (Criteria) this;
+        }
+
+        public Criteria andDevOsNotBetween(String value1, String value2) {
+            addCriterion("dev_os not between", value1, value2, "devOs");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

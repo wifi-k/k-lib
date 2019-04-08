@@ -1,13 +1,15 @@
 package tbcloud.node.model;
 
-public class NodeDeviceDay {
+public class NodeDeviceRecord {
     private Long id;
 
     private String nodeId;
 
     private String mac;
 
-    private Long totalTime;
+    private Long time;
+
+    private Byte status;
 
     private Long createTime;
 
@@ -45,12 +47,20 @@ public class NodeDeviceDay {
         this.mac = mac == null ? null : mac.trim();
     }
 
-    public Long getTotalTime() {
-        return totalTime;
+    public Long getTime() {
+        return time;
     }
 
-    public void setTotalTime(Long totalTime) {
-        this.totalTime = totalTime;
+    public void setTime(Long time) {
+        this.time = time;
+    }
+
+    public Byte getStatus() {
+        return status;
+    }
+
+    public void setStatus(Byte status) {
+        this.status = status;
     }
 
     public Long getCreateTime() {

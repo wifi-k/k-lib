@@ -15,6 +15,12 @@ public class UserOnline {
 
     private Long updateTime;
 
+    private String devToken;
+
+    private Integer devType;
+
+    private String devOs;
+
     public Long getUserId() {
         return userId;
     }
@@ -69,5 +75,29 @@ public class UserOnline {
 
     public void setUpdateTime(Long updateTime) {
         this.updateTime = updateTime;
+    }
+
+    public String getDevToken() {
+        return devToken;
+    }
+
+    public void setDevToken(String devToken) {
+        this.devToken = devToken == null ? null : devToken.trim();
+    }
+
+    public Integer getDevType() {
+        return devType;
+    }
+
+    public void setDevType(Integer devType) {
+        this.devType = devType;
+    }
+
+    public String getDevOs() {
+        return devOs;
+    }
+
+    public void setDevOs(String devOs) {
+        this.devOs = devOs == null ? null : devOs.trim();
     }
 }

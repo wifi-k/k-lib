@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="tbcloud.node.model.mapper.NodeDeviceDayMapper">
-  <resultMap id="BaseResultMap" type="tbcloud.node.model.NodeDeviceDay">
+<mapper namespace="tbcloud.node.model.mapper.NodeDeviceRecordMapper">
+  <resultMap id="BaseResultMap" type="tbcloud.node.model.NodeDeviceRecord">
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="node_id" jdbcType="VARCHAR" property="nodeId" />
     <result column="mac" jdbcType="VARCHAR" property="mac" />
-    <result column="total_time" jdbcType="BIGINT" property="totalTime" />
+    <result column="time" jdbcType="BIGINT" property="time" />
+    <result column="status" jdbcType="TINYINT" property="status" />
     <result column="create_time" jdbcType="BIGINT" property="createTime" />
     <result column="update_time" jdbcType="BIGINT" property="updateTime" />
     <result column="is_delete" jdbcType="TINYINT" property="isDelete" />
@@ -72,16 +73,17 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, node_id, mac, total_time, create_time, update_time, is_delete, week, year, day
+    id, node_id, mac, time, status, create_time, update_time, is_delete, week, year, 
+    day
   </sql>
-  <select id="selectByExample" parameterType="tbcloud.node.model.NodeDeviceDayExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="tbcloud.node.model.NodeDeviceRecordExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
     </if>
     'true' as QUERYID,
     <include refid="Base_Column_List" />
-    from node_device_day
+    from node_device_record
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -92,31 +94,31 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from node_device_day
+    from node_device_record
     where id = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from node_device_day
+    delete from node_device_record
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="tbcloud.node.model.NodeDeviceDayExample">
-    delete from node_device_day
+  <delete id="deleteByExample" parameterType="tbcloud.node.model.NodeDeviceRecordExample">
+    delete from node_device_record
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="tbcloud.node.model.NodeDeviceDay">
-    insert into node_device_day (id, node_id, mac, 
-      total_time, create_time, update_time, 
-      is_delete, week, year, 
-      day)
+  <insert id="insert" parameterType="tbcloud.node.model.NodeDeviceRecord">
+    insert into node_device_record (id, node_id, mac, 
+      time, status, create_time, 
+      update_time, is_delete, week, 
+      year, day)
     values (#{id,jdbcType=BIGINT}, #{nodeId,jdbcType=VARCHAR}, #{mac,jdbcType=VARCHAR}, 
-      #{totalTime,jdbcType=BIGINT}, #{createTime,jdbcType=BIGINT}, #{updateTime,jdbcType=BIGINT}, 
-      #{isDelete,jdbcType=TINYINT}, #{week,jdbcType=INTEGER}, #{year,jdbcType=INTEGER}, 
-      #{day,jdbcType=INTEGER})
+      #{time,jdbcType=BIGINT}, #{status,jdbcType=TINYINT}, #{createTime,jdbcType=BIGINT}, 
+      #{updateTime,jdbcType=BIGINT}, #{isDelete,jdbcType=TINYINT}, #{week,jdbcType=INTEGER}, 
+      #{year,jdbcType=INTEGER}, #{day,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="tbcloud.node.model.NodeDeviceDay">
-    insert into node_device_day
+  <insert id="insertSelective" parameterType="tbcloud.node.model.NodeDeviceRecord">
+    insert into node_device_record
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
@@ -127,8 +129,11 @@
       <if test="mac != null">
         mac,
       </if>
-      <if test="totalTime != null">
-        total_time,
+      <if test="time != null">
+        time,
+      </if>
+      <if test="status != null">
+        status,
       </if>
       <if test="createTime != null">
         create_time,
@@ -159,8 +164,11 @@
       <if test="mac != null">
         #{mac,jdbcType=VARCHAR},
       </if>
-      <if test="totalTime != null">
-        #{totalTime,jdbcType=BIGINT},
+      <if test="time != null">
+        #{time,jdbcType=BIGINT},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
       </if>
       <if test="createTime != null">
         #{createTime,jdbcType=BIGINT},
@@ -182,14 +190,14 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="tbcloud.node.model.NodeDeviceDayExample" resultType="java.lang.Long">
-    select count(*) from node_device_day
+  <select id="countByExample" parameterType="tbcloud.node.model.NodeDeviceRecordExample" resultType="java.lang.Long">
+    select count(*) from node_device_record
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update node_device_day
+    update node_device_record
     <set>
       <if test="record.id != null">
         id = #{record.id,jdbcType=BIGINT},
@@ -200,8 +208,11 @@
       <if test="record.mac != null">
         mac = #{record.mac,jdbcType=VARCHAR},
       </if>
-      <if test="record.totalTime != null">
-        total_time = #{record.totalTime,jdbcType=BIGINT},
+      <if test="record.time != null">
+        time = #{record.time,jdbcType=BIGINT},
+      </if>
+      <if test="record.status != null">
+        status = #{record.status,jdbcType=TINYINT},
       </if>
       <if test="record.createTime != null">
         create_time = #{record.createTime,jdbcType=BIGINT},
@@ -227,11 +238,12 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update node_device_day
+    update node_device_record
     set id = #{record.id,jdbcType=BIGINT},
       node_id = #{record.nodeId,jdbcType=VARCHAR},
       mac = #{record.mac,jdbcType=VARCHAR},
-      total_time = #{record.totalTime,jdbcType=BIGINT},
+      time = #{record.time,jdbcType=BIGINT},
+      status = #{record.status,jdbcType=TINYINT},
       create_time = #{record.createTime,jdbcType=BIGINT},
       update_time = #{record.updateTime,jdbcType=BIGINT},
       is_delete = #{record.isDelete,jdbcType=TINYINT},
@@ -242,8 +254,8 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="tbcloud.node.model.NodeDeviceDay">
-    update node_device_day
+  <update id="updateByPrimaryKeySelective" parameterType="tbcloud.node.model.NodeDeviceRecord">
+    update node_device_record
     <set>
       <if test="nodeId != null">
         node_id = #{nodeId,jdbcType=VARCHAR},
@@ -251,8 +263,11 @@
       <if test="mac != null">
         mac = #{mac,jdbcType=VARCHAR},
       </if>
-      <if test="totalTime != null">
-        total_time = #{totalTime,jdbcType=BIGINT},
+      <if test="time != null">
+        time = #{time,jdbcType=BIGINT},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=TINYINT},
       </if>
       <if test="createTime != null">
         create_time = #{createTime,jdbcType=BIGINT},
@@ -275,11 +290,12 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="tbcloud.node.model.NodeDeviceDay">
-    update node_device_day
+  <update id="updateByPrimaryKey" parameterType="tbcloud.node.model.NodeDeviceRecord">
+    update node_device_record
     set node_id = #{nodeId,jdbcType=VARCHAR},
       mac = #{mac,jdbcType=VARCHAR},
-      total_time = #{totalTime,jdbcType=BIGINT},
+      time = #{time,jdbcType=BIGINT},
+      status = #{status,jdbcType=TINYINT},
       create_time = #{createTime,jdbcType=BIGINT},
       update_time = #{updateTime,jdbcType=BIGINT},
       is_delete = #{isDelete,jdbcType=TINYINT},
