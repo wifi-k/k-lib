@@ -9,7 +9,7 @@ public class NodeDeviceRecord {
 
     private Long time;
 
-    private Byte status;
+    private Integer status;
 
     private Long createTime;
 
@@ -55,11 +55,11 @@ public class NodeDeviceRecord {
         this.time = time;
     }
 
-    public Byte getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(Byte status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 

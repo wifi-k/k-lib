@@ -6,7 +6,7 @@
     <result column="node_id" jdbcType="VARCHAR" property="nodeId" />
     <result column="mac" jdbcType="VARCHAR" property="mac" />
     <result column="time" jdbcType="BIGINT" property="time" />
-    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="status" jdbcType="INTEGER" property="status" />
     <result column="create_time" jdbcType="BIGINT" property="createTime" />
     <result column="update_time" jdbcType="BIGINT" property="updateTime" />
     <result column="is_delete" jdbcType="TINYINT" property="isDelete" />
@@ -113,7 +113,7 @@
       update_time, is_delete, week, 
       year, day)
     values (#{id,jdbcType=BIGINT}, #{nodeId,jdbcType=VARCHAR}, #{mac,jdbcType=VARCHAR}, 
-      #{time,jdbcType=BIGINT}, #{status,jdbcType=TINYINT}, #{createTime,jdbcType=BIGINT}, 
+      #{time,jdbcType=BIGINT}, #{status,jdbcType=INTEGER}, #{createTime,jdbcType=BIGINT}, 
       #{updateTime,jdbcType=BIGINT}, #{isDelete,jdbcType=TINYINT}, #{week,jdbcType=INTEGER}, 
       #{year,jdbcType=INTEGER}, #{day,jdbcType=INTEGER})
   </insert>
@@ -168,7 +168,7 @@
         #{time,jdbcType=BIGINT},
       </if>
       <if test="status != null">
-        #{status,jdbcType=TINYINT},
+        #{status,jdbcType=INTEGER},
       </if>
       <if test="createTime != null">
         #{createTime,jdbcType=BIGINT},
@@ -212,7 +212,7 @@
         time = #{record.time,jdbcType=BIGINT},
       </if>
       <if test="record.status != null">
-        status = #{record.status,jdbcType=TINYINT},
+        status = #{record.status,jdbcType=INTEGER},
       </if>
       <if test="record.createTime != null">
         create_time = #{record.createTime,jdbcType=BIGINT},
@@ -243,7 +243,7 @@
       node_id = #{record.nodeId,jdbcType=VARCHAR},
       mac = #{record.mac,jdbcType=VARCHAR},
       time = #{record.time,jdbcType=BIGINT},
-      status = #{record.status,jdbcType=TINYINT},
+      status = #{record.status,jdbcType=INTEGER},
       create_time = #{record.createTime,jdbcType=BIGINT},
       update_time = #{record.updateTime,jdbcType=BIGINT},
       is_delete = #{record.isDelete,jdbcType=TINYINT},
@@ -267,7 +267,7 @@
         time = #{time,jdbcType=BIGINT},
       </if>
       <if test="status != null">
-        status = #{status,jdbcType=TINYINT},
+        status = #{status,jdbcType=INTEGER},
       </if>
       <if test="createTime != null">
         create_time = #{createTime,jdbcType=BIGINT},
@@ -295,7 +295,7 @@
     set node_id = #{nodeId,jdbcType=VARCHAR},
       mac = #{mac,jdbcType=VARCHAR},
       time = #{time,jdbcType=BIGINT},
-      status = #{status,jdbcType=TINYINT},
+      status = #{status,jdbcType=INTEGER},
       create_time = #{createTime,jdbcType=BIGINT},
       update_time = #{updateTime,jdbcType=BIGINT},
       is_delete = #{isDelete,jdbcType=TINYINT},
