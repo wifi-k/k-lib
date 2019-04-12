@@ -25,6 +25,7 @@ import java.util.*;
 public class TbcloudESClient extends ESClient {
 
     private static final String ID_HTTPPROXYRECORD = "httpproxyrecord";
+    private static final String ID_NODEFILE = "nodefile";
 
     static {
         Configuration.setDefaults(new Configuration.Defaults() {
